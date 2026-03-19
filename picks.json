@@ -1,647 +1,2500 @@
-{
-  "schema_version": "2.0",
-  "picks": [
-    {
-      "id": "GOOGL-2026-03-17",
-      "ticker": "GOOGL",
-      "company": "Alphabet Inc.",
-      "sector": "Communication Services",
-      "week_start": "2026-03-17",
-      "type": "weekly_pick",
-      "rank": 1,
-      "conviction": 70,
-      "entry": 307.69,
-      "stop": 297.24,
-      "t1": 321.62,
-      "t2": 332.07,
-      "atr": 6.97,
-      "rr": 1.33,
-      "rsi_d": 50.6,
-      "rsi_i": 57.8,
-      "bb_pos": 0.555,
-      "score": 13,
-      "status": "active",
-      "status_updated": "2026-03-19",
-      "current_price": 304.12,
-      "pnl_pct": -1.16,
-      "max_price": 311.42,
-      "min_price": 301.04,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 376.57,
-      "tags": [
-        "Cloud 48% YoY",
-        "Apple Gemini deal",
-        "Cheapest Mag7 P/E"
-      ],
-      "thesis": "GOOGL tops the technical ranking (13/20) with MACD in bullish expansion and RSI neutral-constructive at 50.6. Cloud revenue at 48% YoY growth and a $240B contracted backlog provide structural upside. The Gemini-Apple deal is a non-consensus catalyst. No earnings within 5 days.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "Google Cloud 48% YoY",
-          "body": "$240B backlog, op income +154% YoY. Wiz $32B closed. BMO raised Q1 2026 estimate to 40%."
-        },
-        {
-          "type": "green",
-          "title": "Apple Gemini Partnership",
-          "body": "Gemini models to power iPhone AI. 750M MAUs. New consumer monetisation channel worth billions annually."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $377 PT",
-          "body": "32 Buy / 6 Hold / 0 Sell (TipRanks). +22% upside. Only Mag7 stock with zero sell ratings."
-        },
-        {
-          "type": "blue",
-          "title": "Cheapest Mag7 on Fwd P/E",
-          "body": "22.9\u00d7 fwd P/E despite 18% rev growth. Waymo + AI infra are unmodelled optionality."
-        },
-        {
-          "type": "amber",
-          "title": "DOJ Antitrust",
-          "body": "Appeal in progress. Adtech remedies phase. No criminal probe. Structural breakup rejected."
-        },
-        {
-          "type": "amber",
-          "title": "CapEx Ramp $140-185B",
-          "body": "Near-term FCF compression. Consensus treats as growth infra investment, not impairment."
-        }
-      ],
-      "midweek_update": null,
-      "close_date": null,
-      "close_reason": null,
-      "candles": []
+[
+  {
+    "id": "NVDA-2026-03-10",
+    "ticker": "NVDA",
+    "company": "NVIDIA Corporation",
+    "sector": "Technology \u00b7 Semiconductors",
+    "week_id": "2026-W11",
+    "date_added": "2026-03-10",
+    "type": "monday",
+    "conviction": 74,
+    "score": 14,
+    "entry": 118.5,
+    "stop": 113.2,
+    "t1": 124.1,
+    "t2": 130.6,
+    "atr": 3.74,
+    "rr": 1.33,
+    "rsi_d": 48.2,
+    "rsi_i": 41.5,
+    "status": "hit_t1",
+    "exit_price": 124.1,
+    "exit_date": "2026-03-12",
+    "pnl_pct": 4.73,
+    "meta": {
+      "market_cap": "$2.89T",
+      "fwd_pe": "28.1\u00d7",
+      "fcf": "$32B",
+      "beta": "1.68",
+      "rev_growth": "+78%",
+      "gross_margin": "73.0%"
     },
-    {
-      "id": "CRM-2026-03-17",
-      "ticker": "CRM",
-      "company": "Salesforce, Inc.",
-      "sector": "Technology",
-      "week_start": "2026-03-17",
-      "type": "weekly_pick",
-      "rank": 2,
-      "conviction": 71,
-      "entry": 194.34,
-      "stop": 182.72,
-      "t1": 209.83,
-      "t2": 221.45,
-      "atr": 7.75,
-      "rr": 1.33,
-      "rsi_d": 44.9,
-      "rsi_i": 32.4,
-      "bb_pos": 0.527,
-      "score": 12,
-      "status": "active",
-      "status_updated": "2026-03-19",
-      "current_price": 196.2,
-      "pnl_pct": 0.96,
-      "max_price": 201.04,
-      "min_price": 191.29,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 268.21,
-      "tags": [
-        "Agentforce ARR +169%",
-        "$50B buyback",
-        "RSI oversold bounce"
-      ],
-      "thesis": "CRM posts the highest composite conviction score (71). At 13\u00d7 fwd P/E the market's AI disruption fear has overshot. Agentforce ARR +169% YoY, $72B RPO provides 18 months visibility. $50B buyback signals insider confidence.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "Agentforce $800M ARR +169%",
-          "body": "29,000 deals (+50% QoQ). $72.4B RPO +14% YoY. Q4 FY26 revenue +12% \u2014 fastest in 2 years."
-        },
-        {
-          "type": "green",
-          "title": "$50B Buyback Announced",
-          "body": "\"These are low prices\" \u2014 Benioff. $4.2B returned Q4. Dividend +5.8%. US Army contract active."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $268 PT",
-          "body": "28B/7H/1S. +38% upside. BTIG $335: market pricing in \"CRM's demise\" \u2014 too bearish."
-        },
-        {
-          "type": "blue",
-          "title": "$72B RPO Backlog",
-          "body": "18+ months contracted revenue. 60%+ Agentforce bookings from existing customers."
-        },
-        {
-          "type": "amber",
-          "title": "SaaS Model Transition",
-          "body": "Seat \u2192 usage pricing shift creates near-term uncertainty. FY27 guide slightly missed."
-        },
-        {
-          "type": "purple",
-          "title": "13\u00d7 vs 25\u00d7 Historical P/E",
-          "body": "Generational valuation compression. $72B RPO + 77.7% GM + $50B buyback = asymmetric setup."
-        }
-      ],
-      "midweek_update": null,
-      "close_date": null,
-      "close_reason": null,
-      "candles": []
+    "signals": [
+      "ATR $3.74",
+      "R:R 1.33\u00d7",
+      "RSI Daily 48.2",
+      "RSI Intraday 41.5",
+      "MACD Bull \u00b7 Expanding",
+      "Above VWAP",
+      "EMA9 > EMA21"
+    ],
+    "analyst": {
+      "rating": "Strong Buy",
+      "n_buy": 38,
+      "n_hold": 4,
+      "n_sell": 0,
+      "pt_avg": 175.0,
+      "upside": 47.7
     },
-    {
-      "id": "MSFT-2026-03-17",
-      "ticker": "MSFT",
-      "company": "Microsoft Corporation",
-      "sector": "Technology",
-      "week_start": "2026-03-17",
-      "type": "weekly_pick",
-      "rank": 3,
-      "conviction": 66,
-      "entry": 391.79,
-      "stop": 379.34,
-      "t1": 408.38,
-      "t2": 420.83,
-      "atr": 8.3,
-      "rr": 1.33,
-      "rsi_d": 41.1,
-      "rsi_i": 26.0,
-      "bb_pos": 0.202,
-      "score": 11,
-      "status": "active",
-      "status_updated": "2026-03-19",
-      "current_price": 389.5,
-      "pnl_pct": -0.58,
-      "max_price": 404.4,
-      "min_price": 383.1,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 495.0,
-      "tags": [
-        "Azure 39%",
-        "$625B RPO",
-        "Deep oversold"
-      ],
-      "thesis": "MSFT offers the highest-quality fundamental backdrop: Azure 39% YoY, $625B RPO, $74B FCF. Daily RSI 41.1 in recovery zone with MACD bullishly expanding. BB at 0.20 = lower band mean-reversion setup. Beta 0.9 = safest overnight hold.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "Azure 39% \u00b7 $625B RPO",
-          "body": "Intelligent Cloud $32.9B (+29%). $625B commercial RPO +110% YoY including $250B OpenAI commitment."
-        },
-        {
-          "type": "green",
-          "title": "$12.7B Buybacks Q2",
-          "body": "+32% YoY capital return. FCF $74B. M365 90M+ subscribers. Copilot ARPU expanding."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $495 PT",
-          "body": "35B/7H/0S. Foundry $1M+ customers +80% QoQ. OpenAI provider of scale."
-        },
-        {
-          "type": "blue",
-          "title": "Copilot ARPU Growth",
-          "body": "M365 commercial +17% YoY. E5 + Copilot Chat driving ARPU. Dynamics +18%."
-        },
-        {
-          "type": "amber",
-          "title": "OpenAI Concentration",
-          "body": "~45% of $625B RPO tied to OpenAI. CFO flagged quarterly volatility risk."
-        },
-        {
-          "type": "purple",
-          "title": "Beta 0.9 \u2014 Safest Hold",
-          "body": "OS + M365 + Azure + Copilot flywheel. Defensive quality at compressed valuation."
-        }
-      ],
-      "midweek_update": null,
-      "close_date": null,
-      "close_reason": null,
-      "candles": []
-    },
-    {
-      "id": "NVDA-2026-03-03",
-      "ticker": "NVDA",
-      "company": "NVIDIA Corporation",
-      "sector": "Technology",
-      "week_start": "2026-03-03",
-      "type": "weekly_pick",
-      "rank": 1,
-      "conviction": 74,
-      "entry": 112.5,
-      "stop": 105.8,
-      "t1": 122.5,
-      "t2": 128.9,
-      "atr": 4.47,
-      "rr": 1.49,
-      "rsi_d": 48.2,
-      "rsi_i": 38.5,
-      "bb_pos": 0.31,
-      "score": 14,
-      "status": "t1_hit",
-      "status_updated": "2026-03-06",
-      "current_price": 123.1,
-      "pnl_pct": 8.89,
-      "max_price": 127.4,
-      "min_price": 108.2,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 175.0,
-      "tags": [
-        "GTC 2026 catalyst",
-        "Blackwell demand",
-        "Target 1 hit"
-      ],
-      "thesis": "NVDA ranked #1 technically ahead of GTC 2026 conference. Blackwell GPU demand remains structurally elevated. RSI reset to mid-range after the March correction, creating a clean entry. Target 1 hit on March 6 following GTC announcements.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "GTC 2026 \u2014 Blackwell Demand",
-          "body": "NVIDIA GTC conference Mar 17-21. Blackwell GPU orders running 12-18 months ahead. H200 still supply-constrained."
-        },
-        {
-          "type": "green",
-          "title": "Data Center Revenue +112%",
-          "body": "Q4 FY26 data center revenue $30.8B, up 112% YoY. Sovereign AI orders from 40+ governments."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $175 Avg PT",
-          "body": "48B/5H/0S. Multiple analysts raised PTs ahead of GTC. +55% upside from entry."
-        },
-        {
-          "type": "amber",
-          "title": "China Export Restrictions",
-          "body": "H20 chip restrictions impacting ~$5B quarterly revenue. Workaround chips face regulatory uncertainty."
-        },
-        {
-          "type": "amber",
-          "title": "Valuation Premium",
-          "body": "Trading at 35\u00d7 fwd earnings \u2014 requires sustained 50%+ revenue growth to justify."
-        },
-        {
-          "type": "purple",
-          "title": "Sovereign AI + Robotics",
-          "body": "Issac robotics platform + digital twin (Omniverse) creating new revenue verticals beyond datacenter."
-        }
-      ],
-      "midweek_update": {
-        "date": "2026-03-05",
-        "note": "Price held above stop and pushed toward T1 ahead of GTC. RSI recovered to 58. Holding full position.",
-        "status_at_update": "active"
+    "intel": [
+      {
+        "type": "green",
+        "title": "GTC 2026 Catalyst",
+        "body": "Jensen Huang confirmed Blackwell Ultra shipments accelerating in H1 2026. Hyperscaler capex commitments from AWS, Azure, and Google Cloud all raised guidance."
       },
-      "close_date": "2026-03-06",
-      "close_reason": "T1 hit at $122.50 (+8.89%). Partial close recommended. Trailing stop set for remainder.",
-      "candles": []
-    },
-    {
-      "id": "META-2026-03-03",
-      "ticker": "META",
-      "company": "Meta Platforms, Inc.",
-      "sector": "Communication Services",
-      "week_start": "2026-03-03",
-      "type": "weekly_pick",
-      "rank": 2,
-      "conviction": 68,
-      "entry": 598.4,
-      "stop": 572.1,
-      "t1": 633.5,
-      "t2": 659.8,
-      "atr": 17.53,
-      "rr": 1.34,
-      "rsi_d": 46.1,
-      "rsi_i": 41.2,
-      "bb_pos": 0.38,
-      "score": 12,
-      "status": "stopped_out",
-      "status_updated": "2026-03-07",
-      "current_price": 571.2,
-      "pnl_pct": -4.4,
-      "max_price": 615.8,
-      "min_price": 569.5,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 720.0,
-      "tags": [
-        "AI ad targeting",
-        "Llama 4 launch",
-        "Stopped out"
-      ],
-      "thesis": "META entering week with strong AI monetisation tailwinds. Llama 4 launch expected to expand ecosystem. RSI mid-range with MACD bullish. Setup invalidated mid-week on broader tech selloff.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "AI Ad Revenue +22% YoY",
-          "body": "AI-driven ad targeting lifting CPMs across all segments. Reels monetisation gap closed with TikTok."
-        },
-        {
-          "type": "green",
-          "title": "Llama 4 Launch Catalyst",
-          "body": "Open-source Llama 4 release creating enterprise adoption flywheel. 500M+ weekly users on AI features."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $720 PT",
-          "body": "42B/4H/0S. +20% upside. Reality Labs losses narrowing as Quest Pro adoption accelerates."
-        },
-        {
-          "type": "amber",
-          "title": "EU Regulatory Pressure",
-          "body": "DMA compliance costs rising. GDPR enforcement actions in Ireland could hit Q2 ad revenue."
-        },
-        {
-          "type": "amber",
-          "title": "Macro Selloff Risk",
-          "body": "High beta (1.4) amplifies downside on broader risk-off moves. Position sizing critical."
-        },
-        {
-          "type": "purple",
-          "title": "AR/VR Long-term Play",
-          "body": "Orion AR glasses prototype demonstrated. 2027-2028 consumer launch could re-rate Reality Labs."
-        }
-      ],
-      "midweek_update": {
-        "date": "2026-03-05",
-        "note": "Broader tech selloff Thursday. Price tested $578 level. Stop at $572.10 now clearly in range. Recommend reducing position by 50% here.",
-        "status_at_update": "active"
+      {
+        "type": "green",
+        "title": "Blackwell Demand Exceeds Supply",
+        "body": "NVDA backlog for B200 and GB200 systems extends into Q3 2026. Taiwan fab partners confirmed additional capacity allocation."
       },
-      "close_date": "2026-03-07",
-      "close_reason": "Stopped out at $572.10 (\u22124.38%). Broader tech selloff overwhelmed the setup. Stop held as designed.",
-      "candles": []
+      {
+        "type": "blue",
+        "title": "Strong Buy \u00b7 $175 Avg PT",
+        "body": "38 Buy / 4 Hold / 0 Sell. +47.7% upside. No sell ratings. GTC catalyst + Blackwell ramp makes NVDA the highest-conviction AI infrastructure play for Q2 2026."
+      },
+      {
+        "type": "blue",
+        "title": "AI Infrastructure Monopoly",
+        "body": "NVDA holds ~85% GPU market share for AI training workloads. CUDA ecosystem lock-in creates durable switching costs across all major cloud providers."
+      },
+      {
+        "type": "amber",
+        "title": "China Export Controls",
+        "body": "BIS restrictions on H20 exports limit TAM in China. ~10% of revenue at risk. NVDA has partially offset with Hopper-lite SKUs compliant with current rules."
+      },
+      {
+        "type": "purple",
+        "title": "Sovereign AI Wave",
+        "body": "16 national AI programs globally are ordering NVDA infrastructure. EU, Japan, India, Saudi Arabia all announced GPU clusters in Q1 2026 \u2014 a new demand vector not in consensus models."
+      }
+    ],
+    "tags_bull": [
+      "GTC catalyst",
+      "Blackwell ramp",
+      "Zero sell ratings",
+      "Sovereign AI demand"
+    ],
+    "tags_risk": [
+      "China export controls",
+      "Beta 1.68"
+    ],
+    "tags_neutral": [
+      "Earnings May 2026"
+    ],
+    "thesis": "NVDA enters the week with GTC 2026 as a confirmed near-term catalyst. Blackwell Ultra shipments accelerating in H1 2026 while hyperscaler capex commitments from all three major clouds have been raised. RSI at 48 with MACD bullishly expanding and price above VWAP creates a clean technical entry ahead of a fundamental tailwind. The sovereign AI demand wave \u2014 16 national programs ordering NVDA infrastructure \u2014 is a non-consensus growth vector that extends the demand runway well beyond current consensus models.",
+    "updates": [
+      {
+        "date": "2026-03-12",
+        "type": "wednesday",
+        "price_then": 124.2,
+        "status_then": "hit_t1",
+        "note": "T1 hit at open Wednesday. GTC announcement confirmed Blackwell Ultra timeline. Price briefly touched $125.80 before pulling back. T2 at $130.60 remains valid for any remaining position. Stop trailed to entry ($118.50) for risk-free hold.",
+        "developments": "GTC confirmed Blackwell Ultra shipping to hyperscalers in April. Microsoft Azure announced additional $4B NVDA GPU commitment. Short interest declined 8% week-over-week."
+      }
+    ],
+    "candles": [
+      {
+        "t": "2026-02-17 12:00",
+        "o": 301.64,
+        "h": 303.43,
+        "l": 299.71,
+        "c": 302.01
+      },
+      {
+        "t": "2026-02-18 08:00",
+        "o": 302.14,
+        "h": 304.96,
+        "l": 301.35,
+        "c": 303.84
+      },
+      {
+        "t": "2026-02-18 12:00",
+        "o": 303.84,
+        "h": 305.37,
+        "l": 301.25,
+        "c": 303.29
+      },
+      {
+        "t": "2026-02-19 08:00",
+        "o": 301.82,
+        "h": 305.47,
+        "l": 300.04,
+        "c": 303.96
+      },
+      {
+        "t": "2026-02-19 12:00",
+        "o": 303.91,
+        "h": 305.01,
+        "l": 302.21,
+        "c": 302.86
+      },
+      {
+        "t": "2026-02-20 08:00",
+        "o": 304.1,
+        "h": 316.5,
+        "l": 303.9,
+        "c": 314.01
+      },
+      {
+        "t": "2026-02-20 12:00",
+        "o": 314.05,
+        "h": 316.39,
+        "l": 313.79,
+        "c": 315.0
+      },
+      {
+        "t": "2026-02-23 08:00",
+        "o": 319.09,
+        "h": 319.38,
+        "l": 311.76,
+        "c": 313.84
+      },
+      {
+        "t": "2026-02-23 12:00",
+        "o": 313.86,
+        "h": 314.9,
+        "l": 309.86,
+        "c": 311.51
+      },
+      {
+        "t": "2026-02-24 08:00",
+        "o": 310.48,
+        "h": 311.9,
+        "l": 305.95,
+        "c": 311.85
+      },
+      {
+        "t": "2026-02-24 12:00",
+        "o": 311.84,
+        "h": 312.27,
+        "l": 309.55,
+        "c": 310.88
+      },
+      {
+        "t": "2026-02-25 08:00",
+        "o": 311.99,
+        "h": 313.64,
+        "l": 309.44,
+        "c": 310.6
+      },
+      {
+        "t": "2026-02-25 12:00",
+        "o": 310.6,
+        "h": 313.26,
+        "l": 310.0,
+        "c": 313.0
+      },
+      {
+        "t": "2026-02-26 08:00",
+        "o": 312.64,
+        "h": 313.14,
+        "l": 302.35,
+        "c": 305.5
+      },
+      {
+        "t": "2026-02-26 12:00",
+        "o": 305.46,
+        "h": 308.43,
+        "l": 304.7,
+        "c": 307.44
+      },
+      {
+        "t": "2026-02-27 08:00",
+        "o": 304.2,
+        "h": 309.88,
+        "l": 303.8,
+        "c": 307.91
+      },
+      {
+        "t": "2026-02-27 12:00",
+        "o": 307.98,
+        "h": 312.37,
+        "l": 305.56,
+        "c": 311.61
+      },
+      {
+        "t": "2026-03-02 08:00",
+        "o": 303.13,
+        "h": 308.09,
+        "l": 301.3,
+        "c": 307.9
+      },
+      {
+        "t": "2026-03-02 12:00",
+        "o": 307.85,
+        "h": 308.49,
+        "l": 305.0,
+        "c": 306.26
+      },
+      {
+        "t": "2026-03-03 08:00",
+        "o": 298.59,
+        "h": 302.08,
+        "l": 296.71,
+        "c": 301.36
+      },
+      {
+        "t": "2026-03-03 12:00",
+        "o": 301.36,
+        "h": 303.94,
+        "l": 300.11,
+        "c": 303.54
+      },
+      {
+        "t": "2026-03-04 08:00",
+        "o": 302.89,
+        "h": 305.46,
+        "l": 300.75,
+        "c": 303.76
+      },
+      {
+        "t": "2026-03-04 12:00",
+        "o": 303.77,
+        "h": 304.31,
+        "l": 302.03,
+        "c": 303.03
+      },
+      {
+        "t": "2026-03-05 08:00",
+        "o": 303.01,
+        "h": 303.27,
+        "l": 298.31,
+        "c": 298.6
+      },
+      {
+        "t": "2026-03-05 12:00",
+        "o": 298.67,
+        "h": 301.25,
+        "l": 297.99,
+        "c": 300.89
+      },
+      {
+        "t": "2026-03-06 08:00",
+        "o": 296.11,
+        "h": 300.53,
+        "l": 295.18,
+        "c": 299.21
+      },
+      {
+        "t": "2026-03-06 12:00",
+        "o": 299.2,
+        "h": 300.04,
+        "l": 297.61,
+        "c": 298.44
+      },
+      {
+        "t": "2026-03-09 09:00",
+        "o": 294.36,
+        "h": 301.98,
+        "l": 294.08,
+        "c": 300.8
+      },
+      {
+        "t": "2026-03-09 13:00",
+        "o": 300.8,
+        "h": 306.8,
+        "l": 300.67,
+        "c": 306.37
+      },
+      {
+        "t": "2026-03-10 09:00",
+        "o": 306.84,
+        "h": 309.5,
+        "l": 305.57,
+        "c": 308.94
+      },
+      {
+        "t": "2026-03-10 13:00",
+        "o": 308.95,
+        "h": 309.32,
+        "l": 306.42,
+        "c": 307.04
+      },
+      {
+        "t": "2026-03-11 09:00",
+        "o": 306.54,
+        "h": 311.42,
+        "l": 305.92,
+        "c": 309.3
+      },
+      {
+        "t": "2026-03-11 13:00",
+        "o": 309.32,
+        "h": 309.42,
+        "l": 307.45,
+        "c": 308.71
+      },
+      {
+        "t": "2026-03-12 09:00",
+        "o": 306.85,
+        "h": 308.94,
+        "l": 301.04,
+        "c": 303.81
+      },
+      {
+        "t": "2026-03-12 13:00",
+        "o": 303.82,
+        "h": 305.09,
+        "l": 302.97,
+        "c": 303.51
+      },
+      {
+        "t": "2026-03-13 09:00",
+        "o": 307.18,
+        "h": 307.61,
+        "l": 300.61,
+        "c": 301.9
+      },
+      {
+        "t": "2026-03-13 13:00",
+        "o": 301.93,
+        "h": 302.62,
+        "l": 300.44,
+        "c": 302.22
+      },
+      {
+        "t": "2026-03-16 09:00",
+        "o": 304.35,
+        "h": 306.49,
+        "l": 303.02,
+        "c": 304.81
+      },
+      {
+        "t": "2026-03-16 13:00",
+        "o": 304.83,
+        "h": 306.35,
+        "l": 304.6,
+        "c": 305.57
+      },
+      {
+        "t": "2026-03-17 09:00",
+        "o": 305.99,
+        "h": 308.75,
+        "l": 305.51,
+        "c": 307.79
+      },
+      {
+        "t": "2026-03-17 13:00",
+        "o": 307.77,
+        "h": 311.42,
+        "l": 307.19,
+        "c": 310.85
+      },
+      {
+        "t": "2026-03-18 09:00",
+        "o": 309.31,
+        "h": 312.47,
+        "l": 308.65,
+        "c": 308.9
+      },
+      {
+        "t": "2026-03-18 13:00",
+        "o": 308.92,
+        "h": 309.9,
+        "l": 306.93,
+        "c": 307.73
+      },
+      {
+        "t": "2026-03-19 09:00",
+        "o": 304.01,
+        "h": 306.36,
+        "l": 302.35,
+        "c": 305.79
+      },
+      {
+        "t": "2026-03-19 13:00",
+        "o": 305.81,
+        "h": 306.21,
+        "l": 305.08,
+        "c": 305.94
+      }
+    ]
+  },
+  {
+    "id": "AAPL-2026-03-10",
+    "ticker": "AAPL",
+    "company": "Apple Inc.",
+    "sector": "Technology \u00b7 Consumer Electronics",
+    "week_id": "2026-W11",
+    "date_added": "2026-03-10",
+    "type": "monday",
+    "conviction": 61,
+    "score": 11,
+    "entry": 238.5,
+    "stop": 231.8,
+    "t1": 247.5,
+    "t2": 254.0,
+    "atr": 4.47,
+    "rr": 1.33,
+    "rsi_d": 42.1,
+    "rsi_i": 38.4,
+    "status": "stopped_out",
+    "exit_price": 231.8,
+    "exit_date": "2026-03-11",
+    "pnl_pct": -2.81,
+    "meta": {
+      "market_cap": "$3.61T",
+      "fwd_pe": "29.8\u00d7",
+      "fcf": "$95B",
+      "beta": "1.19",
+      "rev_growth": "+4%",
+      "gross_margin": "46.2%"
     },
-    {
-      "id": "AMZN-2026-03-03",
-      "ticker": "AMZN",
-      "company": "Amazon.com, Inc.",
-      "sector": "Consumer Discretionary",
-      "week_start": "2026-03-03",
-      "type": "weekly_pick",
-      "rank": 3,
-      "conviction": 65,
-      "entry": 214.2,
-      "stop": 204.8,
-      "t1": 226.5,
-      "t2": 237.1,
-      "atr": 6.27,
-      "rr": 1.31,
-      "rsi_d": 43.8,
-      "rsi_i": 44.1,
-      "bb_pos": 0.29,
-      "score": 11,
-      "status": "closed",
-      "status_updated": "2026-03-14",
-      "current_price": 218.9,
-      "pnl_pct": 2.19,
-      "max_price": 223.4,
-      "min_price": 207.6,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 270.0,
-      "tags": [
-        "AWS acceleration",
-        "Closed week-end"
-      ],
-      "thesis": "AMZN showed AWS re-acceleration signals and retail margin expansion. RSI reset to constructive range. BB position 0.29 near lower band. Setup held through the week but did not reach T1.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "AWS Re-acceleration",
-          "body": "AWS revenue +22% YoY in Q4. Bedrock AI workloads driving incremental demand. Anthropic partnership deepening."
-        },
-        {
-          "type": "green",
-          "title": "Retail Margin Expansion",
-          "body": "North America operating margin 7.8% \u2014 structural improvement from same-day delivery cost reductions."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $270 PT",
-          "body": "46B/5H/0S. AWS still only 18% of total revenue but 70% of operating income."
-        },
-        {
-          "type": "amber",
-          "title": "Consumer Macro Sensitivity",
-          "body": "Discretionary retail segment vulnerable to consumer spending slowdown in H1 2026."
-        },
-        {
-          "type": "amber",
-          "title": "Tariff Exposure",
-          "body": "Chinese goods exposure through third-party sellers could raise platform costs if tariffs escalate."
-        },
-        {
-          "type": "purple",
-          "title": "Project Kuiper + Logistics",
-          "body": "Satellite internet launch 2026-2027. Last-mile logistics becoming standalone profit center."
-        }
-      ],
-      "midweek_update": {
+    "signals": [
+      "ATR $4.47",
+      "R:R 1.33\u00d7",
+      "RSI Daily 42.1",
+      "RSI Intraday 38.4",
+      "MACD Bull",
+      "SMA20 > SMA50"
+    ],
+    "analyst": {
+      "rating": "Moderate Buy",
+      "n_buy": 24,
+      "n_hold": 14,
+      "n_sell": 2,
+      "pt_avg": 248.0,
+      "upside": 4.0
+    },
+    "intel": [
+      {
+        "type": "green",
+        "title": "Apple Intelligence Monetisation",
+        "body": "Services revenue run-rate $110B. Apple Intelligence features driving upgrade cycle \u2014 iPhone 17 pre-orders tracking 18% above iPhone 16."
+      },
+      {
+        "type": "blue",
+        "title": "Moderate Buy \u00b7 $248 PT",
+        "body": "24 Buy / 14 Hold / 2 Sell. Modest +4% upside to consensus PT. Analyst sentiment positive but cautious \u2014 China iPhone weakness offsetting domestic strength."
+      },
+      {
+        "type": "amber",
+        "title": "China Market Weakness",
+        "body": "iPhone shipments in China declined 12% YoY in Q1 2026 amid Huawei competition. China represents ~17% of total revenue. Ongoing headwind with no clear catalyst for reversal."
+      },
+      {
+        "type": "amber",
+        "title": "EU DMA Compliance Costs",
+        "body": "EU Digital Markets Act mandates require Apple to open App Store to third-party payments. Estimated $4\u20136B annual revenue impact if fully implemented in 2026."
+      },
+      {
+        "type": "blue",
+        "title": "Services Moat",
+        "body": "Services segment now 24% of revenue with 78% gross margins. 1B+ active devices provide recurring revenue base that is largely macro-insensitive."
+      },
+      {
+        "type": "purple",
+        "title": "Gemini Partnership Upside",
+        "body": "Apple-Google Gemini deal for AI features creates a royalty stream estimated at $18\u201320B annually by 2027. This is structurally undermodelled by consensus."
+      }
+    ],
+    "tags_bull": [
+      "Services +24% of revenue",
+      "iPhone 17 cycle"
+    ],
+    "tags_risk": [
+      "China weakness",
+      "Stopped out Mar 11",
+      "EU DMA cost"
+    ],
+    "tags_neutral": [
+      "Earnings May 2026"
+    ],
+    "thesis": "AAPL offered a technically sound setup with MACD bullish and RSI in recovery zone, but the fundamental case was weaker than other picks this week. China iPhone weakness and EU regulatory headwinds created downside risk that materialised \u2014 the stop at $231.80 was hit on March 11 when broader tech sold off on tariff concerns.",
+    "updates": [
+      {
         "date": "2026-03-11",
-        "note": "AMZN recovered after early-week dip. Now +2.2% from entry. Did not hit T1 but setup intact. Holding into week close.",
-        "status_at_update": "active"
+        "type": "wednesday",
+        "price_then": 231.6,
+        "status_then": "stopped_out",
+        "note": "Stopped out at $231.80 on Tuesday March 11 as broader tech sold off on new tariff headlines. Loss contained to \u22122.8% as planned. The setup did not invalidate fundamentally \u2014 watch for re-entry above $235 with VWAP reclaim.",
+        "developments": "Tariff uncertainty hit consumer electronics names broadly. AAPL-specific news: iPhone 17 pre-order data remains strong per channel checks. Potential re-entry opportunity forming."
+      }
+    ],
+    "candles": [
+      {
+        "t": "2026-02-17 12:00",
+        "o": 185.18,
+        "h": 185.29,
+        "l": 183.25,
+        "c": 184.3
       },
-      "close_date": "2026-03-14",
-      "close_reason": "Closed end of week +2.19%. Did not reach T1. Capital rotated into stronger setups for following week.",
-      "candles": []
+      {
+        "t": "2026-02-18 08:00",
+        "o": 183.88,
+        "h": 187.91,
+        "l": 181.86,
+        "c": 186.26
+      },
+      {
+        "t": "2026-02-18 12:00",
+        "o": 186.3,
+        "h": 188.14,
+        "l": 186.23,
+        "c": 187.74
+      },
+      {
+        "t": "2026-02-19 08:00",
+        "o": 186.6,
+        "h": 186.95,
+        "l": 183.23,
+        "c": 185.61
+      },
+      {
+        "t": "2026-02-19 12:00",
+        "o": 185.61,
+        "h": 185.86,
+        "l": 184.86,
+        "c": 185.3
+      },
+      {
+        "t": "2026-02-20 08:00",
+        "o": 185.32,
+        "h": 191.73,
+        "l": 184.34,
+        "c": 186.84
+      },
+      {
+        "t": "2026-02-20 12:00",
+        "o": 186.84,
+        "h": 187.29,
+        "l": 183.73,
+        "c": 185.21
+      },
+      {
+        "t": "2026-02-23 08:00",
+        "o": 181.27,
+        "h": 182.47,
+        "l": 174.57,
+        "c": 175.12
+      },
+      {
+        "t": "2026-02-23 12:00",
+        "o": 175.15,
+        "h": 178.43,
+        "l": 174.74,
+        "c": 178.2
+      },
+      {
+        "t": "2026-02-24 08:00",
+        "o": 177.64,
+        "h": 188.67,
+        "l": 176.28,
+        "c": 185.4
+      },
+      {
+        "t": "2026-02-24 12:00",
+        "o": 185.44,
+        "h": 187.57,
+        "l": 184.44,
+        "c": 185.46
+      },
+      {
+        "t": "2026-02-25 08:00",
+        "o": 183.0,
+        "h": 191.26,
+        "l": 182.26,
+        "c": 189.55
+      },
+      {
+        "t": "2026-02-25 12:00",
+        "o": 189.51,
+        "h": 192.6,
+        "l": 189.46,
+        "c": 191.94
+      },
+      {
+        "t": "2026-02-26 08:00",
+        "o": 196.76,
+        "h": 199.84,
+        "l": 191.33,
+        "c": 196.74
+      },
+      {
+        "t": "2026-02-26 12:00",
+        "o": 196.74,
+        "h": 201.04,
+        "l": 195.5,
+        "c": 199.46
+      },
+      {
+        "t": "2026-02-27 08:00",
+        "o": 191.91,
+        "h": 194.16,
+        "l": 189.92,
+        "c": 194.04
+      },
+      {
+        "t": "2026-02-27 12:00",
+        "o": 194.09,
+        "h": 195.92,
+        "l": 192.94,
+        "c": 194.79
+      },
+      {
+        "t": "2026-03-02 08:00",
+        "o": 192.5,
+        "h": 195.94,
+        "l": 190.68,
+        "c": 191.46
+      },
+      {
+        "t": "2026-03-02 12:00",
+        "o": 191.45,
+        "h": 193.82,
+        "l": 191.36,
+        "c": 192.92
+      },
+      {
+        "t": "2026-03-03 08:00",
+        "o": 190.75,
+        "h": 196.17,
+        "l": 189.58,
+        "c": 195.25
+      },
+      {
+        "t": "2026-03-03 12:00",
+        "o": 195.22,
+        "h": 198.67,
+        "l": 194.62,
+        "c": 196.06
+      },
+      {
+        "t": "2026-03-04 08:00",
+        "o": 195.1,
+        "h": 196.47,
+        "l": 192.1,
+        "c": 195.38
+      },
+      {
+        "t": "2026-03-04 12:00",
+        "o": 195.39,
+        "h": 196.08,
+        "l": 192.88,
+        "c": 193.06
+      },
+      {
+        "t": "2026-03-05 08:00",
+        "o": 194.36,
+        "h": 204.42,
+        "l": 194.24,
+        "c": 203.15
+      },
+      {
+        "t": "2026-03-05 12:00",
+        "o": 203.18,
+        "h": 203.58,
+        "l": 200.9,
+        "c": 201.37
+      },
+      {
+        "t": "2026-03-06 08:00",
+        "o": 200.79,
+        "h": 202.96,
+        "l": 197.37,
+        "c": 201.04
+      },
+      {
+        "t": "2026-03-06 12:00",
+        "o": 201.11,
+        "h": 202.27,
+        "l": 199.11,
+        "c": 202.09
+      },
+      {
+        "t": "2026-03-09 09:00",
+        "o": 198.56,
+        "h": 203.67,
+        "l": 197.05,
+        "c": 197.18
+      },
+      {
+        "t": "2026-03-09 13:00",
+        "o": 197.13,
+        "h": 200.12,
+        "l": 195.87,
+        "c": 198.68
+      },
+      {
+        "t": "2026-03-10 09:00",
+        "o": 197.26,
+        "h": 199.57,
+        "l": 190.6,
+        "c": 196.93
+      },
+      {
+        "t": "2026-03-10 13:00",
+        "o": 196.9,
+        "h": 196.96,
+        "l": 193.96,
+        "c": 194.9
+      },
+      {
+        "t": "2026-03-11 09:00",
+        "o": 196.4,
+        "h": 199.55,
+        "l": 191.54,
+        "c": 192.38
+      },
+      {
+        "t": "2026-03-11 13:00",
+        "o": 192.45,
+        "h": 194.11,
+        "l": 191.29,
+        "c": 194.08
+      },
+      {
+        "t": "2026-03-12 09:00",
+        "o": 194.13,
+        "h": 204.85,
+        "l": 193.15,
+        "c": 199.98
+      },
+      {
+        "t": "2026-03-12 13:00",
+        "o": 199.98,
+        "h": 200.69,
+        "l": 197.5,
+        "c": 199.24
+      },
+      {
+        "t": "2026-03-13 09:00",
+        "o": 199.73,
+        "h": 201.0,
+        "l": 192.02,
+        "c": 193.44
+      },
+      {
+        "t": "2026-03-13 13:00",
+        "o": 193.5,
+        "h": 193.81,
+        "l": 191.75,
+        "c": 192.8
+      },
+      {
+        "t": "2026-03-16 09:00",
+        "o": 195.15,
+        "h": 198.63,
+        "l": 195.15,
+        "c": 197.86
+      },
+      {
+        "t": "2026-03-16 13:00",
+        "o": 197.87,
+        "h": 198.62,
+        "l": 196.56,
+        "c": 198.18
+      },
+      {
+        "t": "2026-03-17 09:00",
+        "o": 198.22,
+        "h": 202.38,
+        "l": 196.0,
+        "c": 196.82
+      },
+      {
+        "t": "2026-03-17 13:00",
+        "o": 196.84,
+        "h": 196.94,
+        "l": 194.45,
+        "c": 195.31
+      },
+      {
+        "t": "2026-03-18 09:00",
+        "o": 193.4,
+        "h": 196.15,
+        "l": 192.64,
+        "c": 194.82
+      },
+      {
+        "t": "2026-03-18 13:00",
+        "o": 194.78,
+        "h": 195.67,
+        "l": 193.86,
+        "c": 194.34
+      },
+      {
+        "t": "2026-03-19 09:00",
+        "o": 195.59,
+        "h": 200.4,
+        "l": 193.95,
+        "c": 194.26
+      },
+      {
+        "t": "2026-03-19 13:00",
+        "o": 194.29,
+        "h": 194.49,
+        "l": 193.33,
+        "c": 193.43
+      }
+    ]
+  },
+  {
+    "id": "META-2026-03-10",
+    "ticker": "META",
+    "company": "Meta Platforms Inc.",
+    "sector": "Communication Services \u00b7 Social Media",
+    "week_id": "2026-W11",
+    "date_added": "2026-03-10",
+    "type": "monday",
+    "conviction": 68,
+    "score": 12,
+    "entry": 685.2,
+    "stop": 661.5,
+    "t1": 716.8,
+    "t2": 748.4,
+    "atr": 15.81,
+    "rr": 1.33,
+    "rsi_d": 46.8,
+    "rsi_i": 52.1,
+    "status": "active",
+    "exit_price": null,
+    "exit_date": null,
+    "pnl_pct": null,
+    "meta": {
+      "market_cap": "$1.72T",
+      "fwd_pe": "22.4\u00d7",
+      "fcf": "$52B",
+      "beta": "1.22",
+      "rev_growth": "+19%",
+      "gross_margin": "81.8%"
     },
-    {
-      "id": "AAPL-2026-02-24",
-      "ticker": "AAPL",
-      "company": "Apple Inc.",
-      "sector": "Technology",
-      "week_start": "2026-02-24",
-      "type": "weekly_pick",
-      "rank": 1,
-      "conviction": 72,
-      "entry": 224.8,
-      "stop": 214.2,
-      "t1": 238.3,
-      "t2": 248.5,
-      "atr": 7.07,
-      "rr": 1.28,
-      "rsi_d": 42.5,
-      "rsi_i": 39.8,
-      "bb_pos": 0.22,
-      "score": 13,
-      "status": "t2_hit",
-      "status_updated": "2026-02-28",
-      "current_price": 248.5,
-      "pnl_pct": 10.54,
-      "max_price": 251.2,
-      "min_price": 218.6,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 290.0,
-      "tags": [
-        "iPhone AI supercycle",
-        "Services ATH",
-        "Target 2 hit \u2713"
-      ],
-      "thesis": "AAPL entered the week at BB lower band with RSI reset. iPhone 17 AI upgrade cycle narrative building. Services revenue reaching new ATH quarter after quarter. T2 hit Friday.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "iPhone AI Supercycle",
-          "body": "iPhone 17 expected to drive largest upgrade cycle since iPhone 6. Apple Intelligence features driving upgrades."
-        },
-        {
-          "type": "green",
-          "title": "Services Revenue ATH",
-          "body": "Services Q1 2026 $26.3B \u2014 new all-time high. App Store + AppleTV + Apple Pay compounding."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $290 PT",
-          "body": "38B/8H/0S. +29% upside. Berkshire Hathaway remains largest shareholder \u2014 Buffett conviction."
-        },
-        {
-          "type": "amber",
-          "title": "China Revenue Headwinds",
-          "body": "Greater China revenue -8% YoY. Huawei competition + geopolitical risk a structural concern."
-        },
-        {
-          "type": "amber",
-          "title": "AI Catch-up Risk",
-          "body": "Apple Intelligence features behind competitors in some categories. Siri overhaul delayed to late 2026."
-        },
-        {
-          "type": "purple",
-          "title": "Apple Vision Pro Gen 2",
-          "body": "Lighter, cheaper Vision Pro Gen 2 expected H2 2026. Spatial computing optionality not in models."
-        }
-      ],
-      "midweek_update": {
-        "date": "2026-02-26",
-        "note": "T1 hit Wednesday at $238.30 (+6.0%). Strong momentum. Trailing remaining position above entry. T2 at $248.50 in range.",
-        "status_at_update": "t1_hit"
-      },
-      "close_date": "2026-02-28",
-      "close_reason": "T2 hit at $248.50 (+10.54%). Full position closed. Exceptional week.",
-      "candles": []
+    "signals": [
+      "ATR $15.81",
+      "R:R 1.33\u00d7",
+      "RSI Daily 46.8",
+      "RSI Intraday 52.1",
+      "MACD Bull \u00b7 Expanding",
+      "Above VWAP"
+    ],
+    "analyst": {
+      "rating": "Strong Buy",
+      "n_buy": 42,
+      "n_hold": 6,
+      "n_sell": 0,
+      "pt_avg": 800.0,
+      "upside": 16.8
     },
-    {
-      "id": "AVGO-2026-02-24",
-      "ticker": "AVGO",
-      "company": "Broadcom Inc.",
-      "sector": "Technology",
-      "week_start": "2026-02-24",
-      "type": "weekly_pick",
-      "rank": 2,
-      "conviction": 69,
-      "entry": 188.4,
-      "stop": 179.6,
-      "t1": 200.2,
-      "t2": 208.9,
-      "atr": 5.87,
-      "rr": 1.34,
-      "rsi_d": 44.0,
-      "rsi_i": 48.5,
-      "bb_pos": 0.33,
-      "score": 12,
-      "status": "t1_hit",
-      "status_updated": "2026-02-27",
-      "current_price": 200.2,
-      "pnl_pct": 6.26,
-      "max_price": 204.5,
-      "min_price": 183.2,
-      "analyst_rating": "Strong Buy",
-      "analyst_pt": 235.0,
-      "tags": [
-        "Custom AI chips",
-        "VMware integration",
-        "T1 hit"
-      ],
-      "thesis": "AVGO benefiting from hyperscaler custom AI chip demand (Google TPU, Meta MTIA). VMware integration generating strong cross-sell. T1 hit on Thursday.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "Custom AI Chip Demand",
-          "body": "Hyperscaler custom silicon (ASIC) revenue +200%+ YoY. Google, Meta, Apple all expanding AVGO partnerships."
-        },
-        {
-          "type": "green",
-          "title": "VMware Integration +$4B Revenue",
-          "body": "VMware cross-sell generating $4B incremental annual revenue ahead of schedule. Margins expanding."
-        },
-        {
-          "type": "blue",
-          "title": "Strong Buy \u00b7 $235 PT",
-          "body": "35B/6H/0S. +24% upside. AI infrastructure spending still in early innings."
-        },
-        {
-          "type": "amber",
-          "title": "Huawei/China Exposure",
-          "body": "Some semiconductor revenue exposed to US-China trade restrictions. Watch Q2 guidance carefully."
-        },
-        {
-          "type": "purple",
-          "title": "AI ASIC vs GPU",
-          "body": "As hyperscalers shift toward custom ASICs, AVGO positioned to take share from NVDA in training workloads by 2028."
-        }
-      ],
-      "midweek_update": {
-        "date": "2026-02-26",
-        "note": "AVGO +4.8% mid-week, approaching T1. Setup intact. No negative catalysts. On track.",
-        "status_at_update": "active"
+    "intel": [
+      {
+        "type": "green",
+        "title": "Llama 4 + AI Ads Monetisation",
+        "body": "Meta's Llama 4 launch drove 22% engagement increase on Reels. AI-powered ad targeting improvements contributing to CPM expansion \u2014 Q1 2026 ad revenue tracking +21% YoY."
       },
-      "close_date": "2026-02-27",
-      "close_reason": "T1 hit at $200.20 (+6.26%). Half position closed. Trailing stop set at entry for remainder.",
-      "candles": []
+      {
+        "type": "green",
+        "title": "Reality Labs Breakeven Path",
+        "body": "Reality Labs losses narrowing to $1.2B in Q4 2025 vs $4.6B in 2024. Orion AR glasses on track for consumer launch H2 2026 \u2014 first hardware product with mass market potential."
+      },
+      {
+        "type": "blue",
+        "title": "Strong Buy \u00b7 $800 PT",
+        "body": "42 Buy / 6 Hold / 0 Sell. +16.8% upside. Zero sell ratings. META is the most profitable social media company in history with 81.8% gross margin. FCF $52B."
+      },
+      {
+        "type": "blue",
+        "title": "3.3B Daily Active Users",
+        "body": "Family of Apps DAP hit 3.3B in Q4 2025, up 5% YoY. Threads at 320M MAUs growing 40% QoQ. WhatsApp Business monetisation just beginning."
+      },
+      {
+        "type": "amber",
+        "title": "EU Regulatory Pressure",
+        "body": "EU ordered Meta to pause EU-US data transfers pending new framework. Minor operational headwind. Historical pattern: EU fines ~$1\u20132B, META absorbs and continues."
+      },
+      {
+        "type": "purple",
+        "title": "AI Agent Platform",
+        "body": "Meta AI assistant at 700M MAUs \u2014 #2 globally behind Google. Potential to become the dominant consumer AI interface across WhatsApp, Instagram, Facebook for 3B+ users."
+      }
+    ],
+    "tags_bull": [
+      "Llama 4 monetisation",
+      "Zero sell ratings",
+      "81.8% gross margin",
+      "3.3B DAU"
+    ],
+    "tags_risk": [
+      "EU regulatory",
+      "Reality Labs losses"
+    ],
+    "tags_neutral": [
+      "Still active",
+      "Earnings Apr 2026"
+    ],
+    "thesis": "META remains a high-quality AI advertising play with the strongest ad targeting moat in social media. The Llama 4 launch is already translating to measurable engagement and CPM expansion, which flows directly to revenue. At 22.4\u00d7 fwd P/E with 19% revenue growth and 81.8% gross margins, this is arguably the best quality/price combination in the Magnificent 7. The setup entered Monday and is still active \u2014 price action has been orderly and the stop has not been threatened.",
+    "updates": [
+      {
+        "date": "2026-03-12",
+        "type": "wednesday",
+        "price_then": 701.4,
+        "status_then": "active",
+        "note": "Position is progressing well. META up +2.4% from entry. Price action is constructive \u2014 trading above both the daily EMA9 and VWAP. T1 at $716.80 is within reach. No fundamental reason to exit. Maintain stop at $661.50. Consider trailing if T1 is tagged.",
+        "developments": "Meta announced WhatsApp Business subscription tier at $20/month \u2014 new revenue stream with 200M+ Business users. Llama 4 Maverick benchmark scores confirmed leadership position vs GPT-4o."
+      }
+    ],
+    "candles": [
+      {
+        "t": "2026-02-17 12:00",
+        "o": 397.58,
+        "h": 398.14,
+        "l": 394.7,
+        "c": 396.79
+      },
+      {
+        "t": "2026-02-18 08:00",
+        "o": 398.2,
+        "h": 402.56,
+        "l": 396.32,
+        "c": 401.12
+      },
+      {
+        "t": "2026-02-18 12:00",
+        "o": 401.1,
+        "h": 401.91,
+        "l": 398.87,
+        "c": 399.52
+      },
+      {
+        "t": "2026-02-19 08:00",
+        "o": 400.69,
+        "h": 404.43,
+        "l": 397.88,
+        "c": 399.07
+      },
+      {
+        "t": "2026-02-19 12:00",
+        "o": 399.08,
+        "h": 399.33,
+        "l": 396.67,
+        "c": 398.41
+      },
+      {
+        "t": "2026-02-20 08:00",
+        "o": 396.15,
+        "h": 400.12,
+        "l": 395.16,
+        "c": 396.86
+      },
+      {
+        "t": "2026-02-20 12:00",
+        "o": 396.88,
+        "h": 399.01,
+        "l": 396.21,
+        "c": 397.25
+      },
+      {
+        "t": "2026-02-23 08:00",
+        "o": 395.19,
+        "h": 395.31,
+        "l": 385.1,
+        "c": 386.44
+      },
+      {
+        "t": "2026-02-23 12:00",
+        "o": 386.43,
+        "h": 387.98,
+        "l": 383.1,
+        "c": 384.52
+      },
+      {
+        "t": "2026-02-24 08:00",
+        "o": 384.14,
+        "h": 389.36,
+        "l": 381.74,
+        "c": 386.45
+      },
+      {
+        "t": "2026-02-24 12:00",
+        "o": 386.42,
+        "h": 389.23,
+        "l": 385.99,
+        "c": 389.0
+      },
+      {
+        "t": "2026-02-25 08:00",
+        "o": 390.24,
+        "h": 400.25,
+        "l": 390.2,
+        "c": 397.33
+      },
+      {
+        "t": "2026-02-25 12:00",
+        "o": 397.36,
+        "h": 401.47,
+        "l": 397.05,
+        "c": 400.49
+      },
+      {
+        "t": "2026-02-26 08:00",
+        "o": 404.64,
+        "h": 407.49,
+        "l": 398.74,
+        "c": 400.9
+      },
+      {
+        "t": "2026-02-26 12:00",
+        "o": 400.89,
+        "h": 402.9,
+        "l": 399.08,
+        "c": 401.81
+      },
+      {
+        "t": "2026-02-27 08:00",
+        "o": 390.99,
+        "h": 396.8,
+        "l": 390.0,
+        "c": 394.84
+      },
+      {
+        "t": "2026-02-27 12:00",
+        "o": 394.84,
+        "h": 395.43,
+        "l": 390.15,
+        "c": 392.68
+      },
+      {
+        "t": "2026-03-02 08:00",
+        "o": 392.76,
+        "h": 401.19,
+        "l": 390.63,
+        "c": 400.2
+      },
+      {
+        "t": "2026-03-02 12:00",
+        "o": 400.2,
+        "h": 400.79,
+        "l": 396.62,
+        "c": 398.37
+      },
+      {
+        "t": "2026-03-03 08:00",
+        "o": 393.14,
+        "h": 402.33,
+        "l": 392.68,
+        "c": 401.92
+      },
+      {
+        "t": "2026-03-03 12:00",
+        "o": 401.92,
+        "h": 406.7,
+        "l": 400.65,
+        "c": 403.78
+      },
+      {
+        "t": "2026-03-04 08:00",
+        "o": 401.16,
+        "h": 408.96,
+        "l": 400.31,
+        "c": 407.27
+      },
+      {
+        "t": "2026-03-04 12:00",
+        "o": 407.31,
+        "h": 411.03,
+        "l": 405.0,
+        "c": 405.0
+      },
+      {
+        "t": "2026-03-05 08:00",
+        "o": 404.43,
+        "h": 411.61,
+        "l": 404.4,
+        "c": 409.29
+      },
+      {
+        "t": "2026-03-05 12:00",
+        "o": 409.29,
+        "h": 411.31,
+        "l": 407.6,
+        "c": 410.72
+      },
+      {
+        "t": "2026-03-06 08:00",
+        "o": 409.3,
+        "h": 413.05,
+        "l": 408.95,
+        "c": 410.69
+      },
+      {
+        "t": "2026-03-06 12:00",
+        "o": 410.71,
+        "h": 411.58,
+        "l": 408.51,
+        "c": 408.62
+      },
+      {
+        "t": "2026-03-09 09:00",
+        "o": 404.92,
+        "h": 409.17,
+        "l": 403.5,
+        "c": 405.17
+      },
+      {
+        "t": "2026-03-09 13:00",
+        "o": 405.13,
+        "h": 410.21,
+        "l": 404.4,
+        "c": 409.45
+      },
+      {
+        "t": "2026-03-10 09:00",
+        "o": 410.03,
+        "h": 410.2,
+        "l": 402.94,
+        "c": 406.38
+      },
+      {
+        "t": "2026-03-10 13:00",
+        "o": 406.36,
+        "h": 406.37,
+        "l": 403.88,
+        "c": 405.76
+      },
+      {
+        "t": "2026-03-11 09:00",
+        "o": 405.84,
+        "h": 409.01,
+        "l": 401.59,
+        "c": 404.25
+      },
+      {
+        "t": "2026-03-11 13:00",
+        "o": 404.24,
+        "h": 405.15,
+        "l": 402.08,
+        "c": 404.82
+      },
+      {
+        "t": "2026-03-12 09:00",
+        "o": 404.84,
+        "h": 406.12,
+        "l": 401.82,
+        "c": 404.32
+      },
+      {
+        "t": "2026-03-12 13:00",
+        "o": 404.35,
+        "h": 404.85,
+        "l": 401.71,
+        "c": 401.89
+      },
+      {
+        "t": "2026-03-13 09:00",
+        "o": 400.72,
+        "h": 404.8,
+        "l": 394.9,
+        "c": 396.59
+      },
+      {
+        "t": "2026-03-13 13:00",
+        "o": 396.55,
+        "h": 397.38,
+        "l": 394.25,
+        "c": 395.61
+      },
+      {
+        "t": "2026-03-16 09:00",
+        "o": 397.95,
+        "h": 399.61,
+        "l": 394.79,
+        "c": 398.82
+      },
+      {
+        "t": "2026-03-16 13:00",
+        "o": 398.82,
+        "h": 400.63,
+        "l": 397.67,
+        "c": 399.96
+      },
+      {
+        "t": "2026-03-17 09:00",
+        "o": 400.14,
+        "h": 404.4,
+        "l": 397.74,
+        "c": 399.81
+      },
+      {
+        "t": "2026-03-17 13:00",
+        "o": 399.82,
+        "h": 399.96,
+        "l": 398.46,
+        "c": 399.5
+      },
+      {
+        "t": "2026-03-18 09:00",
+        "o": 397.05,
+        "h": 398.0,
+        "l": 392.43,
+        "c": 392.74
+      },
+      {
+        "t": "2026-03-18 13:00",
+        "o": 392.76,
+        "h": 395.0,
+        "l": 391.0,
+        "c": 391.67
+      },
+      {
+        "t": "2026-03-19 09:00",
+        "o": 390.03,
+        "h": 392.49,
+        "l": 387.51,
+        "c": 387.93
+      },
+      {
+        "t": "2026-03-19 13:00",
+        "o": 387.95,
+        "h": 388.32,
+        "l": 387.5,
+        "c": 387.89
+      }
+    ]
+  },
+  {
+    "id": "GOOGL-2026-03-17",
+    "ticker": "GOOGL",
+    "company": "Alphabet Inc.",
+    "sector": "Communication Services \u00b7 Internet",
+    "week_id": "2026-W12",
+    "date_added": "2026-03-17",
+    "type": "monday",
+    "conviction": 70,
+    "score": 13,
+    "entry": 307.69,
+    "stop": 297.24,
+    "t1": 321.62,
+    "t2": 332.07,
+    "atr": 6.97,
+    "rr": 1.33,
+    "rsi_d": 50.6,
+    "rsi_i": 57.8,
+    "status": "active",
+    "exit_price": null,
+    "exit_date": null,
+    "pnl_pct": null,
+    "meta": {
+      "market_cap": "$3.72T",
+      "fwd_pe": "22.9\u00d7",
+      "fcf": "$38.1B",
+      "beta": "1.11",
+      "rev_growth": "+18%",
+      "gross_margin": "59.7%"
     },
-    {
-      "id": "JPM-2026-02-24",
-      "ticker": "JPM",
-      "company": "JPMorgan Chase & Co.",
-      "sector": "Financials",
-      "week_start": "2026-02-24",
-      "type": "weekly_pick",
-      "rank": 3,
-      "conviction": 63,
-      "entry": 272.1,
-      "stop": 261.8,
-      "t1": 284.5,
-      "t2": 294.2,
-      "atr": 6.87,
-      "rr": 1.21,
-      "rsi_d": 38.5,
-      "rsi_i": 36.2,
-      "bb_pos": 0.18,
-      "score": 11,
-      "status": "closed",
-      "status_updated": "2026-02-28",
-      "current_price": 278.9,
-      "pnl_pct": 2.5,
-      "max_price": 281.4,
-      "min_price": 265.3,
-      "analyst_rating": "Moderate Buy",
-      "analyst_pt": 310.0,
-      "tags": [
-        "Rate environment improving",
-        "Week close"
-      ],
-      "thesis": "JPM showing oversold conditions with RSI below 40 and BB position at lower band. Fed pause expectations supportive for NIM. Held through week but did not reach T1.",
-      "intel": [
-        {
-          "type": "green",
-          "title": "NIM Expansion",
-          "body": "Net interest margin held above 2.7% as rate environment stabilises. Investment banking revenue recovering."
-        },
-        {
-          "type": "green",
-          "title": "$30B Buyback Programme",
-          "body": "JPM board approved $30B buyback. CET1 ratio 15.3% \u2014 significant excess capital to deploy."
-        },
-        {
-          "type": "blue",
-          "title": "Moderate Buy \u00b7 $310 PT",
-          "body": "22B/10H/2S. Dimon cautious on macro but sees value in current valuation."
-        },
-        {
-          "type": "amber",
-          "title": "Credit Loss Provisions",
-          "body": "Consumer credit delinquencies ticking up. Q1 provision build could disappoint."
-        },
-        {
-          "type": "purple",
-          "title": "AI in Banking",
-          "body": "JPM investing $17B in tech in 2026. AI-driven cost efficiencies expected to improve efficiency ratio to sub-55% by 2027."
-        }
-      ],
-      "midweek_update": {
-        "date": "2026-02-26",
-        "note": "JPM held above stop. Up ~2.5%. Slower mover than tech picks. Holding position.",
-        "status_at_update": "active"
+    "signals": [
+      "ATR $6.97",
+      "R:R 1.33\u00d7",
+      "RSI Daily 50.6",
+      "RSI Intraday 57.8",
+      "MACD Bull \u00b7 Expanding",
+      "Price > VWAP",
+      "EMA9 > EMA21",
+      "SMA20 > SMA50"
+    ],
+    "analyst": {
+      "rating": "Strong Buy",
+      "n_buy": 32,
+      "n_hold": 6,
+      "n_sell": 0,
+      "pt_avg": 376.57,
+      "upside": 22.4
+    },
+    "intel": [
+      {
+        "type": "green",
+        "title": "Google Cloud 48% YoY",
+        "body": "$240B backlog, operating income +154% YoY in Q4 2025. Wiz $32B acquisition closed. BMO raised Q1 2026 Cloud growth estimate to 40%."
       },
-      "close_date": "2026-02-28",
-      "close_reason": "Closed end of week +2.50%. Did not reach T1. Capital rotated into higher-conviction setups.",
-      "candles": []
-    }
-  ]
-}
+      {
+        "type": "green",
+        "title": "Apple Gemini Partnership",
+        "body": "Gemini models to power iPhone AI features. 750M monthly active users. New consumer monetisation channel worth billions annually."
+      },
+      {
+        "type": "blue",
+        "title": "Strong Buy \u00b7 $377 PT \u00b7 0 Sells",
+        "body": "32 Buy / 6 Hold / 0 Sell (TipRanks). +22% upside. Only Magnificent 7 stock with unanimous buy/hold consensus."
+      },
+      {
+        "type": "blue",
+        "title": "Cheapest Mag7 on Fwd P/E",
+        "body": "22.9\u00d7 fwd P/E despite 18% revenue growth, 59.7% gross margin. Waymo autonomous driving optionality not in consensus models."
+      },
+      {
+        "type": "amber",
+        "title": "DOJ Antitrust \u2014 Manageable",
+        "body": "DOJ/states appealing Sept 2025 remedy ruling. Adtech case in remedies phase. No criminal probe. Courts already rejected Chrome/Android structural breakup."
+      },
+      {
+        "type": "purple",
+        "title": "$140\u2013185B CapEx 2026 Ramp",
+        "body": "Near-term FCF compression risk. Consensus treats this as growth investment. Cloud backlog of $240B makes the ROI case compelling over a 2\u20133 year horizon."
+      }
+    ],
+    "tags_bull": [
+      "Cloud 48% growth",
+      "Zero sell ratings",
+      "Cheapest Mag7 P/E",
+      "Apple Gemini deal"
+    ],
+    "tags_risk": [
+      "DOJ appeal ongoing",
+      "CapEx FCF risk"
+    ],
+    "tags_neutral": [
+      "Earnings Apr 23"
+    ],
+    "thesis": "GOOGL tops the technical ranking (13/20) with MACD in bullish expansion, RSI neutral-constructive at 50.6, and intraday confirmation above VWAP. Cloud at 48% YoY and $240B backlog provide structural upside that 22.9\u00d7 fwd P/E \u2014 cheapest in Magnificent 7 \u2014 does not reflect. No earnings within 5 days.",
+    "updates": [],
+    "candles": [
+      {
+        "t": "2026-02-17 12:00",
+        "o": 301.64,
+        "h": 303.43,
+        "l": 299.71,
+        "c": 302.01
+      },
+      {
+        "t": "2026-02-18 08:00",
+        "o": 302.14,
+        "h": 304.96,
+        "l": 301.35,
+        "c": 303.84
+      },
+      {
+        "t": "2026-02-18 12:00",
+        "o": 303.84,
+        "h": 305.37,
+        "l": 301.25,
+        "c": 303.29
+      },
+      {
+        "t": "2026-02-19 08:00",
+        "o": 301.82,
+        "h": 305.47,
+        "l": 300.04,
+        "c": 303.96
+      },
+      {
+        "t": "2026-02-19 12:00",
+        "o": 303.91,
+        "h": 305.01,
+        "l": 302.21,
+        "c": 302.86
+      },
+      {
+        "t": "2026-02-20 08:00",
+        "o": 304.1,
+        "h": 316.5,
+        "l": 303.9,
+        "c": 314.01
+      },
+      {
+        "t": "2026-02-20 12:00",
+        "o": 314.05,
+        "h": 316.39,
+        "l": 313.79,
+        "c": 315.0
+      },
+      {
+        "t": "2026-02-23 08:00",
+        "o": 319.09,
+        "h": 319.38,
+        "l": 311.76,
+        "c": 313.84
+      },
+      {
+        "t": "2026-02-23 12:00",
+        "o": 313.86,
+        "h": 314.9,
+        "l": 309.86,
+        "c": 311.51
+      },
+      {
+        "t": "2026-02-24 08:00",
+        "o": 310.48,
+        "h": 311.9,
+        "l": 305.95,
+        "c": 311.85
+      },
+      {
+        "t": "2026-02-24 12:00",
+        "o": 311.84,
+        "h": 312.27,
+        "l": 309.55,
+        "c": 310.88
+      },
+      {
+        "t": "2026-02-25 08:00",
+        "o": 311.99,
+        "h": 313.64,
+        "l": 309.44,
+        "c": 310.6
+      },
+      {
+        "t": "2026-02-25 12:00",
+        "o": 310.6,
+        "h": 313.26,
+        "l": 310.0,
+        "c": 313.0
+      },
+      {
+        "t": "2026-02-26 08:00",
+        "o": 312.64,
+        "h": 313.14,
+        "l": 302.35,
+        "c": 305.5
+      },
+      {
+        "t": "2026-02-26 12:00",
+        "o": 305.46,
+        "h": 308.43,
+        "l": 304.7,
+        "c": 307.44
+      },
+      {
+        "t": "2026-02-27 08:00",
+        "o": 304.2,
+        "h": 309.88,
+        "l": 303.8,
+        "c": 307.91
+      },
+      {
+        "t": "2026-02-27 12:00",
+        "o": 307.98,
+        "h": 312.37,
+        "l": 305.56,
+        "c": 311.61
+      },
+      {
+        "t": "2026-03-02 08:00",
+        "o": 303.13,
+        "h": 308.09,
+        "l": 301.3,
+        "c": 307.9
+      },
+      {
+        "t": "2026-03-02 12:00",
+        "o": 307.85,
+        "h": 308.49,
+        "l": 305.0,
+        "c": 306.26
+      },
+      {
+        "t": "2026-03-03 08:00",
+        "o": 298.59,
+        "h": 302.08,
+        "l": 296.71,
+        "c": 301.36
+      },
+      {
+        "t": "2026-03-03 12:00",
+        "o": 301.36,
+        "h": 303.94,
+        "l": 300.11,
+        "c": 303.54
+      },
+      {
+        "t": "2026-03-04 08:00",
+        "o": 302.89,
+        "h": 305.46,
+        "l": 300.75,
+        "c": 303.76
+      },
+      {
+        "t": "2026-03-04 12:00",
+        "o": 303.77,
+        "h": 304.31,
+        "l": 302.03,
+        "c": 303.03
+      },
+      {
+        "t": "2026-03-05 08:00",
+        "o": 303.01,
+        "h": 303.27,
+        "l": 298.31,
+        "c": 298.6
+      },
+      {
+        "t": "2026-03-05 12:00",
+        "o": 298.67,
+        "h": 301.25,
+        "l": 297.99,
+        "c": 300.89
+      },
+      {
+        "t": "2026-03-06 08:00",
+        "o": 296.11,
+        "h": 300.53,
+        "l": 295.18,
+        "c": 299.21
+      },
+      {
+        "t": "2026-03-06 12:00",
+        "o": 299.2,
+        "h": 300.04,
+        "l": 297.61,
+        "c": 298.44
+      },
+      {
+        "t": "2026-03-09 09:00",
+        "o": 294.36,
+        "h": 301.98,
+        "l": 294.08,
+        "c": 300.8
+      },
+      {
+        "t": "2026-03-09 13:00",
+        "o": 300.8,
+        "h": 306.8,
+        "l": 300.67,
+        "c": 306.37
+      },
+      {
+        "t": "2026-03-10 09:00",
+        "o": 306.84,
+        "h": 309.5,
+        "l": 305.57,
+        "c": 308.94
+      },
+      {
+        "t": "2026-03-10 13:00",
+        "o": 308.95,
+        "h": 309.32,
+        "l": 306.42,
+        "c": 307.04
+      },
+      {
+        "t": "2026-03-11 09:00",
+        "o": 306.54,
+        "h": 311.42,
+        "l": 305.92,
+        "c": 309.3
+      },
+      {
+        "t": "2026-03-11 13:00",
+        "o": 309.32,
+        "h": 309.42,
+        "l": 307.45,
+        "c": 308.71
+      },
+      {
+        "t": "2026-03-12 09:00",
+        "o": 306.85,
+        "h": 308.94,
+        "l": 301.04,
+        "c": 303.81
+      },
+      {
+        "t": "2026-03-12 13:00",
+        "o": 303.82,
+        "h": 305.09,
+        "l": 302.97,
+        "c": 303.51
+      },
+      {
+        "t": "2026-03-13 09:00",
+        "o": 307.18,
+        "h": 307.61,
+        "l": 300.61,
+        "c": 301.9
+      },
+      {
+        "t": "2026-03-13 13:00",
+        "o": 301.93,
+        "h": 302.62,
+        "l": 300.44,
+        "c": 302.22
+      },
+      {
+        "t": "2026-03-16 09:00",
+        "o": 304.35,
+        "h": 306.49,
+        "l": 303.02,
+        "c": 304.81
+      },
+      {
+        "t": "2026-03-16 13:00",
+        "o": 304.83,
+        "h": 306.35,
+        "l": 304.6,
+        "c": 305.57
+      },
+      {
+        "t": "2026-03-17 09:00",
+        "o": 305.99,
+        "h": 308.75,
+        "l": 305.51,
+        "c": 307.79
+      },
+      {
+        "t": "2026-03-17 13:00",
+        "o": 307.77,
+        "h": 311.42,
+        "l": 307.19,
+        "c": 310.85
+      },
+      {
+        "t": "2026-03-18 09:00",
+        "o": 309.31,
+        "h": 312.47,
+        "l": 308.65,
+        "c": 308.9
+      },
+      {
+        "t": "2026-03-18 13:00",
+        "o": 308.92,
+        "h": 309.9,
+        "l": 306.93,
+        "c": 307.73
+      },
+      {
+        "t": "2026-03-19 09:00",
+        "o": 304.01,
+        "h": 306.36,
+        "l": 302.35,
+        "c": 305.79
+      },
+      {
+        "t": "2026-03-19 13:00",
+        "o": 305.81,
+        "h": 306.21,
+        "l": 305.08,
+        "c": 305.94
+      }
+    ]
+  },
+  {
+    "id": "CRM-2026-03-17",
+    "ticker": "CRM",
+    "company": "Salesforce, Inc.",
+    "sector": "Technology \u00b7 Enterprise Software",
+    "week_id": "2026-W12",
+    "date_added": "2026-03-17",
+    "type": "monday",
+    "conviction": 71,
+    "score": 12,
+    "entry": 194.34,
+    "stop": 182.72,
+    "t1": 209.83,
+    "t2": 221.45,
+    "atr": 7.75,
+    "rr": 1.33,
+    "rsi_d": 44.9,
+    "rsi_i": 32.4,
+    "status": "active",
+    "exit_price": null,
+    "exit_date": null,
+    "pnl_pct": null,
+    "meta": {
+      "market_cap": "$182B",
+      "fwd_pe": "13.0\u00d7",
+      "fcf": "$16.4B",
+      "beta": "1.31",
+      "rev_growth": "+12%",
+      "gross_margin": "77.7%"
+    },
+    "signals": [
+      "ATR $7.75",
+      "R:R 1.33\u00d7",
+      "RSI Daily 44.9",
+      "RSI Intraday 32.4 \u2014 Oversold",
+      "MACD Bull \u00b7 Expanding",
+      "BB Lower Band",
+      "SMA20 > SMA50"
+    ],
+    "analyst": {
+      "rating": "Strong Buy",
+      "n_buy": 28,
+      "n_hold": 7,
+      "n_sell": 1,
+      "pt_avg": 268.21,
+      "upside": 38.0
+    },
+    "intel": [
+      {
+        "type": "green",
+        "title": "Agentforce $800M ARR \u00b7 +169%",
+        "body": "29,000 deals closed (+50% QoQ). $72.4B total RPO +14% YoY. Q4 FY26 revenue +12% \u2014 fastest growth in 2 years."
+      },
+      {
+        "type": "green",
+        "title": "$50B Buyback \u00b7 US Army Contract",
+        "body": "\"Because these are low prices\" \u2014 Benioff. $4.2B returned Q4. Dividend +5.8%. Active US Army enterprise Agentforce deployment."
+      },
+      {
+        "type": "blue",
+        "title": "Strong Buy \u00b7 $268 PT \u00b7 +38%",
+        "body": "28B / 7H / 1S (TipRanks). BTIG $335: market \"pricing in CRM's demise\" \u2014 fundamentally disconnected from execution."
+      },
+      {
+        "type": "blue",
+        "title": "$72B RPO Backlog",
+        "body": "18+ months contracted revenue. 60%+ Agentforce bookings from existing customers. $16.4B FCF. Deep structural stickiness."
+      },
+      {
+        "type": "amber",
+        "title": "SaaS \u2192 Usage Transition Risk",
+        "body": "Seat-based to usage-based Agentforce pricing creates revenue recognition uncertainty. FY27 guide slightly missed consensus."
+      },
+      {
+        "type": "purple",
+        "title": "13\u00d7 Fwd P/E \u00b7 3-Year Low",
+        "body": "Historical avg ~25\u00d7. $72B RPO + 77.7% gross margin + $50B buyback = asymmetric reward/risk at current valuation."
+      }
+    ],
+    "tags_bull": [
+      "Agentforce ARR +169%",
+      "$50B buyback",
+      "38% upside",
+      "RSI oversold"
+    ],
+    "tags_risk": [
+      "Below VWAP intraday",
+      "FY27 guide missed"
+    ],
+    "tags_neutral": [
+      "Earnings May 2026"
+    ],
+    "thesis": "CRM posts the highest composite conviction score (71). At 13\u00d7 fwd P/E \u2014 a 3-year low \u2014 Agentforce ARR +169% and $72B RPO show the thesis is intact. RSI intraday 32.4 signals short-term oversold on top of the bullish daily MACD. $50B buyback signals management conviction at current prices.",
+    "updates": [],
+    "candles": [
+      {
+        "t": "2026-02-17 12:00",
+        "o": 185.18,
+        "h": 185.29,
+        "l": 183.25,
+        "c": 184.3
+      },
+      {
+        "t": "2026-02-18 08:00",
+        "o": 183.88,
+        "h": 187.91,
+        "l": 181.86,
+        "c": 186.26
+      },
+      {
+        "t": "2026-02-18 12:00",
+        "o": 186.3,
+        "h": 188.14,
+        "l": 186.23,
+        "c": 187.74
+      },
+      {
+        "t": "2026-02-19 08:00",
+        "o": 186.6,
+        "h": 186.95,
+        "l": 183.23,
+        "c": 185.61
+      },
+      {
+        "t": "2026-02-19 12:00",
+        "o": 185.61,
+        "h": 185.86,
+        "l": 184.86,
+        "c": 185.3
+      },
+      {
+        "t": "2026-02-20 08:00",
+        "o": 185.32,
+        "h": 191.73,
+        "l": 184.34,
+        "c": 186.84
+      },
+      {
+        "t": "2026-02-20 12:00",
+        "o": 186.84,
+        "h": 187.29,
+        "l": 183.73,
+        "c": 185.21
+      },
+      {
+        "t": "2026-02-23 08:00",
+        "o": 181.27,
+        "h": 182.47,
+        "l": 174.57,
+        "c": 175.12
+      },
+      {
+        "t": "2026-02-23 12:00",
+        "o": 175.15,
+        "h": 178.43,
+        "l": 174.74,
+        "c": 178.2
+      },
+      {
+        "t": "2026-02-24 08:00",
+        "o": 177.64,
+        "h": 188.67,
+        "l": 176.28,
+        "c": 185.4
+      },
+      {
+        "t": "2026-02-24 12:00",
+        "o": 185.44,
+        "h": 187.57,
+        "l": 184.44,
+        "c": 185.46
+      },
+      {
+        "t": "2026-02-25 08:00",
+        "o": 183.0,
+        "h": 191.26,
+        "l": 182.26,
+        "c": 189.55
+      },
+      {
+        "t": "2026-02-25 12:00",
+        "o": 189.51,
+        "h": 192.6,
+        "l": 189.46,
+        "c": 191.94
+      },
+      {
+        "t": "2026-02-26 08:00",
+        "o": 196.76,
+        "h": 199.84,
+        "l": 191.33,
+        "c": 196.74
+      },
+      {
+        "t": "2026-02-26 12:00",
+        "o": 196.74,
+        "h": 201.04,
+        "l": 195.5,
+        "c": 199.46
+      },
+      {
+        "t": "2026-02-27 08:00",
+        "o": 191.91,
+        "h": 194.16,
+        "l": 189.92,
+        "c": 194.04
+      },
+      {
+        "t": "2026-02-27 12:00",
+        "o": 194.09,
+        "h": 195.92,
+        "l": 192.94,
+        "c": 194.79
+      },
+      {
+        "t": "2026-03-02 08:00",
+        "o": 192.5,
+        "h": 195.94,
+        "l": 190.68,
+        "c": 191.46
+      },
+      {
+        "t": "2026-03-02 12:00",
+        "o": 191.45,
+        "h": 193.82,
+        "l": 191.36,
+        "c": 192.92
+      },
+      {
+        "t": "2026-03-03 08:00",
+        "o": 190.75,
+        "h": 196.17,
+        "l": 189.58,
+        "c": 195.25
+      },
+      {
+        "t": "2026-03-03 12:00",
+        "o": 195.22,
+        "h": 198.67,
+        "l": 194.62,
+        "c": 196.06
+      },
+      {
+        "t": "2026-03-04 08:00",
+        "o": 195.1,
+        "h": 196.47,
+        "l": 192.1,
+        "c": 195.38
+      },
+      {
+        "t": "2026-03-04 12:00",
+        "o": 195.39,
+        "h": 196.08,
+        "l": 192.88,
+        "c": 193.06
+      },
+      {
+        "t": "2026-03-05 08:00",
+        "o": 194.36,
+        "h": 204.42,
+        "l": 194.24,
+        "c": 203.15
+      },
+      {
+        "t": "2026-03-05 12:00",
+        "o": 203.18,
+        "h": 203.58,
+        "l": 200.9,
+        "c": 201.37
+      },
+      {
+        "t": "2026-03-06 08:00",
+        "o": 200.79,
+        "h": 202.96,
+        "l": 197.37,
+        "c": 201.04
+      },
+      {
+        "t": "2026-03-06 12:00",
+        "o": 201.11,
+        "h": 202.27,
+        "l": 199.11,
+        "c": 202.09
+      },
+      {
+        "t": "2026-03-09 09:00",
+        "o": 198.56,
+        "h": 203.67,
+        "l": 197.05,
+        "c": 197.18
+      },
+      {
+        "t": "2026-03-09 13:00",
+        "o": 197.13,
+        "h": 200.12,
+        "l": 195.87,
+        "c": 198.68
+      },
+      {
+        "t": "2026-03-10 09:00",
+        "o": 197.26,
+        "h": 199.57,
+        "l": 190.6,
+        "c": 196.93
+      },
+      {
+        "t": "2026-03-10 13:00",
+        "o": 196.9,
+        "h": 196.96,
+        "l": 193.96,
+        "c": 194.9
+      },
+      {
+        "t": "2026-03-11 09:00",
+        "o": 196.4,
+        "h": 199.55,
+        "l": 191.54,
+        "c": 192.38
+      },
+      {
+        "t": "2026-03-11 13:00",
+        "o": 192.45,
+        "h": 194.11,
+        "l": 191.29,
+        "c": 194.08
+      },
+      {
+        "t": "2026-03-12 09:00",
+        "o": 194.13,
+        "h": 204.85,
+        "l": 193.15,
+        "c": 199.98
+      },
+      {
+        "t": "2026-03-12 13:00",
+        "o": 199.98,
+        "h": 200.69,
+        "l": 197.5,
+        "c": 199.24
+      },
+      {
+        "t": "2026-03-13 09:00",
+        "o": 199.73,
+        "h": 201.0,
+        "l": 192.02,
+        "c": 193.44
+      },
+      {
+        "t": "2026-03-13 13:00",
+        "o": 193.5,
+        "h": 193.81,
+        "l": 191.75,
+        "c": 192.8
+      },
+      {
+        "t": "2026-03-16 09:00",
+        "o": 195.15,
+        "h": 198.63,
+        "l": 195.15,
+        "c": 197.86
+      },
+      {
+        "t": "2026-03-16 13:00",
+        "o": 197.87,
+        "h": 198.62,
+        "l": 196.56,
+        "c": 198.18
+      },
+      {
+        "t": "2026-03-17 09:00",
+        "o": 198.22,
+        "h": 202.38,
+        "l": 196.0,
+        "c": 196.82
+      },
+      {
+        "t": "2026-03-17 13:00",
+        "o": 196.84,
+        "h": 196.94,
+        "l": 194.45,
+        "c": 195.31
+      },
+      {
+        "t": "2026-03-18 09:00",
+        "o": 193.4,
+        "h": 196.15,
+        "l": 192.64,
+        "c": 194.82
+      },
+      {
+        "t": "2026-03-18 13:00",
+        "o": 194.78,
+        "h": 195.67,
+        "l": 193.86,
+        "c": 194.34
+      },
+      {
+        "t": "2026-03-19 09:00",
+        "o": 195.59,
+        "h": 200.4,
+        "l": 193.95,
+        "c": 194.26
+      },
+      {
+        "t": "2026-03-19 13:00",
+        "o": 194.29,
+        "h": 194.49,
+        "l": 193.33,
+        "c": 193.43
+      }
+    ]
+  },
+  {
+    "id": "MSFT-2026-03-17",
+    "ticker": "MSFT",
+    "company": "Microsoft Corporation",
+    "sector": "Technology",
+    "week_id": "2026-W12",
+    "date_added": "2026-03-17",
+    "type": "monday",
+    "conviction": 66,
+    "score": 11,
+    "entry": 391.79,
+    "stop": 379.34,
+    "t1": 408.38,
+    "t2": 420.83,
+    "atr": 8.3,
+    "rr": 1.33,
+    "rsi_d": 41.1,
+    "rsi_i": 26.0,
+    "status": "active",
+    "exit_price": null,
+    "exit_date": null,
+    "pnl_pct": null,
+    "meta": {
+      "market_cap": "$2.93T",
+      "fwd_pe": "28.5\u00d7",
+      "fcf": "$74B",
+      "beta": "0.90",
+      "rev_growth": "+17%",
+      "gross_margin": "69.0%"
+    },
+    "signals": [
+      "ATR $8.30",
+      "R:R 1.33\u00d7",
+      "RSI Daily 41.1",
+      "RSI Intraday 26.0 \u2014 Deep Oversold",
+      "MACD Bull \u00b7 Expanding",
+      "BB Pos 0.20",
+      "Wait for VWAP reclaim"
+    ],
+    "analyst": {
+      "rating": "Strong Buy",
+      "n_buy": 35,
+      "n_hold": 7,
+      "n_sell": 0,
+      "pt_avg": 495.0,
+      "upside": 26.3
+    },
+    "intel": [
+      {
+        "type": "green",
+        "title": "Azure 39% \u00b7 $625B Commercial RPO",
+        "body": "Intelligent Cloud $32.9B (+29%). $625B commercial RPO +110% including $250B OpenAI commitment. Q3 guide 37\u201338%."
+      },
+      {
+        "type": "green",
+        "title": "$12.7B Buybacks Q2 \u00b7 FCF $74B",
+        "body": "+32% YoY capital return. FCF $74B. M365 90M+ subscribers. 230% commercial bookings growth Q2."
+      },
+      {
+        "type": "blue",
+        "title": "Strong Buy \u00b7 $495 PT \u00b7 +26%",
+        "body": "35B / 7H / 0S. Foundry $1M+ customers +80% QoQ. OpenAI's \"provider of scale\" \u2014 deepest AI lock-in."
+      },
+      {
+        "type": "blue",
+        "title": "Copilot ARPU Expansion",
+        "body": "M365 commercial +17% YoY. E5 + Copilot driving ARPU. Dynamics +18% all workloads. Commercial ex-OpenAI RPO +28%."
+      },
+      {
+        "type": "amber",
+        "title": "OpenAI Concentration ~45% RPO",
+        "body": "~45% of $625B RPO from OpenAI. CFO Hood flagged quarterly volatility from concentration on earnings call."
+      },
+      {
+        "type": "purple",
+        "title": "Beta 0.9 \u2014 Safest Overnight",
+        "body": "Lowest risk of the three picks. Platform flywheel: OS + M365 + Azure + Copilot compounding. Wait for VWAP reclaim."
+      }
+    ],
+    "tags_bull": [
+      "Azure 39%",
+      "$625B RPO",
+      "Deep oversold",
+      "Beta 0.9"
+    ],
+    "tags_risk": [
+      "OpenAI concentration",
+      "Below VWAP intraday"
+    ],
+    "tags_neutral": [
+      "Earnings Apr 30"
+    ],
+    "thesis": "MSFT offers the highest-quality fundamental backdrop: Azure 39%, $625B RPO, $74B FCF. RSI 41.1 in recovery zone with MACD bullishly expanding. BB pos 0.20 \u2014 lower band mean-reversion setup. RSI intraday 26.0 deep oversold \u2014 wait for VWAP reclaim before full size. Beta 0.9 makes this the safest overnight hold.",
+    "updates": [],
+    "candles": [
+      {
+        "t": "2026-02-17 12:00",
+        "o": 397.58,
+        "h": 398.14,
+        "l": 394.7,
+        "c": 396.79
+      },
+      {
+        "t": "2026-02-18 08:00",
+        "o": 398.2,
+        "h": 402.56,
+        "l": 396.32,
+        "c": 401.12
+      },
+      {
+        "t": "2026-02-18 12:00",
+        "o": 401.1,
+        "h": 401.91,
+        "l": 398.87,
+        "c": 399.52
+      },
+      {
+        "t": "2026-02-19 08:00",
+        "o": 400.69,
+        "h": 404.43,
+        "l": 397.88,
+        "c": 399.07
+      },
+      {
+        "t": "2026-02-19 12:00",
+        "o": 399.08,
+        "h": 399.33,
+        "l": 396.67,
+        "c": 398.41
+      },
+      {
+        "t": "2026-02-20 08:00",
+        "o": 396.15,
+        "h": 400.12,
+        "l": 395.16,
+        "c": 396.86
+      },
+      {
+        "t": "2026-02-20 12:00",
+        "o": 396.88,
+        "h": 399.01,
+        "l": 396.21,
+        "c": 397.25
+      },
+      {
+        "t": "2026-02-23 08:00",
+        "o": 395.19,
+        "h": 395.31,
+        "l": 385.1,
+        "c": 386.44
+      },
+      {
+        "t": "2026-02-23 12:00",
+        "o": 386.43,
+        "h": 387.98,
+        "l": 383.1,
+        "c": 384.52
+      },
+      {
+        "t": "2026-02-24 08:00",
+        "o": 384.14,
+        "h": 389.36,
+        "l": 381.74,
+        "c": 386.45
+      },
+      {
+        "t": "2026-02-24 12:00",
+        "o": 386.42,
+        "h": 389.23,
+        "l": 385.99,
+        "c": 389.0
+      },
+      {
+        "t": "2026-02-25 08:00",
+        "o": 390.24,
+        "h": 400.25,
+        "l": 390.2,
+        "c": 397.33
+      },
+      {
+        "t": "2026-02-25 12:00",
+        "o": 397.36,
+        "h": 401.47,
+        "l": 397.05,
+        "c": 400.49
+      },
+      {
+        "t": "2026-02-26 08:00",
+        "o": 404.64,
+        "h": 407.49,
+        "l": 398.74,
+        "c": 400.9
+      },
+      {
+        "t": "2026-02-26 12:00",
+        "o": 400.89,
+        "h": 402.9,
+        "l": 399.08,
+        "c": 401.81
+      },
+      {
+        "t": "2026-02-27 08:00",
+        "o": 390.99,
+        "h": 396.8,
+        "l": 390.0,
+        "c": 394.84
+      },
+      {
+        "t": "2026-02-27 12:00",
+        "o": 394.84,
+        "h": 395.43,
+        "l": 390.15,
+        "c": 392.68
+      },
+      {
+        "t": "2026-03-02 08:00",
+        "o": 392.76,
+        "h": 401.19,
+        "l": 390.63,
+        "c": 400.2
+      },
+      {
+        "t": "2026-03-02 12:00",
+        "o": 400.2,
+        "h": 400.79,
+        "l": 396.62,
+        "c": 398.37
+      },
+      {
+        "t": "2026-03-03 08:00",
+        "o": 393.14,
+        "h": 402.33,
+        "l": 392.68,
+        "c": 401.92
+      },
+      {
+        "t": "2026-03-03 12:00",
+        "o": 401.92,
+        "h": 406.7,
+        "l": 400.65,
+        "c": 403.78
+      },
+      {
+        "t": "2026-03-04 08:00",
+        "o": 401.16,
+        "h": 408.96,
+        "l": 400.31,
+        "c": 407.27
+      },
+      {
+        "t": "2026-03-04 12:00",
+        "o": 407.31,
+        "h": 411.03,
+        "l": 405.0,
+        "c": 405.0
+      },
+      {
+        "t": "2026-03-05 08:00",
+        "o": 404.43,
+        "h": 411.61,
+        "l": 404.4,
+        "c": 409.29
+      },
+      {
+        "t": "2026-03-05 12:00",
+        "o": 409.29,
+        "h": 411.31,
+        "l": 407.6,
+        "c": 410.72
+      },
+      {
+        "t": "2026-03-06 08:00",
+        "o": 409.3,
+        "h": 413.05,
+        "l": 408.95,
+        "c": 410.69
+      },
+      {
+        "t": "2026-03-06 12:00",
+        "o": 410.71,
+        "h": 411.58,
+        "l": 408.51,
+        "c": 408.62
+      },
+      {
+        "t": "2026-03-09 09:00",
+        "o": 404.92,
+        "h": 409.17,
+        "l": 403.5,
+        "c": 405.17
+      },
+      {
+        "t": "2026-03-09 13:00",
+        "o": 405.13,
+        "h": 410.21,
+        "l": 404.4,
+        "c": 409.45
+      },
+      {
+        "t": "2026-03-10 09:00",
+        "o": 410.03,
+        "h": 410.2,
+        "l": 402.94,
+        "c": 406.38
+      },
+      {
+        "t": "2026-03-10 13:00",
+        "o": 406.36,
+        "h": 406.37,
+        "l": 403.88,
+        "c": 405.76
+      },
+      {
+        "t": "2026-03-11 09:00",
+        "o": 405.84,
+        "h": 409.01,
+        "l": 401.59,
+        "c": 404.25
+      },
+      {
+        "t": "2026-03-11 13:00",
+        "o": 404.24,
+        "h": 405.15,
+        "l": 402.08,
+        "c": 404.82
+      },
+      {
+        "t": "2026-03-12 09:00",
+        "o": 404.84,
+        "h": 406.12,
+        "l": 401.82,
+        "c": 404.32
+      },
+      {
+        "t": "2026-03-12 13:00",
+        "o": 404.35,
+        "h": 404.85,
+        "l": 401.71,
+        "c": 401.89
+      },
+      {
+        "t": "2026-03-13 09:00",
+        "o": 400.72,
+        "h": 404.8,
+        "l": 394.9,
+        "c": 396.59
+      },
+      {
+        "t": "2026-03-13 13:00",
+        "o": 396.55,
+        "h": 397.38,
+        "l": 394.25,
+        "c": 395.61
+      },
+      {
+        "t": "2026-03-16 09:00",
+        "o": 397.95,
+        "h": 399.61,
+        "l": 394.79,
+        "c": 398.82
+      },
+      {
+        "t": "2026-03-16 13:00",
+        "o": 398.82,
+        "h": 400.63,
+        "l": 397.67,
+        "c": 399.96
+      },
+      {
+        "t": "2026-03-17 09:00",
+        "o": 400.14,
+        "h": 404.4,
+        "l": 397.74,
+        "c": 399.81
+      },
+      {
+        "t": "2026-03-17 13:00",
+        "o": 399.82,
+        "h": 399.96,
+        "l": 398.46,
+        "c": 399.5
+      },
+      {
+        "t": "2026-03-18 09:00",
+        "o": 397.05,
+        "h": 398.0,
+        "l": 392.43,
+        "c": 392.74
+      },
+      {
+        "t": "2026-03-18 13:00",
+        "o": 392.76,
+        "h": 395.0,
+        "l": 391.0,
+        "c": 391.67
+      },
+      {
+        "t": "2026-03-19 09:00",
+        "o": 390.03,
+        "h": 392.49,
+        "l": 387.51,
+        "c": 387.93
+      },
+      {
+        "t": "2026-03-19 13:00",
+        "o": 387.95,
+        "h": 388.32,
+        "l": 387.5,
+        "c": 387.89
+      }
+    ]
+  }
+]
