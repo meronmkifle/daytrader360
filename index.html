@@ -2,500 +2,567 @@
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>@daytrader_360 · Mar 19, 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>@daytrader_360</title>
 <style>
-:root {
-  --bg:#f2f1ed; --surface:#ffffff; --surface2:#f7f6f2; --surface3:#eeecea;
-  --border:rgba(0,0,0,0.08); --border2:rgba(0,0,0,0.14);
-  --text:#111110; --text2:#555452; --text3:#999794;
-  --bull:#1a9e64; --bear:#d94040;
-  --bull-bg:rgba(26,158,100,0.10); --bear-bg:rgba(217,64,64,0.10);
-  --bull-text:#0d5c38; --bear-text:#7d1e1e;
-  --info-bg:#e8f0fb; --info-bd:#b8cef5; --info-text:#1a3f8a;
-  --warn-bg:#fef4e2; --warn-bd:#f7d07a; --warn-text:#7a4500;
-  --struct-bg:#eeeafe; --struct-bd:#c8c0f8; --struct-text:#3a2e9a;
-  --accent1:#378ADD; --accent2:#1D9E75; --accent3:#BA7517;
-  --r:10px; --rl:14px;
-  --shadow:0 1px 3px rgba(0,0,0,0.06),0 4px 12px rgba(0,0,0,0.04);
+/* ── TOKENS ─────────────────────────────────────── */
+:root{
+  --bg:#f0efe9;--surf:#fff;--surf2:#f6f5f0;--surf3:#eceae3;
+  --brd:rgba(0,0,0,0.09);--brd2:rgba(0,0,0,0.16);
+  --txt:#0f0f0e;--txt2:#4a4845;--txt3:#8f8d89;
+  --bull:#158a52;--bear:#c43535;
+  --bull-bg:rgba(21,138,82,.09);--bear-bg:rgba(196,53,53,.09);
+  --bull-dk:#0a4f2e;--bear-dk:#6e1818;
+  --info-bg:#e5edfb;--info-brd:#aec6f5;--info-txt:#163572;
+  --warn-bg:#fdf1dc;--warn-brd:#f0c55c;--warn-txt:#6a3900;
+  --strc-bg:#ebebfd;--strc-brd:#bbb8f8;--strc-txt:#312a92;
+  --acc1:#2a7dd4;--acc2:#169b5e;--acc3:#a86512;
+  --r:9px;--rl:13px;
+  --sh:0 1px 2px rgba(0,0,0,.05),0 3px 10px rgba(0,0,0,.04);
 }
-[data-theme="dark"] {
-  --bg:#0e0e0d; --surface:#1a1a18; --surface2:#222220; --surface3:#2a2a28;
-  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
-  --text:#f0ede8; --text2:#a09e9a; --text3:#666461;
-  --bull:#22c47a; --bear:#f05252;
-  --bull-bg:rgba(34,196,122,0.12); --bear-bg:rgba(240,82,82,0.12);
-  --bull-text:#6dfcb8; --bear-text:#fca5a5;
-  --info-bg:#0f1e3a; --info-bd:#1e3d70; --info-text:#7eb6f8;
-  --warn-bg:#2a1e00; --warn-bd:#6a4800; --warn-text:#fbbe5a;
-  --struct-bg:#1a1438; --struct-bd:#3d3070; --struct-text:#b8aaff;
-  --shadow:0 1px 3px rgba(0,0,0,0.3),0 4px 12px rgba(0,0,0,0.2);
+[data-theme=dark]{
+  --bg:#0c0c0b;--surf:#181816;--surf2:#1f1f1d;--surf3:#272725;
+  --brd:rgba(255,255,255,.07);--brd2:rgba(255,255,255,.12);
+  --txt:#edeae3;--txt2:#9c9994;--txt3:#5e5c58;
+  --bull:#1fc87a;--bear:#f04f4f;
+  --bull-bg:rgba(31,200,122,.11);--bear-bg:rgba(240,79,79,.11);
+  --bull-dk:#6efbb6;--bear-dk:#fca5a5;
+  --info-bg:#0d1d3a;--info-brd:#1b3868;--info-txt:#7ab4f8;
+  --warn-bg:#261900;--warn-brd:#5a3c00;--warn-txt:#f5b84a;
+  --strc-bg:#18133a;--strc-brd:#362c72;--strc-txt:#b4a8ff;
+  --sh:0 1px 2px rgba(0,0,0,.3),0 3px 10px rgba(0,0,0,.25);
 }
+
+/* ── RESET ──────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:15px;scroll-behavior:smooth}
-body{font-family:'Syne',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;transition:background .25s,color .25s;-webkit-font-smoothing:antialiased}
-.page{max-width:1100px;margin:0 auto;padding:0 24px 56px}
-/* TOPBAR */
-.topbar{display:flex;align-items:center;justify-content:space-between;padding:20px 0 18px;border-bottom:1px solid var(--border);margin-bottom:22px;gap:12px;flex-wrap:wrap}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
+  background:var(--bg);color:var(--txt);
+  line-height:1.5;min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  transition:background .2s,color .2s;
+}
+
+/* ── LAYOUT ─────────────────────────────────────── */
+.page{max-width:1120px;margin:0 auto;padding:0 24px 64px}
+
+/* ── TOPBAR ─────────────────────────────────────── */
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0 18px;border-bottom:1px solid var(--brd);
+  margin-bottom:22px;gap:12px;flex-wrap:wrap;
+}
 .topbar-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.logo{font-size:19px;font-weight:700;color:var(--text);letter-spacing:-.3px}
-.logo span{color:var(--accent1)}
-.dbadge{font-family:'DM Mono',monospace;font-size:11px;color:var(--text3);background:var(--surface2);border:1px solid var(--border);padding:4px 10px;border-radius:6px}
-.tbtn{display:flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--border2);border-radius:8px;padding:8px 16px;font-family:'Syne',sans-serif;font-size:12px;font-weight:500;color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
-.tbtn:hover{background:var(--surface2);color:var(--text)}
-.tbtn svg{width:14px;height:14px;flex-shrink:0}
-/* TABS */
-.tabs{display:flex;gap:5px;margin-bottom:26px;flex-wrap:wrap}
-.tab{font-size:12px;font-weight:500;padding:8px 20px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text2);cursor:pointer;transition:all .15s;white-space:nowrap}
-.tab:hover{background:var(--surface2);color:var(--text)}
-.tab.on{background:var(--text);color:var(--bg);border-color:var(--text)}
-/* CARD */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:28px;overflow:hidden;box-shadow:var(--shadow);transition:background .25s,border-color .25s}
-.ca{height:4px}
-.cb{padding:24px 28px}
-/* CARD HEADER */
-.ch{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
-.pl{font-size:10px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
-.tk{font-size:30px;font-weight:700;color:var(--text);letter-spacing:-.5px;line-height:1}
-.cn{font-size:13px;color:var(--text2);margin-top:5px}
-.cw{text-align:right;flex-shrink:0}
-.cnum{font-family:'DM Mono',monospace;font-size:34px;font-weight:500;color:var(--text);line-height:1}
-.clbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin-top:3px}
-/* META */
-.mr{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.mc{font-family:'DM Mono',monospace;font-size:10px;padding:3px 9px;border-radius:5px;background:var(--surface2);color:var(--text2);border:1px solid var(--border);white-space:nowrap}
-/* CHART */
-.cout{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:22px;position:relative}
+.logo{font-size:18px;font-weight:700;color:var(--txt);letter-spacing:-.2px}
+.logo em{font-style:normal;color:var(--acc1)}
+.dbadge{
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:11px;color:var(--txt3);
+  background:var(--surf2);border:1px solid var(--brd);
+  padding:4px 10px;border-radius:6px;
+  letter-spacing:.2px;
+}
+.tbtn{
+  display:flex;align-items:center;gap:7px;
+  background:var(--surf);border:1px solid var(--brd2);
+  border-radius:8px;padding:8px 16px;
+  font-family:inherit;font-size:13px;font-weight:500;
+  color:var(--txt2);cursor:pointer;transition:all .15s;
+  white-space:nowrap;
+}
+.tbtn:hover{background:var(--surf2);color:var(--txt)}
+.tbtn svg{width:15px;height:15px;flex-shrink:0}
+
+/* ── TABS ───────────────────────────────────────── */
+.tabs{display:flex;gap:5px;margin-bottom:28px;flex-wrap:wrap}
+.tab{
+  font-family:inherit;font-size:13px;font-weight:500;
+  padding:8px 20px;border-radius:8px;
+  border:1px solid var(--brd);background:var(--surf);
+  color:var(--txt2);cursor:pointer;transition:all .15s;
+}
+.tab:hover{background:var(--surf2);color:var(--txt)}
+.tab.on{background:var(--txt);color:var(--bg);border-color:var(--txt)}
+
+/* ── CARD ───────────────────────────────────────── */
+.card{
+  background:var(--surf);border:1px solid var(--brd);
+  border-radius:var(--rl);margin-bottom:28px;
+  overflow:hidden;box-shadow:var(--sh);
+  transition:background .2s,border-color .2s;
+}
+.accent{height:4px}
+.body{padding:26px 28px}
+
+/* ── CARD HEADER ────────────────────────────────── */
+.card-hdr{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px}
+.pick-lbl{font-size:10px;font-weight:600;color:var(--txt3);text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
+.ticker{font-size:32px;font-weight:700;color:var(--txt);letter-spacing:-.5px;line-height:1}
+.coname{font-size:13px;color:var(--txt2);margin-top:5px}
+.conv-wrap{text-align:right;flex-shrink:0}
+.conv-num{font-family:'SF Mono','Fira Code',monospace;font-size:36px;font-weight:600;color:var(--txt);line-height:1}
+.conv-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--txt3);margin-top:3px}
+
+/* ── META CHIPS ─────────────────────────────────── */
+.meta-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.chip{
+  font-family:'SF Mono','Fira Code',monospace;
+  font-size:11px;font-weight:400;
+  padding:4px 10px;border-radius:5px;
+  background:var(--surf2);color:var(--txt2);
+  border:1px solid var(--brd);white-space:nowrap;
+}
+
+/* ── CHART ──────────────────────────────────────── */
+.chart-wrap{
+  background:var(--surf2);border:1px solid var(--brd);
+  border-radius:var(--r);overflow:hidden;margin-bottom:22px;
+}
 canvas.cv{display:block;width:100%}
-/* LEVELS */
-.lg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:18px}
-.lc{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;text-align:center}
-.ll{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:6px}
-.lp{font-family:'DM Mono',monospace;font-size:16px;font-weight:500;color:var(--text)}
-.lpct{font-family:'DM Mono',monospace;font-size:10px;margin-top:4px}
-/* SIGNALS */
-.sr{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:22px}
-.sc{font-size:10px;font-weight:500;padding:4px 10px;border-radius:5px;background:var(--surface2);color:var(--text2);border:1px solid var(--border);white-space:nowrap}
-/* SECTION TITLE */
-.st{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text3);margin:0 0 11px}
-/* BARS */
-.bg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
-.bi{background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
-.bh{display:flex;justify-content:space-between;margin-bottom:7px}
-.bn{font-size:11px;color:var(--text2)}.bv{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--text)}
-.bt{height:4px;background:var(--border);border-radius:2px;overflow:hidden}
-.bf{height:100%;border-radius:2px;transition:width .6s ease}
-/* INTEL */
-.ig{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
-.ic{border-radius:var(--r);padding:14px 16px;border:1px solid}
-.ik{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
-.iv{font-size:11px;line-height:1.7}
-.ic-b{background:var(--info-bg);border-color:var(--info-bd);color:var(--info-text)}
-.ic-g{background:var(--bull-bg);border-color:rgba(26,158,100,0.25);color:var(--bull-text)}
-.ic-a{background:var(--warn-bg);border-color:var(--warn-bd);color:var(--warn-text)}
-.ic-p{background:var(--struct-bg);border-color:var(--struct-bd);color:var(--struct-text)}
-/* TAGS */
-.tr2{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
-.tg{font-size:10px;font-weight:600;padding:3px 9px;border-radius:5px}
-.tg-b{background:var(--bull-bg);color:var(--bull-text)}
-.tg-r{background:var(--bear-bg);color:var(--bear-text)}
-.tg-n{background:var(--surface2);color:var(--text2);border:1px solid var(--border)}
-/* THESIS */
-.thesis{font-size:12px;line-height:1.85;color:var(--text2);background:var(--surface2);border-radius:var(--r);padding:16px 18px;border-left:3px solid var(--border2)}
-/* MARKET STRIP */
-.ms{background:var(--surface);border:1px solid var(--border);border-radius:var(--rl);padding:18px 24px;margin-bottom:22px;box-shadow:var(--shadow)}
-.mkg{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:16px}
-.mk{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text3);margin-bottom:4px}
-.mv{font-size:12px;font-weight:500;color:var(--text)}
-/* DIVIDER */
-.id{font-size:14px;font-weight:700;color:var(--text);padding-bottom:12px;border-bottom:1px solid var(--border);margin:0 0 16px}
-/* FOOTER */
-.foot{text-align:center;font-size:10px;color:var(--text3);letter-spacing:.3px;padding:18px 0 0;border-top:1px solid var(--border)}
-/* RESPONSIVE */
-@media(max-width:700px){
-  .page{padding:0 16px 40px}
-  .topbar{padding:16px 0 14px}
-  .cb{padding:18px 18px}
-  .tk{font-size:24px}.cnum{font-size:28px}
-  .lg{grid-template-columns:repeat(2,1fr)}
-  .bg{grid-template-columns:1fr}
-  .ig{grid-template-columns:1fr}
-  .mkg{grid-template-columns:repeat(2,1fr)}
+
+/* ── LEVELS ─────────────────────────────────────── */
+.levels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:18px}
+.level{
+  background:var(--surf2);border:1px solid var(--brd);
+  border-radius:var(--r);padding:14px 16px;text-align:center;
+}
+.lv-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);margin-bottom:6px}
+.lv-price{font-family:'SF Mono','Fira Code',monospace;font-size:17px;font-weight:600;color:var(--txt)}
+.lv-pct{font-family:'SF Mono','Fira Code',monospace;font-size:11px;margin-top:4px}
+
+/* ── SIGNALS ────────────────────────────────────── */
+.signals{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:22px}
+.sig{
+  font-size:11px;font-weight:500;
+  padding:4px 10px;border-radius:5px;
+  background:var(--surf2);color:var(--txt2);
+  border:1px solid var(--brd);white-space:nowrap;
+}
+
+/* ── SECTION TITLE ──────────────────────────────── */
+.s-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--txt3);margin:0 0 11px}
+
+/* ── BARS ───────────────────────────────────────── */
+.bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.bar-item{background:var(--surf2);border:1px solid var(--brd);border-radius:var(--r);padding:12px 14px}
+.bar-hdr{display:flex;justify-content:space-between;margin-bottom:7px}
+.bar-nm{font-size:12px;color:var(--txt2)}
+.bar-vl{font-family:'SF Mono','Fira Code',monospace;font-size:12px;font-weight:600;color:var(--txt)}
+.bar-track{height:4px;background:var(--brd);border-radius:2px;overflow:hidden}
+.bar-fill{height:100%;border-radius:2px}
+
+/* ── INTEL ──────────────────────────────────────── */
+.intel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:22px}
+.intel-cell{border-radius:var(--r);padding:14px 16px;border:1px solid}
+.ic-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+.ic-body{font-size:12px;line-height:1.7}
+.ic-green{background:var(--bull-bg);border-color:rgba(21,138,82,.22);color:var(--bull-dk)}
+.ic-blue {background:var(--info-bg);border-color:var(--info-brd);color:var(--info-txt)}
+.ic-amber{background:var(--warn-bg);border-color:var(--warn-brd);color:var(--warn-txt)}
+.ic-purple{background:var(--strc-bg);border-color:var(--strc-brd);color:var(--strc-txt)}
+
+/* ── TAGS ───────────────────────────────────────── */
+.tag-row{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:18px}
+.tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:5px}
+.tag-b{background:var(--bull-bg);color:var(--bull-dk)}
+.tag-r{background:var(--bear-bg);color:var(--bear-dk)}
+.tag-n{background:var(--surf2);color:var(--txt2);border:1px solid var(--brd)}
+
+/* ── THESIS ─────────────────────────────────────── */
+.thesis{
+  font-size:13px;line-height:1.8;color:var(--txt2);
+  background:var(--surf2);border-radius:var(--r);
+  padding:16px 18px;border-left:3px solid var(--brd2);
+}
+
+/* ── MARKET STRIP ───────────────────────────────── */
+.mkt{
+  background:var(--surf);border:1px solid var(--brd);
+  border-radius:var(--rl);padding:18px 24px;
+  margin-bottom:22px;box-shadow:var(--sh);
+}
+.mkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px 20px}
+.mkt-k{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);margin-bottom:4px}
+.mkt-v{font-size:13px;font-weight:500;color:var(--txt)}
+
+/* ── INTEL-ONLY divider ─────────────────────────── */
+.i-div{font-size:14px;font-weight:700;color:var(--txt);padding-bottom:12px;border-bottom:1px solid var(--brd);margin:0 0 16px}
+
+/* ── FOOTER ─────────────────────────────────────── */
+.foot{text-align:center;font-size:11px;color:var(--txt3);letter-spacing:.3px;padding:20px 0 0;border-top:1px solid var(--brd)}
+
+/* ── LOADING ────────────────────────────────────── */
+#loading{text-align:center;padding:60px 20px;font-size:14px;color:var(--txt3)}
+#loading span{display:block;font-size:24px;margin-bottom:10px}
+
+/* ── RESPONSIVE ─────────────────────────────────── */
+@media(max-width:720px){
+  .page{padding:0 16px 44px}
+  .body{padding:18px 18px}
+  .ticker{font-size:26px}.conv-num{font-size:28px}
+  .levels{grid-template-columns:repeat(2,1fr)}
+  .bars{grid-template-columns:1fr}
+  .intel{grid-template-columns:1fr}
+  .mkt-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:420px){
-  .lg{grid-template-columns:repeat(2,1fr)}
-  .lp{font-size:13px}
+  .levels{grid-template-columns:repeat(2,1fr)}
+  .lv-price{font-size:14px}
 }
 </style>
 </head>
 <body>
+
 <div class="page">
+  <div id="loading"><span>⟳</span>Loading picks...</div>
+  <div id="app" style="display:none">
 
-<div class="topbar">
-  <div class="topbar-l">
-    <div class="logo"><span>@</span>daytrader_360</div>
-    <div class="dbadge">Mar 19, 2026 · 4H · S&amp;P 500 Top 50</div>
-  </div>
-  <button class="tbtn" onclick="toggleTheme()" id="tbtn">
-    <svg id="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-    <span id="tl">Dark mode</span>
-  </button>
-</div>
+    <div class="topbar">
+      <div class="topbar-l">
+        <div class="logo"><em>@</em>daytrader_360</div>
+        <div class="dbadge" id="hdr-date">Loading...</div>
+      </div>
+      <button class="tbtn" onclick="toggleTheme()" id="tbtn">
+        <svg id="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+        <span id="tl">Dark mode</span>
+      </button>
+    </div>
 
-<div class="tabs">
-  <div class="tab on" onclick="sv('all',this)">All picks</div>
-  <div class="tab" onclick="sv('setup',this)">Setup only</div>
-  <div class="tab" onclick="sv('intel',this)">Intelligence</div>
-</div>
+    <div class="tabs">
+      <div class="tab on" onclick="sv('all',this)">All picks</div>
+      <div class="tab" onclick="sv('setup',this)">Setup only</div>
+      <div class="tab" onclick="sv('intel',this)">Intelligence</div>
+    </div>
 
-<!-- ALL PICKS -->
-<div id="va">
+    <div id="va"></div>
+    <div id="vs" style="display:none"></div>
+    <div id="vi" style="display:none"></div>
 
-<div class="card">
-  <div class="ca" style="background:#378ADD"></div>
-  <div class="cb">
-    <div class="ch">
-      <div><div class="pl">Pick 1 of 3 · Highest Conviction</div><div class="tk">GOOGL</div><div class="cn">Alphabet Inc. · Communication Services</div></div>
-      <div class="cw"><div class="cnum">70</div><div class="clbl">conviction</div></div>
-    </div>
-    <div class="mr">
-      <span class="mc">$307.69</span><span class="mc">Mkt Cap $3.72T</span><span class="mc">Fwd P/E 22.9×</span><span class="mc">FCF $38.1B</span><span class="mc">Beta 1.11</span><span class="mc">Rev +18% YoY</span><span class="mc">Gross Margin 59.7%</span><span class="mc">52W Hi $349 (−11.8%)</span>
-    </div>
-    <div class="cout"><canvas class="cv" id="c0" height="270"></canvas></div>
-    <div class="lg">
-      <div class="lc"><div class="ll">Entry</div><div class="lp">$307.69</div><div class="lpct" style="color:var(--text3)">market price</div></div>
-      <div class="lc"><div class="ll">Stop Loss</div><div class="lp" style="color:var(--bear)">$297.24</div><div class="lpct" style="color:var(--bear)">−3.40%</div></div>
-      <div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:var(--bull)">$321.62</div><div class="lpct" style="color:var(--bull)">+4.53%</div></div>
-      <div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:var(--bull)">$332.07</div><div class="lpct" style="color:var(--bull)">+7.92%</div></div>
-    </div>
-    <div class="sr"><span class="sc">ATR $6.97</span><span class="sc">R:R 1.33×</span><span class="sc">RSI Daily 50.6</span><span class="sc">RSI Intraday 57.8</span><span class="sc">MACD Bull · Expanding</span><span class="sc">Price &gt; VWAP</span><span class="sc">EMA9 &gt; EMA21</span><span class="sc">SMA20 &gt; SMA50</span></div>
-    <div class="st">Conviction Breakdown</div>
-    <div class="bg">
-      <div class="bi"><div class="bh"><span class="bn">Technical (13/20)</span><span class="bv">26/40</span></div><div class="bt"><div class="bf" style="width:65%;background:#378ADD"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Analyst Consensus</span><span class="bv">25/30</span></div><div class="bt"><div class="bf" style="width:84%;background:#378ADD"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">PT Upside (+22%)</span><span class="bv">7/15</span></div><div class="bt"><div class="bf" style="width:47%;background:#378ADD"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Non-conventional Intel</span><span class="bv">12/15</span></div><div class="bt"><div class="bf" style="width:80%;background:#378ADD"></div></div></div>
-    </div>
-    <div class="st">Intelligence Grid</div>
-    <div class="ig">
-      <div class="ic ic-g"><div class="ik">Cloud 48% YoY · $240B Backlog</div><div class="iv">Operating income +154% YoY in Q4 2025. Wiz $32B acquisition (largest in Alphabet history) closed. BMO raised Q1 2026 Cloud growth estimate to 40%.</div></div>
-      <div class="ic ic-b"><div class="ik">Strong Buy · $376 PT · 0 Sell Ratings</div><div class="iv">32 Buy / 6 Hold / 0 Sell across 38 analysts (TipRanks). +22% upside. Only Magnificent 7 stock with unanimous buy/hold consensus entering Q2 2026.</div></div>
-      <div class="ic ic-b"><div class="ik">Apple Gemini Partnership</div><div class="iv">Gemini models to power iPhone AI features. 750M monthly active users confirmed. New consumer monetisation channel worth billions annually in additional search revenue.</div></div>
-      <div class="ic ic-a"><div class="ik">DOJ Antitrust — Manageable</div><div class="iv">DOJ/states appealing Sept 2025 remedy ruling. Adtech case in remedies phase (AdX divestiture sought). No criminal probe. Courts already rejected Chrome/Android structural breakup.</div></div>
-      <div class="ic ic-a"><div class="ik">CapEx Ramp 2026</div><div class="iv">$140–185B CapEx guided for 2026 vs $91B TTM. Near-term FCF compression risk. Analyst consensus frames this as growth infrastructure investment, not structural impairment.</div></div>
-      <div class="ic ic-p"><div class="ik">Cheapest Mag7 · Waymo Optionality</div><div class="iv">22.9× fwd P/E despite 18% revenue growth, 59.7% gross margin, 32.8% net margin. Waymo autonomous driving + AI infra not in street models. Best risk-adjusted entry in Mag7.</div></div>
-    </div>
-    <div class="tr2">
-      <span class="tg tg-b">Cloud 48% growth</span><span class="tg tg-b">Zero sell ratings</span><span class="tg tg-b">Cheapest Mag7 P/E</span><span class="tg tg-b">Apple Gemini deal</span><span class="tg tg-b">$32B Wiz closed</span><span class="tg tg-r">DOJ appeal ongoing</span><span class="tg tg-r">CapEx FCF risk</span><span class="tg tg-n">Earnings Apr 23</span>
-    </div>
-    <div class="thesis">GOOGL tops the technical ranking (13/20) across all 50 names with MACD in bullish expansion, RSI neutral-constructive at 50.6, and intraday confirmation above VWAP with EMA9 > EMA21. Cloud revenue at 48% YoY growth and a $240B contracted backlog provide structural upside that the 22.9× fwd P/E — the cheapest multiple in Magnificent 7 — does not yet reflect. The completed $32B Wiz acquisition and Gemini-Apple deal are non-consensus catalysts beyond current models. Antitrust risk is manageable: courts rejected structural breakup and the stock has already priced behavioral remedies. No earnings event within 5 days.</div>
+    <div class="mkt" id="mkt-strip"></div>
+    <div class="foot">Not financial advice &middot; DYOR &middot; Stops 1.5&times; ATR &middot; Targets 2&times; / 3.5&times; ATR &middot; @daytrader_360</div>
   </div>
 </div>
-
-<div class="card">
-  <div class="ca" style="background:#1D9E75"></div>
-  <div class="cb">
-    <div class="ch">
-      <div><div class="pl">Pick 2 of 3 · Top Composite Score</div><div class="tk">CRM</div><div class="cn">Salesforce, Inc. · Enterprise Software</div></div>
-      <div class="cw"><div class="cnum">71</div><div class="clbl">conviction</div></div>
-    </div>
-    <div class="mr">
-      <span class="mc">$194.34</span><span class="mc">Mkt Cap $182B</span><span class="mc">Fwd P/E 13.0×</span><span class="mc">FCF $16.4B</span><span class="mc">Beta 1.31</span><span class="mc">Rev +12% YoY</span><span class="mc">Gross Margin 77.7%</span><span class="mc">52W Hi $296 (−27.8%)</span>
-    </div>
-    <div class="cout"><canvas class="cv" id="c1" height="270"></canvas></div>
-    <div class="lg">
-      <div class="lc"><div class="ll">Entry</div><div class="lp">$194.34</div><div class="lpct" style="color:var(--text3)">market price</div></div>
-      <div class="lc"><div class="ll">Stop Loss</div><div class="lp" style="color:var(--bear)">$182.72</div><div class="lpct" style="color:var(--bear)">−5.98%</div></div>
-      <div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:var(--bull)">$209.83</div><div class="lpct" style="color:var(--bull)">+7.97%</div></div>
-      <div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:var(--bull)">$221.45</div><div class="lpct" style="color:var(--bull)">+13.95%</div></div>
-    </div>
-    <div class="sr"><span class="sc">ATR $7.75</span><span class="sc">R:R 1.33×</span><span class="sc">RSI Daily 44.9</span><span class="sc">RSI Intraday 32.4 — Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Lower Band</span><span class="sc">SMA20 &gt; SMA50</span></div>
-    <div class="st">Conviction Breakdown</div>
-    <div class="bg">
-      <div class="bi"><div class="bh"><span class="bn">Technical (12/20)</span><span class="bv">24/40</span></div><div class="bt"><div class="bf" style="width:60%;background:#1D9E75"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Analyst Consensus</span><span class="bv">23/30</span></div><div class="bt"><div class="bf" style="width:78%;background:#1D9E75"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">PT Upside (+38%)</span><span class="bv">11/15</span></div><div class="bt"><div class="bf" style="width:76%;background:#1D9E75"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Non-conventional Intel</span><span class="bv">12/15</span></div><div class="bt"><div class="bf" style="width:80%;background:#1D9E75"></div></div></div>
-    </div>
-    <div class="st">Intelligence Grid</div>
-    <div class="ig">
-      <div class="ic ic-g"><div class="ik">Agentforce $800M ARR · +169% YoY</div><div class="iv">29,000 deals closed (+50% QoQ). Combined Agentforce + Data Cloud ARR $1.8B. $72.4B total RPO +14% YoY. Q4 FY26 revenue +12% — fastest growth rate in 2 years.</div></div>
-      <div class="ic ic-g"><div class="ik">$50B Buyback · US Army Contract</div><div class="iv">"Because these are low prices" — Benioff. $4.2B returned Q4 alone. Dividend +5.8% to $0.44. Active US Army enterprise Agentforce deployment. Anthropic stake yielded $811M Q4 gain.</div></div>
-      <div class="ic ic-b"><div class="ik">Strong Buy · $268 PT · +38% Upside</div><div class="iv">28 Buy / 7 Hold / 1 Sell (TipRanks). BTIG $335 PT: market "pricing in CRM's demise" — fundamentally disconnected from execution. Anthropic stake $811M gain Q4.</div></div>
-      <div class="ic ic-b"><div class="ik">$72B RPO · 77.7% Gross Margin</div><div class="iv">Total RPO +14% YoY — 18+ months contracted revenue. 60%+ Agentforce bookings from existing customers. $16.4B FCF. Platform stickiness is structural and deeply embedded.</div></div>
-      <div class="ic ic-a"><div class="ik">SaaS → Usage-Based Transition</div><div class="iv">Shift from seat-based to usage/outcome Agentforce pricing creates near-term revenue recognition complexity. FY27 guidance slightly missed consensus. Stock −28% YTD.</div></div>
-      <div class="ic ic-p"><div class="ik">13× Fwd P/E · 3-Year Low</div><div class="iv">Historical avg P/E ~25×. Current 13× reflects maximum fear, not business reality. $72B RPO + 77.7% gross margin + $50B buyback = asymmetric reward/risk at current levels.</div></div>
-    </div>
-    <div class="tr2">
-      <span class="tg tg-b">Agentforce ARR +169%</span><span class="tg tg-b">$50B buyback</span><span class="tg tg-b">38% upside to avg PT</span><span class="tg tg-b">RSI intraday oversold</span><span class="tg tg-b">US Army contract</span><span class="tg tg-r">Below VWAP intraday</span><span class="tg tg-r">FY27 guide missed</span><span class="tg tg-n">Earnings May 2026</span>
-    </div>
-    <div class="thesis">CRM posts the highest composite conviction score (71) across all 50 tickers. At 13× fwd P/E — a 3-year low — the market's AI disruption fear has massively overshot the fundamental reality: Agentforce ARR is accelerating at +169% YoY, not decelerating. The $72B RPO provides 18 months of contracted revenue visibility, and management's $50B buyback is a direct signal that insiders view current prices as generational value. Daily MACD is bullishly expanding while intraday RSI at 32.4 signals short-term oversold — a high-probability mean-reversion setup on top of the daily trend. No criminal probes, no guidance cuts, no financial distress.</div>
-  </div>
-</div>
-
-<div class="card">
-  <div class="ca" style="background:#BA7517"></div>
-  <div class="cb">
-    <div class="ch">
-      <div><div class="pl">Pick 3 of 3 · Good Conviction</div><div class="tk">MSFT</div><div class="cn">Microsoft Corporation · Technology</div></div>
-      <div class="cw"><div class="cnum">66</div><div class="clbl">conviction</div></div>
-    </div>
-    <div class="mr">
-      <span class="mc">$391.79</span><span class="mc">Mkt Cap $2.93T</span><span class="mc">Fwd P/E 28.5×</span><span class="mc">FCF $74B</span><span class="mc">Beta 0.90</span><span class="mc">Rev +17% YoY</span><span class="mc">Gross Margin 69.0%</span><span class="mc">52W Hi $468 (−28.9%)</span>
-    </div>
-    <div class="cout"><canvas class="cv" id="c2" height="270"></canvas></div>
-    <div class="lg">
-      <div class="lc"><div class="ll">Entry</div><div class="lp">$391.79</div><div class="lpct" style="color:var(--text3)">market price</div></div>
-      <div class="lc"><div class="ll">Stop Loss</div><div class="lp" style="color:var(--bear)">$379.34</div><div class="lpct" style="color:var(--bear)">−3.18%</div></div>
-      <div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:var(--bull)">$408.38</div><div class="lpct" style="color:var(--bull)">+4.23%</div></div>
-      <div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:var(--bull)">$420.83</div><div class="lpct" style="color:var(--bull)">+7.41%</div></div>
-    </div>
-    <div class="sr"><span class="sc">ATR $8.30</span><span class="sc">R:R 1.33×</span><span class="sc">RSI Daily 41.1</span><span class="sc">RSI Intraday 26.0 — Deep Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Pos 0.20 — Lower Band</span><span class="sc">Wait VWAP reclaim</span></div>
-    <div class="st">Conviction Breakdown</div>
-    <div class="bg">
-      <div class="bi"><div class="bh"><span class="bn">Technical (11/20)</span><span class="bv">22/40</span></div><div class="bt"><div class="bf" style="width:55%;background:#BA7517"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Analyst Consensus</span><span class="bv">25/30</span></div><div class="bt"><div class="bf" style="width:83%;background:#BA7517"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">PT Upside (+26%)</span><span class="bv">8/15</span></div><div class="bt"><div class="bf" style="width:53%;background:#BA7517"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Non-conventional Intel</span><span class="bv">11/15</span></div><div class="bt"><div class="bf" style="width:73%;background:#BA7517"></div></div></div>
-    </div>
-    <div class="st">Intelligence Grid</div>
-    <div class="ig">
-      <div class="ic ic-g"><div class="ik">Azure 39% · $625B Commercial RPO</div><div class="iv">Intelligent Cloud $32.9B (+29% YoY). $625B commercial RPO +110% YoY — includes $250B OpenAI Azure commitment. Q3 FY26 Azure guide: 37–38%. Demand exceeds supply capacity.</div></div>
-      <div class="ic ic-g"><div class="ik">$12.7B Buybacks Q2 · FCF $74B</div><div class="iv">+32% YoY capital return in Q2 FY26. Q1 returned $10.7B. FCF $74B. M365 90M+ consumer subscribers. 230% commercial bookings growth in Q2. Copilot driving ARPU expansion.</div></div>
-      <div class="ic ic-b"><div class="ik">Strong Buy · ~$495 PT · +26% Upside</div><div class="iv">35 Buy / 7 Hold / 0 Sell across 42 analysts. Foundry $1M+ quarterly customers +80% QoQ. OpenAI's "provider of scale" — deepest AI infrastructure lock-in in enterprise computing.</div></div>
-      <div class="ic ic-b"><div class="ik">Copilot ARPU · Dynamics +18%</div><div class="iv">M365 commercial cloud +17% YoY. E5 and M365 Copilot Chat driving ARPU growth. Dynamics 365 +18% across all workloads. Commercial ex-OpenAI RPO still growing 28% YoY.</div></div>
-      <div class="ic ic-a"><div class="ik">OpenAI Concentration ~45% RPO</div><div class="iv">~45% of $625B commercial RPO tied to OpenAI. CFO Amy Hood explicitly flagged quarterly booking and RPO volatility from this. Single-entity dependency is a key risk to monitor.</div></div>
-      <div class="ic ic-p"><div class="ik">Beta 0.9 — Safest Overnight Hold</div><div class="iv">Lowest intraday/overnight risk of the three picks. OS + M365 + Azure + Copilot compounding flywheel. RSI I 26.0 deep oversold — wait for VWAP reclaim before full-size entry.</div></div>
-    </div>
-    <div class="tr2">
-      <span class="tg tg-b">Azure 39% growth</span><span class="tg tg-b">$625B RPO backlog</span><span class="tg tg-b">Deep oversold intraday</span><span class="tg tg-b">BB lower band setup</span><span class="tg tg-b">Beta 0.9 lowest risk</span><span class="tg tg-r">OpenAI concentration</span><span class="tg tg-r">Below VWAP intraday</span><span class="tg tg-n">Earnings Apr 30</span>
-    </div>
-    <div class="thesis">MSFT offers the highest-quality fundamental backdrop in today's session: Azure 39% YoY growth, $625B commercial RPO, and $74B FCF. Daily RSI at 41.1 sits in the recovery zone with MACD bullishly expanding, and BB position at 0.20 places price near the lower Bollinger band — a classic mean-reversion setup at institutional support. RSI intraday at 26.0 is deeply oversold, though price remains below VWAP; wait for intraday stabilisation before full-size entry. Beta 0.9 makes this the safest overnight hold of all three picks and the most suitable add for existing AI cloud exposure.</div>
-  </div>
-</div>
-
-</div><!-- /va -->
-
-<!-- SETUP ONLY -->
-<div id="vs" style="display:none">
-  <div class="card" style="border-top:4px solid #378ADD"><div class="cb">
-    <div class="ch"><div><div class="pl">Pick 1 · Highest Conviction</div><div class="tk">GOOGL <span style="font-size:17px;font-weight:400;color:var(--text2)">$307.69</span></div></div><div class="cw"><div class="cnum">70</div><div class="clbl">conviction</div></div></div>
-    <div class="cout"><canvas class="cv" id="s0" height="250"></canvas></div>
-    <div class="lg"><div class="lc"><div class="ll">Entry</div><div class="lp">$307.69</div></div><div class="lc"><div class="ll">Stop</div><div class="lp" style="color:var(--bear)">$297.24</div><div class="lpct" style="color:var(--bear)">−3.40%</div></div><div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:var(--bull)">$321.62</div><div class="lpct" style="color:var(--bull)">+4.53%</div></div><div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:var(--bull)">$332.07</div><div class="lpct" style="color:var(--bull)">+7.92%</div></div></div>
-    <div class="sr"><span class="sc">ATR $6.97</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 50.6</span><span class="sc">RSI I 57.8</span><span class="sc">MACD Bull · Expanding</span><span class="sc">Above VWAP</span><span class="sc">EMA9 &gt; EMA21</span><span class="sc">Tech 13/20</span></div>
-  </div></div>
-  <div class="card" style="border-top:4px solid #1D9E75"><div class="cb">
-    <div class="ch"><div><div class="pl">Pick 2 · Top Composite Score</div><div class="tk">CRM <span style="font-size:17px;font-weight:400;color:var(--text2)">$194.34</span></div></div><div class="cw"><div class="cnum">71</div><div class="clbl">conviction</div></div></div>
-    <div class="cout"><canvas class="cv" id="s1" height="250"></canvas></div>
-    <div class="lg"><div class="lc"><div class="ll">Entry</div><div class="lp">$194.34</div></div><div class="lc"><div class="ll">Stop</div><div class="lp" style="color:var(--bear)">$182.72</div><div class="lpct" style="color:var(--bear)">−5.98%</div></div><div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:var(--bull)">$209.83</div><div class="lpct" style="color:var(--bull)">+7.97%</div></div><div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:var(--bull)">$221.45</div><div class="lpct" style="color:var(--bull)">+13.95%</div></div></div>
-    <div class="sr"><span class="sc">ATR $7.75</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 44.9</span><span class="sc">RSI I 32.4 — Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Lower Band</span><span class="sc">Tech 12/20</span></div>
-  </div></div>
-  <div class="card" style="border-top:4px solid #BA7517"><div class="cb">
-    <div class="ch"><div><div class="pl">Pick 3 · Good Conviction</div><div class="tk">MSFT <span style="font-size:17px;font-weight:400;color:var(--text2)">$391.79</span></div></div><div class="cw"><div class="cnum">66</div><div class="clbl">conviction</div></div></div>
-    <div class="cout"><canvas class="cv" id="s2" height="250"></canvas></div>
-    <div class="lg"><div class="lc"><div class="ll">Entry</div><div class="lp">$391.79</div></div><div class="lc"><div class="ll">Stop</div><div class="lp" style="color:var(--bear)">$379.34</div><div class="lpct" style="color:var(--bear)">−3.18%</div></div><div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:var(--bull)">$408.38</div><div class="lpct" style="color:var(--bull)">+4.23%</div></div><div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:var(--bull)">$420.83</div><div class="lpct" style="color:var(--bull)">+7.41%</div></div></div>
-    <div class="sr"><span class="sc">ATR $8.30</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 41.1</span><span class="sc">RSI I 26.0 — Deep Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Pos 0.20</span><span class="sc">Wait VWAP reclaim</span></div>
-  </div></div>
-</div><!-- /vs -->
-
-<!-- INTELLIGENCE -->
-<div id="vi" style="display:none">
-  <div class="card"><div class="cb">
-    <div class="id">GOOGL — Alphabet Inc. · Communication Services</div>
-    <div class="ig">
-      <div class="ic ic-g"><div class="ik">Cloud 48% YoY · $240B Backlog</div><div class="iv">Operating income +154% YoY in Q4 2025. Wiz $32B closed. BMO Q1 2026 Cloud estimate raised to 40%. Google Cloud transformed into a high-margin, cash-generating growth engine with structural enterprise moat.</div></div>
-      <div class="ic ic-b"><div class="ik">Strong Buy · 0 Sell Ratings · $376 PT</div><div class="iv">32 Buy / 6 Hold / 0 Sell across 38 analysts (TipRanks). +22% upside. Only Magnificent 7 name with unanimous buy/hold consensus. BMO named GOOGL its Top Pick for 2026.</div></div>
-      <div class="ic ic-b"><div class="ik">Apple Gemini · 750M MAUs</div><div class="iv">Gemini models to power iPhone AI features — new consumer monetisation at scale. 750M monthly active users. Gemini 3 considered leading AI model post-GTC 2026. Search monetisation secured.</div></div>
-      <div class="ic ic-a"><div class="ik">DOJ Antitrust — Appeal In Progress</div><div class="iv">DOJ/states appealing Sept 2025 remedy ruling. Adtech remedies phase (AdX divestiture). No criminal probe. Courts firmly rejected Chrome/Android structural breakup. Appeal could run 2–3 years.</div></div>
-      <div class="ic ic-a"><div class="ik">$140–185B CapEx Ramp 2026</div><div class="iv">Significant increase from $91B TTM. Near-term FCF compression risk acknowledged. $38.1B current FCF provides buffer. Consensus frames this as long-term AI infrastructure investment.</div></div>
-      <div class="ic ic-p"><div class="ik">Cheapest Mag7 · Waymo Optionality</div><div class="iv">22.9× fwd P/E despite 18% revenue growth. Waymo autonomous driving and AI infrastructure are unmodelled long-term options. Best risk-adjusted valuation in entire Magnificent 7 universe.</div></div>
-    </div>
-  </div></div>
-  <div class="card"><div class="cb">
-    <div class="id">CRM — Salesforce, Inc. · Enterprise Software</div>
-    <div class="ig">
-      <div class="ic ic-g"><div class="ik">Agentforce ARR $800M · +169% YoY</div><div class="iv">29,000 deals (+50% QoQ). Combined Agentforce + Data Cloud ARR $1.8B. $72.4B total RPO +14%. 19 trillion tokens processed. Q4 FY26 fastest revenue growth rate in 2 years at +12% YoY.</div></div>
-      <div class="ic ic-g"><div class="ik">$50B Buyback · US Army Contract</div><div class="iv">Board-approved $50B buyback — "these are low prices." $4.2B returned Q4. Dividend +5.8% to $0.44. Active US Army enterprise Agentforce deployment. Anthropic stake: $811M gain in Q4.</div></div>
-      <div class="ic ic-b"><div class="ik">Strong Buy · $268 PT · +38%</div><div class="iv">28B / 7H / 1S (TipRanks). BTIG $335: "pricing in CRM's demise" — fundamentally disconnected. Morgan Stanley Buy $287. Broad buy conviction intact across 36 covering analysts.</div></div>
-      <div class="ic ic-b"><div class="ik">$72B RPO · 77.7% Gross Margin</div><div class="iv">Total RPO +14% YoY — 18+ months contracted revenue. 60%+ Agentforce bookings from existing base. $16.4B FCF. 34.1% non-GAAP op margin. Platform stickiness is deeply structural.</div></div>
-      <div class="ic ic-a"><div class="ik">SaaS → Usage Transition Risk</div><div class="iv">Seat-based → usage/outcome Agentforce pricing creates near-term revenue recognition complexity. FY27 guidance $45.8–46.2B slightly missed consensus. Stock −28% YTD from multiple compression.</div></div>
-      <div class="ic ic-p"><div class="ik">13× Fwd P/E · 3-Year Valuation Floor</div><div class="iv">Historical avg ~25×. 13× reflects maximum fear, not business reality. $72B RPO + 77.7% gross margin + $50B buyback mandate creates highly asymmetric reward/risk at current levels.</div></div>
-    </div>
-  </div></div>
-  <div class="card"><div class="cb">
-    <div class="id">MSFT — Microsoft Corporation · Technology</div>
-    <div class="ig">
-      <div class="ic ic-g"><div class="ik">Azure 39% · $625B Commercial RPO</div><div class="iv">Intelligent Cloud $32.9B (+29%). $625B commercial RPO +110% YoY. Includes $250B OpenAI Azure multi-year commitment. Q3 FY26 Azure guide 37–38%. Demand exceeds supply in every region.</div></div>
-      <div class="ic ic-g"><div class="ik">$12.7B Buybacks Q2 · FCF $74B</div><div class="iv">+32% YoY capital return. Q1 returned $10.7B. FCF $74B unmatched allocation capacity. M365 90M+ consumer subscribers. 230% commercial bookings growth Q2 including OpenAI contracts.</div></div>
-      <div class="ic ic-b"><div class="ik">Strong Buy · ~$495 PT · +26%</div><div class="iv">35B / 7H / 0S. Foundry $1M+ customers +80% QoQ. OpenAI "provider of scale." Seeking Alpha $595 target. Enterprise AI platform lock-in deepest in industry with zero sell ratings.</div></div>
-      <div class="ic ic-b"><div class="ik">Copilot ARPU · Dynamics +18%</div><div class="iv">M365 commercial cloud +17% YoY. E5 and Copilot Chat driving ARPU growth. Dynamics 365 +18% across all workloads. Commercial RPO ex-OpenAI growing 28% — broad base demand confirmed.</div></div>
-      <div class="ic ic-a"><div class="ik">OpenAI Concentration ~45% RPO</div><div class="iv">~45% of $625B commercial RPO tied to OpenAI. CFO Amy Hood explicitly flagged quarterly volatility from concentration on earnings call. Single-entity dependency is a key risk to monitor.</div></div>
-      <div class="ic ic-p"><div class="ik">Beta 0.9 — Platform Flywheel Moat</div><div class="iv">Lowest overnight risk of the three picks. OS + M365 + Azure + Copilot + Teams compound flywheel. RSI I 26.0 deep oversold — wait for VWAP reclaim before full position. Defensive quality at compressed valuation.</div></div>
-    </div>
-  </div></div>
-</div><!-- /vi -->
-
-<!-- MARKET STRIP -->
-<div class="ms">
-  <div class="st" style="margin-bottom:14px">Market Context · Mar 19, 2026</div>
-  <div class="mkg">
-    <div><div class="mk">Market Bias</div><div class="mv">Cautiously Bullish</div></div>
-    <div><div class="mk">Sectors Leading</div><div class="mv">Tech · AI Cloud · Comm Services</div></div>
-    <div><div class="mk">Sectors to Avoid</div><div class="mv">Healthcare (DOJ) · Energy (overbought)</div></div>
-    <div><div class="mk">FOMC Risk (5 days)</div><div class="mv">None</div></div>
-    <div><div class="mk">Nearest Earnings</div><div class="mv">GOOGL Apr 23 · MSFT Apr 30 · CRM May</div></div>
-    <div><div class="mk">Pipeline Scanned</div><div class="mv">Top 50 S&amp;P 500 by Market Cap</div></div>
-    <div><div class="mk">Data Sources</div><div class="mv">yfinance · TipRanks · Co IR · Bloomberg</div></div>
-    <div><div class="mk">Auto-Removed</div><div class="mv">UNH (active DOJ criminal probe)</div></div>
-  </div>
-</div>
-
-<div class="foot">Not financial advice &middot; DYOR &middot; Stops 1.5&times; ATR &middot; Targets 2&times; / 3.5&times; ATR &middot; @daytrader_360</div>
-
-</div><!-- /page -->
 
 <script>
-const DATA={"GOOGL":[{"t":"2026-02-19 08:00","o":301.82,"h":305.47,"l":300.04,"c":303.96},{"t":"2026-02-19 12:00","o":303.91,"h":305.01,"l":302.21,"c":302.86},{"t":"2026-02-20 08:00","o":304.1,"h":316.5,"l":303.9,"c":314.01},{"t":"2026-02-20 12:00","o":314.05,"h":316.39,"l":313.79,"c":315.0},{"t":"2026-02-23 08:00","o":319.09,"h":319.38,"l":311.76,"c":313.84},{"t":"2026-02-23 12:00","o":313.86,"h":314.9,"l":309.86,"c":311.51},{"t":"2026-02-24 08:00","o":310.48,"h":311.9,"l":305.95,"c":311.85},{"t":"2026-02-24 12:00","o":311.84,"h":312.27,"l":309.55,"c":310.88},{"t":"2026-02-25 08:00","o":311.99,"h":313.64,"l":309.44,"c":310.6},{"t":"2026-02-25 12:00","o":310.6,"h":313.26,"l":310.0,"c":313.0},{"t":"2026-02-26 08:00","o":312.64,"h":313.14,"l":302.35,"c":305.5},{"t":"2026-02-26 12:00","o":305.46,"h":308.43,"l":304.7,"c":307.44},{"t":"2026-02-27 08:00","o":304.2,"h":309.88,"l":303.8,"c":307.91},{"t":"2026-02-27 12:00","o":307.98,"h":312.37,"l":305.56,"c":311.61},{"t":"2026-03-02 08:00","o":303.13,"h":308.09,"l":301.3,"c":307.9},{"t":"2026-03-02 12:00","o":307.85,"h":308.49,"l":305.0,"c":306.26},{"t":"2026-03-03 08:00","o":298.59,"h":302.08,"l":296.71,"c":301.36},{"t":"2026-03-03 12:00","o":301.36,"h":303.94,"l":300.11,"c":303.54},{"t":"2026-03-04 08:00","o":302.89,"h":305.46,"l":300.75,"c":303.76},{"t":"2026-03-04 12:00","o":303.77,"h":304.31,"l":302.03,"c":303.03},{"t":"2026-03-05 08:00","o":303.01,"h":303.27,"l":298.31,"c":298.6},{"t":"2026-03-05 12:00","o":298.67,"h":301.25,"l":297.99,"c":300.8},{"t":"2026-03-06 08:00","o":296.11,"h":300.53,"l":295.18,"c":299.21},{"t":"2026-03-06 12:00","o":299.2,"h":300.04,"l":297.61,"c":298.48},{"t":"2026-03-09 09:00","o":294.36,"h":301.98,"l":294.1,"c":300.8},{"t":"2026-03-09 13:00","o":300.8,"h":306.8,"l":300.67,"c":306.37},{"t":"2026-03-10 09:00","o":306.84,"h":309.5,"l":305.57,"c":308.94},{"t":"2026-03-10 13:00","o":308.95,"h":309.32,"l":306.42,"c":307.04},{"t":"2026-03-11 09:00","o":306.54,"h":311.42,"l":305.92,"c":309.3},{"t":"2026-03-11 13:00","o":309.32,"h":309.42,"l":307.45,"c":308.71},{"t":"2026-03-12 09:00","o":306.85,"h":308.94,"l":301.04,"c":303.81},{"t":"2026-03-12 13:00","o":303.82,"h":305.09,"l":302.97,"c":303.51},{"t":"2026-03-13 09:00","o":307.18,"h":307.61,"l":300.61,"c":301.9},{"t":"2026-03-13 13:00","o":301.93,"h":302.62,"l":300.44,"c":302.22},{"t":"2026-03-16 09:00","o":304.35,"h":306.49,"l":303.02,"c":304.81},{"t":"2026-03-16 13:00","o":304.83,"h":306.35,"l":304.6,"c":305.57},{"t":"2026-03-17 09:00","o":305.99,"h":308.75,"l":305.51,"c":307.79},{"t":"2026-03-17 13:00","o":307.77,"h":311.42,"l":307.19,"c":310.85},{"t":"2026-03-18 09:00","o":309.31,"h":312.47,"l":308.65,"c":308.9},{"t":"2026-03-18 13:00","o":308.92,"h":309.9,"l":306.93,"c":307.73}],"CRM":[{"t":"2026-02-19 08:00","o":186.6,"h":186.95,"l":183.23,"c":185.61},{"t":"2026-02-19 12:00","o":185.61,"h":185.86,"l":184.86,"c":185.3},{"t":"2026-02-20 08:00","o":185.32,"h":191.73,"l":184.34,"c":186.84},{"t":"2026-02-20 12:00","o":186.84,"h":187.29,"l":183.73,"c":185.21},{"t":"2026-02-23 08:00","o":181.27,"h":182.47,"l":174.57,"c":175.12},{"t":"2026-02-23 12:00","o":175.15,"h":178.43,"l":174.74,"c":178.2},{"t":"2026-02-24 08:00","o":177.64,"h":188.67,"l":176.28,"c":185.4},{"t":"2026-02-24 12:00","o":185.44,"h":187.57,"l":184.44,"c":185.46},{"t":"2026-02-25 08:00","o":183.0,"h":191.26,"l":182.26,"c":189.55},{"t":"2026-02-25 12:00","o":189.51,"h":192.6,"l":189.46,"c":191.94},{"t":"2026-02-26 08:00","o":196.76,"h":199.84,"l":191.33,"c":196.74},{"t":"2026-02-26 12:00","o":196.74,"h":201.04,"l":195.5,"c":199.46},{"t":"2026-02-27 08:00","o":191.91,"h":194.16,"l":189.92,"c":194.04},{"t":"2026-02-27 12:00","o":194.09,"h":195.92,"l":192.94,"c":194.79},{"t":"2026-03-02 08:00","o":192.5,"h":195.94,"l":190.68,"c":191.46},{"t":"2026-03-02 12:00","o":191.45,"h":193.82,"l":191.36,"c":192.92},{"t":"2026-03-03 08:00","o":190.75,"h":196.17,"l":189.58,"c":195.25},{"t":"2026-03-03 12:00","o":195.22,"h":198.67,"l":194.62,"c":196.06},{"t":"2026-03-04 08:00","o":195.1,"h":196.47,"l":192.1,"c":195.38},{"t":"2026-03-04 12:00","o":195.39,"h":196.08,"l":192.88,"c":193.06},{"t":"2026-03-05 08:00","o":194.36,"h":204.42,"l":194.24,"c":203.15},{"t":"2026-03-05 12:00","o":203.18,"h":203.58,"l":200.9,"c":201.37},{"t":"2026-03-06 08:00","o":200.79,"h":202.96,"l":197.37,"c":201.04},{"t":"2026-03-06 12:00","o":201.11,"h":202.27,"l":199.11,"c":202.09},{"t":"2026-03-09 09:00","o":198.56,"h":203.67,"l":197.05,"c":197.18},{"t":"2026-03-09 13:00","o":197.13,"h":200.12,"l":195.87,"c":198.68},{"t":"2026-03-10 09:00","o":197.26,"h":199.57,"l":190.6,"c":196.93},{"t":"2026-03-10 13:00","o":196.9,"h":196.96,"l":193.96,"c":194.9},{"t":"2026-03-11 09:00","o":196.4,"h":199.55,"l":191.54,"c":192.38},{"t":"2026-03-11 13:00","o":192.45,"h":194.11,"l":191.29,"c":194.08},{"t":"2026-03-12 09:00","o":194.13,"h":204.85,"l":193.15,"c":199.98},{"t":"2026-03-12 13:00","o":199.98,"h":200.69,"l":197.5,"c":199.24},{"t":"2026-03-13 09:00","o":199.73,"h":201.0,"l":192.02,"c":193.44},{"t":"2026-03-13 13:00","o":193.5,"h":193.81,"l":191.75,"c":192.8},{"t":"2026-03-16 09:00","o":195.15,"h":198.63,"l":195.15,"c":197.86},{"t":"2026-03-16 13:00","o":197.87,"h":198.62,"l":196.56,"c":198.18},{"t":"2026-03-17 09:00","o":198.22,"h":202.38,"l":196.0,"c":196.82},{"t":"2026-03-17 13:00","o":196.84,"h":196.94,"l":194.45,"c":195.31},{"t":"2026-03-18 09:00","o":193.4,"h":196.15,"l":192.64,"c":194.82},{"t":"2026-03-18 13:00","o":194.78,"h":195.67,"l":193.86,"c":194.34}],"MSFT":[{"t":"2026-02-19 08:00","o":400.69,"h":404.43,"l":397.88,"c":399.07},{"t":"2026-02-19 12:00","o":399.08,"h":399.33,"l":396.67,"c":398.41},{"t":"2026-02-20 08:00","o":396.15,"h":400.12,"l":395.16,"c":396.86},{"t":"2026-02-20 12:00","o":396.88,"h":399.01,"l":396.21,"c":397.25},{"t":"2026-02-23 08:00","o":395.19,"h":395.31,"l":385.1,"c":386.44},{"t":"2026-02-23 12:00","o":386.43,"h":387.98,"l":383.1,"c":384.52},{"t":"2026-02-24 08:00","o":384.14,"h":389.36,"l":381.74,"c":386.45},{"t":"2026-02-24 12:00","o":386.42,"h":389.23,"l":385.99,"c":389.0},{"t":"2026-02-25 08:00","o":390.24,"h":400.25,"l":390.2,"c":397.33},{"t":"2026-02-25 12:00","o":397.36,"h":401.47,"l":397.05,"c":400.49},{"t":"2026-02-26 08:00","o":404.64,"h":407.49,"l":398.74,"c":400.9},{"t":"2026-02-26 12:00","o":400.89,"h":402.9,"l":399.08,"c":401.81},{"t":"2026-02-27 08:00","o":390.99,"h":396.8,"l":390.0,"c":394.84},{"t":"2026-02-27 12:00","o":394.84,"h":395.43,"l":390.15,"c":392.68},{"t":"2026-03-02 08:00","o":392.76,"h":401.19,"l":390.63,"c":400.2},{"t":"2026-03-02 12:00","o":400.2,"h":400.79,"l":396.62,"c":398.37},{"t":"2026-03-03 08:00","o":393.14,"h":402.33,"l":392.68,"c":401.92},{"t":"2026-03-03 12:00","o":401.92,"h":406.7,"l":400.65,"c":403.78},{"t":"2026-03-04 08:00","o":401.16,"h":408.96,"l":400.31,"c":407.27},{"t":"2026-03-04 12:00","o":407.31,"h":411.03,"l":405.0,"c":405.0},{"t":"2026-03-05 08:00","o":404.43,"h":411.61,"l":404.4,"c":409.29},{"t":"2026-03-05 12:00","o":409.29,"h":411.31,"l":407.6,"c":410.72},{"t":"2026-03-06 08:00","o":409.3,"h":413.05,"l":408.95,"c":410.69},{"t":"2026-03-06 12:00","o":410.71,"h":411.58,"l":408.51,"c":408.62},{"t":"2026-03-09 09:00","o":404.92,"h":409.17,"l":403.5,"c":405.17},{"t":"2026-03-09 13:00","o":405.13,"h":410.21,"l":404.4,"c":409.45},{"t":"2026-03-10 09:00","o":410.03,"h":410.2,"l":402.94,"c":406.38},{"t":"2026-03-10 13:00","o":406.36,"h":406.37,"l":403.88,"c":405.76},{"t":"2026-03-11 09:00","o":405.84,"h":409.01,"l":401.59,"c":404.25},{"t":"2026-03-11 13:00","o":404.24,"h":405.15,"l":402.08,"c":404.82},{"t":"2026-03-12 09:00","o":404.84,"h":406.12,"l":401.82,"c":404.32},{"t":"2026-03-12 13:00","o":404.35,"h":404.85,"l":401.71,"c":401.89},{"t":"2026-03-13 09:00","o":400.72,"h":404.8,"l":394.9,"c":396.59},{"t":"2026-03-13 13:00","o":396.55,"h":397.38,"l":394.25,"c":395.61},{"t":"2026-03-16 09:00","o":397.95,"h":399.61,"l":394.79,"c":398.82},{"t":"2026-03-16 13:00","o":398.82,"h":400.63,"l":397.67,"c":399.96},{"t":"2026-03-17 09:00","o":400.14,"h":404.4,"l":397.74,"c":399.81},{"t":"2026-03-17 13:00","o":399.82,"h":399.96,"l":398.46,"c":399.5},{"t":"2026-03-18 09:00","o":397.05,"h":398.0,"l":392.43,"c":392.74},{"t":"2026-03-18 13:00","o":392.76,"h":395.0,"l":391.0,"c":391.67}]};
+// ── ACCENT COLORS ────────────────────────────────
+const ACCENTS = ['#2a7dd4','#169b5e','#a86512'];
 
-const PICKS=[
-  {tk:'GOOGL',entry:307.69,stop:297.24,t1:321.62,t2:332.07,color:'#378ADD'},
-  {tk:'CRM',  entry:194.34,stop:182.72,t1:209.83,t2:221.45,color:'#1D9E75'},
-  {tk:'MSFT', entry:391.79,stop:379.34,t1:408.38,t2:420.83,color:'#BA7517'}
-];
+// ── CONVICTION LABEL ─────────────────────────────
+function convLabel(rank){
+  return ['Highest Conviction','Top Composite Score','Good Conviction'][rank-1] || '';
+}
 
-function drawChart(id,tk,pick){
-  const canvas=document.getElementById(id);
-  if(!canvas)return;
-  const candles=DATA[tk];
-  if(!candles||!candles.length)return;
-  const dark=document.documentElement.getAttribute('data-theme')==='dark';
-  const dpr=window.devicePixelRatio||1;
-  const W=canvas.parentElement.clientWidth||700;
-  const H=canvas.getAttribute('height')||270;
-  canvas.width=W*dpr; canvas.height=H*dpr;
+// ── ESCAPE HTML ──────────────────────────────────
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') }
+
+// ── BUILD CARD HTML ──────────────────────────────
+function buildCard(p, mode='all'){
+  const acc = ACCENTS[p.rank-1];
+  const a   = p.analyst || {};
+  const m   = p.meta    || {};
+
+  const levelBlock = `
+    <div class="levels">
+      <div class="level"><div class="lv-lbl">Entry</div><div class="lv-price">$${p.price}</div><div class="lv-pct" style="color:var(--txt3)">market price</div></div>
+      <div class="level"><div class="lv-lbl">Stop Loss</div><div class="lv-price" style="color:var(--bear)">$${p.stop}</div><div class="lv-pct" style="color:var(--bear)">${pct(p.stop, p.price)}</div></div>
+      <div class="level"><div class="lv-lbl">Target 1</div><div class="lv-price" style="color:var(--bull)">$${p.t1}</div><div class="lv-pct" style="color:var(--bull)">+${pct(p.t1, p.price, true)}</div></div>
+      <div class="level"><div class="lv-lbl">Target 2</div><div class="lv-price" style="color:var(--bull)">$${p.t2}</div><div class="lv-pct" style="color:var(--bull)">+${pct(p.t2, p.price, true)}</div></div>
+    </div>`;
+
+  const signalBlock = `<div class="signals">${(p.signals||[]).map(s=>`<span class="sig">${esc(s)}</span>`).join('')}</div>`;
+
+  const chartBlock = `<div class="chart-wrap" id="cw-${p.ticker}-${mode}"><canvas class="cv" id="cv-${p.ticker}-${mode}" height="280"></canvas></div>`;
+
+  if(mode==='setup') return `
+    <div class="card" style="border-top:4px solid ${acc}">
+      <div class="body">
+        <div class="card-hdr">
+          <div><div class="pick-lbl">Pick ${p.rank} · ${convLabel(p.rank)}</div>
+            <div class="ticker">${p.ticker} <span style="font-size:17px;font-weight:400;color:var(--txt2)">$${p.price}</span></div>
+          </div>
+          <div class="conv-wrap"><div class="conv-num">${p.conviction}</div><div class="conv-lbl">conviction</div></div>
+        </div>
+        ${chartBlock}${levelBlock}${signalBlock}
+      </div>
+    </div>`;
+
+  const barsBlock = `
+    <div class="s-title">Conviction Breakdown</div>
+    <div class="bars">
+      <div class="bar-item"><div class="bar-hdr"><span class="bar-nm">Technical (${p.score}/20)</span><span class="bar-vl">${(p.conv_bars||{}).technical||0}/40</span></div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(((p.conv_bars||{}).technical||0)/40*100)}%;background:${acc}"></div></div></div>
+      <div class="bar-item"><div class="bar-hdr"><span class="bar-nm">Analyst Consensus</span><span class="bar-vl">${(p.conv_bars||{}).analyst||0}/30</span></div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(((p.conv_bars||{}).analyst||0)/30*100)}%;background:${acc}"></div></div></div>
+      <div class="bar-item"><div class="bar-hdr"><span class="bar-nm">PT Upside (+${a.upside||0}%)</span><span class="bar-vl">${(p.conv_bars||{}).pt_upside||0}/15</span></div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(((p.conv_bars||{}).pt_upside||0)/15*100)}%;background:${acc}"></div></div></div>
+      <div class="bar-item"><div class="bar-hdr"><span class="bar-nm">Non-conventional Intel</span><span class="bar-vl">${(p.conv_bars||{}).non_conv||0}/15</span></div><div class="bar-track"><div class="bar-fill" style="width:${Math.round(((p.conv_bars||{}).non_conv||0)/15*100)}%;background:${acc}"></div></div></div>
+    </div>`;
+
+  const intelBlock = `
+    <div class="s-title">Intelligence Grid</div>
+    <div class="intel">
+      ${(p.intel||[]).map(c=>`<div class="intel-cell ic-${c.type}"><div class="ic-title">${esc(c.title)}</div><div class="ic-body">${esc(c.body)}</div></div>`).join('')}
+    </div>`;
+
+  const tagsBlock = `
+    <div class="tag-row">
+      ${(p.tags_bull||[]).filter(Boolean).map(t=>`<span class="tag tag-b">${esc(t)}</span>`).join('')}
+      ${(p.tags_risk||[]).filter(Boolean).map(t=>`<span class="tag tag-r">${esc(t)}</span>`).join('')}
+      ${(p.tags_neutral||[]).filter(Boolean).map(t=>`<span class="tag tag-n">${esc(t)}</span>`).join('')}
+    </div>`;
+
+  const metaChips = `
+    <div class="meta-row">
+      <span class="chip">$${p.price}</span>
+      <span class="chip">Cap ${m.market_cap||'N/A'}</span>
+      <span class="chip">Fwd P/E ${m.fwd_pe||'N/A'}×</span>
+      <span class="chip">FCF ${m.fcf||'N/A'}</span>
+      <span class="chip">Beta ${m.beta||'N/A'}</span>
+      <span class="chip">Rev ${m.rev_growth||'N/A'} YoY</span>
+      <span class="chip">GM ${m.gross_margin||'N/A'}</span>
+      <span class="chip">52W Hi ${m.hi52_pct||'N/A'}</span>
+    </div>`;
+
+  return `
+    <div class="card">
+      <div class="accent" style="background:${acc}"></div>
+      <div class="body">
+        <div class="card-hdr">
+          <div>
+            <div class="pick-lbl">Pick ${p.rank} of 3 · ${convLabel(p.rank)}</div>
+            <div class="ticker">${p.ticker}</div>
+            <div class="coname">${esc(p.company)} · ${esc(p.sector)}</div>
+          </div>
+          <div class="conv-wrap"><div class="conv-num">${p.conviction}</div><div class="conv-lbl">conviction</div></div>
+        </div>
+        ${metaChips}
+        ${chartBlock}
+        ${levelBlock}
+        ${signalBlock}
+        ${barsBlock}
+        ${intelBlock}
+        ${tagsBlock}
+        <div class="thesis">${esc(p.thesis||'')}</div>
+      </div>
+    </div>`;
+}
+
+// ── MARKET STRIP ─────────────────────────────────
+function buildMkt(ctx){
+  const items = [
+    ['Market Bias',     ctx.bias],
+    ['Sectors Leading', ctx.sectors_lead],
+    ['Avoid',           ctx.sectors_avoid],
+    ['FOMC Risk',       ctx.fomc_risk],
+    ['Pipeline',        ctx.pipeline],
+    ['Sources',         ctx.sources],
+  ];
+  return `<div class="s-title" style="margin-bottom:14px">Market Context</div>
+    <div class="mkt-grid">${items.map(([k,v])=>`<div><div class="mkt-k">${k}</div><div class="mkt-v">${esc(v||'')}</div></div>`).join('')}</div>`;
+}
+
+// ── INTELLIGENCE VIEW ─────────────────────────────
+function buildIntel(picks){
+  return picks.map(p=>`
+    <div class="card"><div class="body">
+      <div class="i-div">${p.ticker} — ${esc(p.company)}</div>
+      <div class="intel">${(p.intel||[]).map(c=>`<div class="intel-cell ic-${c.type}"><div class="ic-title">${esc(c.title)}</div><div class="ic-body">${esc(c.body)}</div></div>`).join('')}</div>
+    </div></div>`).join('');
+}
+
+// ── CHART RENDERER ───────────────────────────────
+function drawChart(canvasId, candles, pick, accentColor){
+  const canvas = document.getElementById(canvasId);
+  if(!canvas || !candles || !candles.length) return;
+
+  const dark = document.documentElement.getAttribute('data-theme')==='dark';
+  const dpr  = window.devicePixelRatio || 1;
+  const W    = canvas.parentElement.clientWidth || 700;
+  const H    = parseInt(canvas.getAttribute('height')) || 280;
+  canvas.width  = W*dpr; canvas.height = H*dpr;
   canvas.style.width=W+'px'; canvas.style.height=H+'px';
-  const ctx=canvas.getContext('2d');
+
+  const ctx = canvas.getContext('2d');
   ctx.scale(dpr,dpr);
-  const PAD={top:16,right:60,bottom:28,left:10};
-  const cw=W-PAD.left-PAD.right;
-  const ch=H-PAD.top-PAD.bottom;
-  let lo=Math.min(...candles.map(c=>c.l),pick.stop*0.997);
-  let hi=Math.max(...candles.map(c=>c.h),pick.t2*1.003);
-  const pad2=(hi-lo)*0.07; lo-=pad2; hi+=pad2;
+
+  const P = {top:16,right:62,bottom:28,left:8};
+  const cw=W-P.left-P.right, ch=H-P.top-P.bottom;
+
+  let lo=Math.min(...candles.map(c=>c.l), pick.stop*0.997);
+  let hi=Math.max(...candles.map(c=>c.h), pick.t2*1.003);
+  const pad=(hi-lo)*0.07; lo-=pad; hi+=pad;
   const rng=hi-lo;
-  const py=p=>PAD.top+ch*(1-(p-lo)/rng);
-  const n=candles.length;
-  const gap=cw/n;
-  const cw2=Math.max(2,gap*0.65);
-  const cx=i=>PAD.left+i*gap+gap/2;
-  const gc=dark?'rgba(255,255,255,0.04)':'rgba(0,0,0,0.04)';
-  const tc=dark?'rgba(255,255,255,0.3)':'rgba(0,0,0,0.3)';
-  const pc=dark?'rgba(255,255,255,0.15)':'rgba(0,0,0,0.15)';
-  const bullC=dark?'#22c47a':'#1a9e64';
-  const bearC=dark?'#f05252':'#d94040';
+  const py = v => P.top+ch*(1-(v-lo)/rng);
+  const n  = candles.length;
+  const gap= cw/n;
+  const cw2= Math.max(2,gap*.68);
+  const cx = i => P.left+i*gap+gap/2;
+
+  const gc = dark?'rgba(255,255,255,.04)':'rgba(0,0,0,.04)';
+  const tc = dark?'rgba(255,255,255,.28)':'rgba(0,0,0,.28)';
+  const pc = dark?'rgba(255,255,255,.13)':'rgba(0,0,0,.12)';
+  const bC = dark?'#1fc87a':'#158a52';
+  const rC = dark?'#f04f4f':'#c43535';
+
   ctx.clearRect(0,0,W,H);
-  // grid
+
+  // grid lines
   for(let i=0;i<=4;i++){
-    const y=PAD.top+ch*(i/4);
-    ctx.strokeStyle=gc; ctx.lineWidth=0.5;
-    ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(W-PAD.right,y); ctx.stroke();
+    const y=P.top+ch*(i/4);
+    ctx.strokeStyle=gc; ctx.lineWidth=.5;
+    ctx.beginPath(); ctx.moveTo(P.left,y); ctx.lineTo(W-P.right,y); ctx.stroke();
   }
-  // zones
-  const zx=cx(n-1)-cw2*0.5; const zw=W-PAD.right+12-zx;
-  ctx.fillStyle=dark?'rgba(34,196,122,0.1)':'rgba(26,158,100,0.09)';
-  ctx.fillRect(zx,py(pick.t2),zw,py(pick.entry)-py(pick.t2));
-  ctx.fillStyle=dark?'rgba(240,82,82,0.1)':'rgba(217,64,64,0.09)';
-  ctx.fillRect(zx,py(pick.entry),zw,py(pick.stop)-py(pick.entry));
+
+  // trade zones (shaded from last candle to right edge)
+  const zx=cx(n-1)-cw2*.5, zw=W-P.right+12-zx;
+  ctx.fillStyle=dark?'rgba(31,200,122,.09)':'rgba(21,138,82,.08)';
+  ctx.fillRect(zx, py(pick.t2), zw, py(pick.entry)-py(pick.t2));
+  ctx.fillStyle=dark?'rgba(240,79,79,.09)':'rgba(196,53,53,.08)';
+  ctx.fillRect(zx, py(pick.entry), zw, py(pick.stop)-py(pick.entry));
+
   // candles
   for(let i=0;i<n;i++){
-    const c=candles[i]; const x=cx(i); const bull=c.c>=c.o;
-    const col=bull?bullC:bearC;
-    const bT=py(Math.max(c.o,c.c)); const bB=py(Math.min(c.o,c.c));
-    const bH=Math.max(1,bB-bT);
+    const c=candles[i], x=cx(i), bull=c.c>=c.o, col=bull?bC:rC;
+    const bT=py(Math.max(c.o,c.c)), bB=py(Math.min(c.o,c.c)), bH=Math.max(1,bB-bT);
     ctx.strokeStyle=col; ctx.lineWidth=1;
     ctx.beginPath(); ctx.moveTo(x,py(c.h)); ctx.lineTo(x,py(c.l)); ctx.stroke();
     ctx.fillStyle=col; ctx.fillRect(x-cw2/2,bT,cw2,bH);
   }
-  // current price
+
+  // current price dotted
   const last=candles[n-1].c;
-  ctx.strokeStyle=pc; ctx.lineWidth=0.8; ctx.setLineDash([3,3]);
-  ctx.beginPath(); ctx.moveTo(PAD.left,py(last)); ctx.lineTo(W-PAD.right,py(last)); ctx.stroke();
+  ctx.strokeStyle=pc; ctx.lineWidth=.8; ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(P.left,py(last)); ctx.lineTo(W-P.right,py(last)); ctx.stroke();
   ctx.setLineDash([]);
-  // levels
-  function lvl(price,col,label,dashed){
+
+  // level lines + pill labels
+  function lvl(price, color, label, dashed){
     const y=py(price);
-    ctx.strokeStyle=col; ctx.lineWidth=1;
+    ctx.strokeStyle=color; ctx.lineWidth=1;
     ctx.setLineDash(dashed?[4,3]:[]);
-    ctx.beginPath(); ctx.moveTo(PAD.left,y); ctx.lineTo(W-PAD.right,y); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(P.left,y); ctx.lineTo(W-P.right,y); ctx.stroke();
     ctx.setLineDash([]);
-    const lx=W-PAD.right+2; const lw=PAD.right-4; const lh=15;
-    ctx.fillStyle=col;
+    const lx=W-P.right+2, lw=P.right-3, lh=15;
+    ctx.fillStyle=color;
     ctx.beginPath(); ctx.roundRect(lx,y-lh/2,lw,lh,3); ctx.fill();
-    ctx.fillStyle='#fff'; ctx.font='bold 8px sans-serif';
+    ctx.fillStyle='#fff'; ctx.font='bold 8.5px -apple-system,Arial,sans-serif';
     ctx.textAlign='center'; ctx.textBaseline='middle';
     ctx.fillText(label,lx+lw/2,y);
   }
-  lvl(pick.t2,'#22a870','T2',true);
-  lvl(pick.t1,'#1a9e64','T1',true);
-  lvl(pick.entry,pick.color,'ENTRY',false);
-  lvl(pick.stop,'#d94040','STOP',true);
-  // dates
-  ctx.fillStyle=tc; ctx.font='9px sans-serif';
+  lvl(pick.t2,  '#1fc87a','T2',  true);
+  lvl(pick.t1,  bC,       'T1',  true);
+  lvl(pick.entry, accentColor, 'ENTRY', false);
+  lvl(pick.stop,  rC,     'STOP', true);
+
+  // date axis
+  ctx.fillStyle=tc; ctx.font='9px -apple-system,Arial,sans-serif';
   ctx.textAlign='center'; ctx.textBaseline='top';
-  for(let i=0;i<n;i+=8) ctx.fillText(candles[i].t.slice(5,10),cx(i),H-PAD.bottom+4);
-  // ticker
-  ctx.fillStyle=tc; ctx.font='bold 11px sans-serif';
+  for(let i=0;i<n;i+=8) ctx.fillText(candles[i].t.slice(5,10),cx(i),H-P.bottom+4);
+
+  // ticker label
+  ctx.fillStyle=tc; ctx.font='bold 11px -apple-system,Arial,sans-serif';
   ctx.textAlign='left'; ctx.textBaseline='top';
-  ctx.fillText(tk+' · 4H',PAD.left+4,PAD.top+2);
+  ctx.fillText(candles[0]?.tk || '', P.left+4, P.top+2);
 }
 
+// ── DRAW ALL VISIBLE CANVASES ─────────────────────
+let DATA_CACHE = null;
 function drawAll(){
-  [['c0','GOOGL',0],['c1','CRM',1],['c2','MSFT',2],
-   ['s0','GOOGL',0],['s1','CRM',1],['s2','MSFT',2]]
-  .forEach(([id,tk,pi])=>{
-    const el=document.getElementById(id);
-    if(el&&el.parentElement&&el.parentElement.clientWidth>0) drawChart(id,tk,PICKS[pi]);
+  if(!DATA_CACHE) return;
+  DATA_CACHE.picks.forEach((p,i)=>{
+    const acc = ACCENTS[i];
+    const lvls= {entry:p.price,stop:p.stop,t1:p.t1,t2:p.t2};
+    ['all','setup'].forEach(mode=>{
+      const id = `cv-${p.ticker}-${mode}`;
+      const el = document.getElementById(id);
+      if(el && el.parentElement && el.parentElement.clientWidth > 0){
+        drawChart(id, p.candles, lvls, acc);
+      }
+    });
   });
 }
 
+// ── TABS ─────────────────────────────────────────
 function sv(v,el){
-  ['va','vs','vi'].forEach(id=>document.getElementById(id).style.display='none');
-  document.getElementById('v'+v[0]).style.display='block';
+  ['va','vs','vi'].forEach(id=>{ const e=document.getElementById(id); if(e) e.style.display='none'; });
+  const show=document.getElementById('v'+v[0]);
+  if(show) show.style.display='block';
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
-  if(el)el.classList.add('on');
+  if(el) el.classList.add('on');
   setTimeout(drawAll,80);
 }
 
-const SUN=`<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
-const MOON=`<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
-
+// ── THEME ─────────────────────────────────────────
+const SUN  = `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
+const MOON = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
 function toggleTheme(){
   const html=document.documentElement;
-  const isDark=html.getAttribute('data-theme')==='dark';
-  html.setAttribute('data-theme',isDark?'light':'dark');
-  document.getElementById('ti').innerHTML=isDark?SUN:MOON;
-  document.getElementById('tl').textContent=isDark?'Dark mode':'Light mode';
-  localStorage.setItem('dt360-theme',isDark?'light':'dark');
-  setTimeout(drawAll,60);
+  const dark=html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('ti').innerHTML=dark?SUN:MOON;
+  document.getElementById('tl').textContent=dark?'Dark mode':'Light mode';
+  localStorage.setItem('dt360-theme',dark?'light':'dark');
+  setTimeout(drawAll,50);
 }
 
+// ── PERCENTAGE HELPER ─────────────────────────────
+function pct(a, b, pos=false){
+  const v=((a-b)/b*100);
+  return (v>=0?'+':'')+v.toFixed(2)+'%';
+}
+
+// ── RENDER FROM DATA ──────────────────────────────
+function render(data){
+  DATA_CACHE = data;
+  document.getElementById('hdr-date').textContent =
+    (data.date||'') + ' · 4H · S&P 500 Top 50';
+
+  const picks = data.picks || [];
+
+  // All picks view
+  document.getElementById('va').innerHTML = picks.map(p=>buildCard(p,'all')).join('');
+
+  // Setup only view
+  document.getElementById('vs').innerHTML = picks.map(p=>buildCard(p,'setup')).join('');
+
+  // Intelligence view
+  document.getElementById('vi').innerHTML = buildIntel(picks);
+
+  // Market strip
+  document.getElementById('mkt-strip').innerHTML = buildMkt(data.market_context||{});
+
+  // Show app
+  document.getElementById('loading').style.display='none';
+  document.getElementById('app').style.display='block';
+
+  // Draw charts after layout
+  setTimeout(drawAll, 300);
+}
+
+// ── INIT ──────────────────────────────────────────
 (function init(){
+  // Theme persistence
   const saved=localStorage.getItem('dt360-theme');
   if(saved==='dark'){
     document.documentElement.setAttribute('data-theme','dark');
     document.getElementById('ti').innerHTML=MOON;
     document.getElementById('tl').textContent='Light mode';
   }
-  setTimeout(drawAll,350);
-  window.addEventListener('resize',()=>setTimeout(drawAll,120));
+
+  // Fetch data.json
+  fetch('data.json?v=' + Date.now())
+    .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(err=>{
+      document.getElementById('loading').innerHTML =
+        `<span>⚠</span>Could not load picks data.<br><small>${err}</small>`;
+    });
+
+  // Redraw on resize
+  window.addEventListener('resize',()=>setTimeout(drawAll,100));
 })();
 </script>
 </body>
