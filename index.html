@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@daytrader_360 · Mar 19, 2026</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#1a1a1a;min-height:100vh}
+.wrap{max-width:700px;margin:0 auto;padding:1rem}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#fff;border:0.5px solid #e0e0d8;border-radius:12px;margin-bottom:14px}
+.brand{font-size:16px;font-weight:600;color:#1a1a1a;letter-spacing:0.3px}
+.dtag{font-size:11px;color:#666;background:#f5f5f0;padding:4px 10px;border-radius:8px;border:0.5px solid #e0e0d8}
+.tabs{display:flex;gap:4px;margin-bottom:14px;flex-wrap:wrap}
+.tab{font-size:11px;padding:6px 14px;border-radius:8px;border:0.5px solid #e0e0d8;background:#f5f5f0;color:#666;cursor:pointer;transition:all 0.15s;user-select:none}
+.tab:hover{background:#ebebeb}
+.tab.on{background:#fff;color:#1a1a1a;border-color:#aaa;font-weight:500}
+.card{background:#fff;border:0.5px solid #e0e0d8;border-radius:12px;margin-bottom:20px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.accent{height:3px}
+.cbody{padding:16px}
+.ctop{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.plabel{font-size:10px;color:#999;text-transform:uppercase;letter-spacing:.7px;margin-bottom:3px}
+.ticker{font-size:22px;font-weight:600;color:#1a1a1a}
+.coname{font-size:12px;color:#888;margin-top:2px}
+.cbadge{text-align:right}
+.cnum{font-size:26px;font-weight:600;color:#1a1a1a}
+.clbl{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.5px}
+.mrow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.mc{font-size:10px;padding:2px 8px;border-radius:6px;background:#f5f5f0;color:#666;border:0.5px solid #e0e0d8}
+.chart-wrap{position:relative;height:210px;margin-bottom:14px;background:#fafaf8;border-radius:8px;overflow:hidden;border:0.5px solid #e8e8e0}
+canvas.cv{display:block}
+.levels-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-bottom:12px}
+.lc{background:#f5f5f0;border-radius:8px;padding:8px 10px;text-align:center;border:0.5px solid #e8e8e0}
+.ll{font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.lp{font-size:13px;font-weight:600;color:#1a1a1a}
+.lpct{font-size:9px;margin-top:1px}
+.srow{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:12px}
+.sc{font-size:10px;padding:2px 8px;border-radius:6px;background:#f5f5f0;color:#666;border:0.5px solid #e0e0d8}
+.stitle{font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:#aaa;margin:10px 0 7px}
+.bars{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:12px}
+.bi{background:#f5f5f0;border-radius:8px;padding:8px 10px;border:0.5px solid #e8e8e0}
+.bh{display:flex;justify-content:space-between;margin-bottom:5px}
+.bn{font-size:10px;color:#888}
+.bv{font-size:10px;font-weight:600;color:#1a1a1a}
+.bt{height:3px;background:#e0e0d8;border-radius:2px;overflow:hidden}
+.bf{height:100%;border-radius:2px}
+.igrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:12px}
+.ic{border-radius:8px;padding:10px 11px;border:0.5px solid}
+.ik{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.iv{font-size:10px;line-height:1.6}
+.ib{background:#e8f2fb;border-color:#b8d4f0}.ib .ik{color:#0a3d6e}.ib .iv{color:#1a5fa8}
+.ig{background:#e8f4e8;border-color:#b8ddb8}.ig .ik{color:#1a4d1a}.ig .iv{color:#2d7a2d}
+.ia{background:#fef3e2;border-color:#f5c970}.ia .ik{color:#5c3a00}.ia .iv{color:#8a5500}
+.ip{background:#eeebfe;border-color:#ccc8f5}.ip .ik{color:#2a2070}.ip .iv{color:#4038b0}
+.ir{background:#fceaea;border-color:#f5b8b8}.ir .ik{color:#5c1010}.ir .iv{color:#a02020}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:10px}
+.tg{font-size:9px;padding:2px 8px;border-radius:6px;font-weight:500}
+.tb{background:#e8f4e8;color:#2d7a2d}
+.tr{background:#fceaea;color:#a02020}
+.tn{background:#f5f5f0;color:#888;border:0.5px solid #e0e0d8}
+.thesis{font-size:11px;line-height:1.7;color:#666;background:#f8f8f5;border-radius:8px;padding:12px;border-left:2px solid #ccc}
+.mstrip{background:#fff;border-radius:12px;border:0.5px solid #e0e0d8;padding:12px 16px;margin-bottom:16px}
+.mstrip-title{font-size:9px;text-transform:uppercase;letter-spacing:.7px;color:#aaa;margin-bottom:8px}
+.mrow2{display:flex;flex-wrap:wrap;gap:14px}
+.mk{font-size:9px;text-transform:uppercase;letter-spacing:.5px;color:#aaa}
+.mv{font-size:11px;font-weight:500;color:#1a1a1a;margin-top:1px}
+.foot{text-align:center;font-size:9px;color:#aaa;letter-spacing:.3px;padding:10px 0 4px;border-top:0.5px solid #e0e0d8;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <div class="brand">@daytrader_360</div>
+  <div class="dtag">Mar 19, 2026 · 4H Charts · 3 Picks</div>
+</div>
+
+<div class="tabs">
+  <div class="tab on" onclick="sv('all',this)">All picks</div>
+  <div class="tab" onclick="sv('setup',this)">Setup only</div>
+  <div class="tab" onclick="sv('intel',this)">Intelligence</div>
+</div>
+
+<!-- ALL PICKS -->
+<div id="va">
+
+<!-- GOOGL -->
+<div class="card">
+  <div class="accent" style="background:#378ADD"></div>
+  <div class="cbody">
+    <div class="ctop">
+      <div><div class="plabel">Pick 1 of 3 · Highest Conviction</div><div class="ticker">GOOGL</div><div class="coname">Alphabet Inc. · Communication Services</div></div>
+      <div class="cbadge"><div class="cnum">70</div><div class="clbl">conviction</div></div>
+    </div>
+    <div class="mrow">
+      <span class="mc">$307.69</span><span class="mc">Mkt Cap $3.72T</span><span class="mc">Fwd P/E 22.9×</span><span class="mc">Beta 1.11</span><span class="mc">FCF $38.1B</span><span class="mc">52W High $349 (−11.8%)</span>
+    </div>
+    <div class="chart-wrap"><canvas class="cv" id="c0"></canvas></div>
+    <div class="levels-row">
+      <div class="lc"><div class="ll">Entry</div><div class="lp">$307.69</div><div class="lpct" style="color:#aaa">current</div></div>
+      <div class="lc"><div class="ll">Stop</div><div class="lp" style="color:#c0392b">$297.24</div><div class="lpct" style="color:#c0392b">−3.40%</div></div>
+      <div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:#27ae60">$321.62</div><div class="lpct" style="color:#27ae60">+4.53%</div></div>
+      <div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:#27ae60">$332.07</div><div class="lpct" style="color:#27ae60">+7.92%</div></div>
+    </div>
+    <div class="srow"><span class="sc">ATR $6.97</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 50.6</span><span class="sc">RSI I 57.8</span><span class="sc">MACD Bull · Expanding</span><span class="sc">Above VWAP</span><span class="sc">EMA9 > EMA21</span></div>
+    <div class="stitle">conviction breakdown</div>
+    <div class="bars">
+      <div class="bi"><div class="bh"><span class="bn">Technical</span><span class="bv">26/40</span></div><div class="bt"><div class="bf" style="width:65%;background:#378ADD"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Analyst</span><span class="bv">25/30</span></div><div class="bt"><div class="bf" style="width:84%;background:#378ADD"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">PT Upside</span><span class="bv">7/15</span></div><div class="bt"><div class="bf" style="width:47%;background:#378ADD"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Non-conventional</span><span class="bv">12/15</span></div><div class="bt"><div class="bf" style="width:80%;background:#378ADD"></div></div></div>
+    </div>
+    <div class="stitle">intelligence</div>
+    <div class="igrid">
+      <div class="ic ig"><div class="ik">Cloud 48% YoY</div><div class="iv">$240B backlog, operating income +154% YoY. Wiz $32B acquisition closed. BMO raised Q1 2026 Cloud estimate to 40%.</div></div>
+      <div class="ic ib"><div class="ik">Strong Buy · $376 PT</div><div class="iv">32 Buy / 6 Hold / 0 Sell. +22% upside. Only Mag7 name with zero sell ratings. (TipRanks)</div></div>
+      <div class="ic ib"><div class="ik">Apple Gemini Deal</div><div class="iv">Gemini models to power iPhone AI features. 750M Gemini MAUs confirmed. New consumer monetisation channel at scale.</div></div>
+      <div class="ic ia"><div class="ik">DOJ Antitrust Risk</div><div class="iv">DOJ/states appealing Sept 2025 remedy ruling. Adtech case in remedies phase. No criminal probe. Structural breakup rejected by courts.</div></div>
+      <div class="ic ia"><div class="ik">CapEx Compression</div><div class="iv">$140–185B CapEx guided for 2026 vs $91B TTM. Near-term FCF headwind. Consensus views as growth investment, not impairment.</div></div>
+      <div class="ic ip"><div class="ik">Structural Moat</div><div class="iv">22.9× fwd P/E — cheapest Magnificent 7 stock despite 18% revenue growth and 59.7% gross margin. Cloud vertical integration creates durable compounding.</div></div>
+    </div>
+    <div class="tags">
+      <span class="tg tb">Cloud 48% growth</span><span class="tg tb">Zero sell ratings</span><span class="tg tb">Cheapest Mag7 fwd P/E</span><span class="tg tb">Apple Gemini deal</span><span class="tg tr">DOJ appeal ongoing</span><span class="tg tr">CapEx ramp 2026</span><span class="tg tn">Earnings Apr 23</span>
+    </div>
+    <div class="thesis">GOOGL tops the technical ranking (13/20) with MACD bullish expansion, RSI neutral-constructive at 50.6, and intraday confirmation above VWAP with EMA9 > EMA21. Cloud revenue at 48% YoY growth and a $240B backlog provide structural upside that the 22.9× fwd P/E — cheapest in Magnificent 7 — does not yet reflect. The completed $32B Wiz acquisition and Gemini-Apple deal are non-consensus catalysts. Antitrust risk is manageable: courts rejected structural breakup and the stock has already priced behavioral remedies. No earnings within 5 days. Next earnings April 23.</div>
+  </div>
+</div>
+
+<!-- CRM -->
+<div class="card">
+  <div class="accent" style="background:#1D9E75"></div>
+  <div class="cbody">
+    <div class="ctop">
+      <div><div class="plabel">Pick 2 of 3 · Top Conviction Score</div><div class="ticker">CRM</div><div class="coname">Salesforce, Inc. · Enterprise Software</div></div>
+      <div class="cbadge"><div class="cnum">71</div><div class="clbl">conviction</div></div>
+    </div>
+    <div class="mrow">
+      <span class="mc">$194.34</span><span class="mc">Mkt Cap $182B</span><span class="mc">Fwd P/E 13.0×</span><span class="mc">Beta 1.31</span><span class="mc">FCF $16.4B</span><span class="mc">52W High $296 (−27.8%)</span>
+    </div>
+    <div class="chart-wrap"><canvas class="cv" id="c1"></canvas></div>
+    <div class="levels-row">
+      <div class="lc"><div class="ll">Entry</div><div class="lp">$194.34</div><div class="lpct" style="color:#aaa">current</div></div>
+      <div class="lc"><div class="ll">Stop</div><div class="lp" style="color:#c0392b">$182.72</div><div class="lpct" style="color:#c0392b">−5.98%</div></div>
+      <div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:#27ae60">$209.83</div><div class="lpct" style="color:#27ae60">+7.97%</div></div>
+      <div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:#27ae60">$221.45</div><div class="lpct" style="color:#27ae60">+13.95%</div></div>
+    </div>
+    <div class="srow"><span class="sc">ATR $7.75</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 44.9</span><span class="sc">RSI I 32.4 Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Lower Band</span></div>
+    <div class="stitle">conviction breakdown</div>
+    <div class="bars">
+      <div class="bi"><div class="bh"><span class="bn">Technical</span><span class="bv">24/40</span></div><div class="bt"><div class="bf" style="width:60%;background:#1D9E75"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Analyst</span><span class="bv">23/30</span></div><div class="bt"><div class="bf" style="width:78%;background:#1D9E75"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">PT Upside</span><span class="bv">11/15</span></div><div class="bt"><div class="bf" style="width:76%;background:#1D9E75"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Non-conventional</span><span class="bv">12/15</span></div><div class="bt"><div class="bf" style="width:80%;background:#1D9E75"></div></div></div>
+    </div>
+    <div class="stitle">intelligence</div>
+    <div class="igrid">
+      <div class="ic ig"><div class="ik">Agentforce $800M ARR</div><div class="iv">+169% YoY. 29,000 deals closed, up 50% QoQ. $72.4B total RPO +14% YoY. Q4 FY26 revenue +12% — fastest growth rate in 2 years.</div></div>
+      <div class="ic ig"><div class="ik">$50B Buyback Announced</div><div class="iv">"Because these are low prices" — Benioff. $4.2B returned in Q4 alone. Dividend raised +5.8% to $0.44/share. US Army enterprise contract active.</div></div>
+      <div class="ic ib"><div class="ik">Strong Buy · $268 PT</div><div class="iv">28 Buy / 7 Hold / 1 Sell (TipRanks). +38% upside. BTIG $335 PT: market is "pricing in CRM's demise." Anthropic stake yielded $811M gain in Q4.</div></div>
+      <div class="ic ib"><div class="ik">$72B RPO Backlog</div><div class="iv">Total RPO up 14% YoY provides 18+ months of contracted revenue visibility. 60%+ of Agentforce bookings from existing customers — extreme stickiness.</div></div>
+      <div class="ic ia"><div class="ik">SaaS Model Transition</div><div class="iv">Seat→usage-based Agentforce shift creates near-term revenue recognition uncertainty. FY27 guide of $45.8–46.2B slightly missed consensus expectations.</div></div>
+      <div class="ic ip"><div class="ik">Structural Moat</div><div class="iv">77.7% gross margin and $16.4B FCF provide structural defensive floor. 13× fwd P/E vs. 10Y average 25× — generational valuation compression for a quality franchise.</div></div>
+    </div>
+    <div class="tags">
+      <span class="tg tb">Agentforce +169% ARR</span><span class="tg tb">$50B buyback</span><span class="tg tb">38% upside to avg PT</span><span class="tg tb">RSI intraday oversold bounce</span><span class="tg tr">Below VWAP intraday</span><span class="tg tr">FY27 guide missed</span><span class="tg tn">Earnings May 2026</span>
+    </div>
+    <div class="thesis">CRM posts the highest composite conviction score (71) in today's pipeline. At 13× fwd P/E — a 3-year low — the market's AI disruption fear has massively overshot. Agentforce ARR is accelerating (+169% YoY), the $72B RPO provides 18 months of contracted revenue, and management's $50B buyback is a direct signal that insiders view current prices as generational value. Daily MACD is bullishly expanding while intraday RSI at 32.4 signals short-term oversold — a high-probability mean-reversion setup. No criminal probes, no guidance cuts, no financial distress. US Army contract and Anthropic stake add non-obvious institutional-quality intelligence.</div>
+  </div>
+</div>
+
+<!-- MSFT -->
+<div class="card">
+  <div class="accent" style="background:#BA7517"></div>
+  <div class="cbody">
+    <div class="ctop">
+      <div><div class="plabel">Pick 3 of 3 · Good Conviction</div><div class="ticker">MSFT</div><div class="coname">Microsoft Corporation · Technology</div></div>
+      <div class="cbadge"><div class="cnum">66</div><div class="clbl">conviction</div></div>
+    </div>
+    <div class="mrow">
+      <span class="mc">$391.79</span><span class="mc">Mkt Cap $2.93T</span><span class="mc">Fwd P/E 28.5×</span><span class="mc">Beta 0.90</span><span class="mc">FCF $74B</span><span class="mc">52W High $468 (−28.9%)</span>
+    </div>
+    <div class="chart-wrap"><canvas class="cv" id="c2"></canvas></div>
+    <div class="levels-row">
+      <div class="lc"><div class="ll">Entry</div><div class="lp">$391.79</div><div class="lpct" style="color:#aaa">current</div></div>
+      <div class="lc"><div class="ll">Stop</div><div class="lp" style="color:#c0392b">$379.34</div><div class="lpct" style="color:#c0392b">−3.18%</div></div>
+      <div class="lc"><div class="ll">Target 1</div><div class="lp" style="color:#27ae60">$408.38</div><div class="lpct" style="color:#27ae60">+4.23%</div></div>
+      <div class="lc"><div class="ll">Target 2</div><div class="lp" style="color:#27ae60">$420.83</div><div class="lpct" style="color:#27ae60">+7.41%</div></div>
+    </div>
+    <div class="srow"><span class="sc">ATR $8.30</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 41.1</span><span class="sc">RSI I 26.0 Deep Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Pos 0.20</span></div>
+    <div class="stitle">conviction breakdown</div>
+    <div class="bars">
+      <div class="bi"><div class="bh"><span class="bn">Technical</span><span class="bv">22/40</span></div><div class="bt"><div class="bf" style="width:55%;background:#BA7517"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Analyst</span><span class="bv">25/30</span></div><div class="bt"><div class="bf" style="width:83%;background:#BA7517"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">PT Upside</span><span class="bv">8/15</span></div><div class="bt"><div class="bf" style="width:53%;background:#BA7517"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Non-conventional</span><span class="bv">11/15</span></div><div class="bt"><div class="bf" style="width:73%;background:#BA7517"></div></div></div>
+    </div>
+    <div class="stitle">intelligence</div>
+    <div class="igrid">
+      <div class="ic ig"><div class="ik">Azure 39% · $625B RPO</div><div class="iv">Intelligent Cloud $32.9B (+29%). $625B commercial RPO +110% YoY including $250B OpenAI Azure commitment. Q3 FY26 guide: 37–38%.</div></div>
+      <div class="ic ig"><div class="ik">$12.7B Buybacks Q2</div><div class="iv">+32% YoY capital return. Q1 returned $10.7B. FCF $74B gives unmatched allocation capacity. M365 90M+ consumer subscribers.</div></div>
+      <div class="ic ib"><div class="ik">Strong Buy · $495 PT</div><div class="iv">35 Buy / 7 Hold / 0 Sell. +26% upside. Foundry $1M+ customers +80% QoQ. OpenAI's "provider of scale" — deepest AI infrastructure lock-in.</div></div>
+      <div class="ic ib"><div class="ik">Copilot ARPU Expansion</div><div class="iv">M365 commercial cloud +17% YoY. E5 and M365 Copilot driving ARPU growth. 230% commercial bookings growth in Q2 FY26.</div></div>
+      <div class="ic ia"><div class="ik">OpenAI Concentration</div><div class="iv">~45% of $625B RPO tied to OpenAI alone. CFO Amy Hood flagged quarterly volatility risk on earnings call. Single-entity dependency is a key monitor.</div></div>
+      <div class="ic ip"><div class="ik">Enterprise Platform Moat</div><div class="iv">OS + M365 + Azure + Copilot + Teams compounding flywheel. Beta 0.9 — lowest overnight risk of all three picks. Defensive quality at a compressed valuation.</div></div>
+    </div>
+    <div class="tags">
+      <span class="tg tb">Azure 39% growth</span><span class="tg tb">$625B RPO backlog</span><span class="tg tb">Deep oversold intraday</span><span class="tg tb">BB lower band bounce</span><span class="tg tr">OpenAI concentration</span><span class="tg tr">Below VWAP intraday</span><span class="tg tn">Earnings Apr 30</span>
+    </div>
+    <div class="thesis">MSFT offers the highest-quality fundamental backdrop in today's session: Azure 39% YoY, $625B RPO, and $74B FCF. Daily RSI at 41.1 sits in the recovery zone with MACD bullishly expanding, and BB position 0.20 places price near the lower Bollinger band — a classic mean-reversion setup at institutional support. RSI intraday at 26.0 is deeply oversold, though price remains below VWAP. Wait for intraday stabilisation before full-size entry. Beta 0.9 makes this the safest overnight hold of all three picks. No earnings within 5 days.</div>
+  </div>
+</div>
+
+</div>
+
+<!-- SETUP ONLY -->
+<div id="vs" style="display:none">
+  <div class="card" style="border-top:3px solid #378ADD"><div class="cbody">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div><div class="plabel">Pick 1 · Highest Conviction</div><div class="ticker" style="font-size:16px">GOOGL &nbsp;<span style="font-size:13px;color:#888;font-weight:400">$307.69</span></div></div><div class="cbadge"><div class="cnum" style="font-size:20px">70</div><div class="clbl">conviction</div></div></div>
+    <div class="chart-wrap" style="height:180px"><canvas class="cv" id="s0"></canvas></div>
+    <div class="levels-row">
+      <div class="lc"><div class="ll">Entry</div><div class="lp">$307.69</div></div>
+      <div class="lc"><div class="ll">Stop</div><div class="lp" style="color:#c0392b">$297.24</div><div class="lpct" style="color:#c0392b">−3.40%</div></div>
+      <div class="lc"><div class="ll">T1</div><div class="lp" style="color:#27ae60">$321.62</div><div class="lpct" style="color:#27ae60">+4.53%</div></div>
+      <div class="lc"><div class="ll">T2</div><div class="lp" style="color:#27ae60">$332.07</div><div class="lpct" style="color:#27ae60">+7.92%</div></div>
+    </div>
+    <div class="srow"><span class="sc">ATR $6.97</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 50.6</span><span class="sc">RSI I 57.8</span><span class="sc">MACD Bull · Expanding</span><span class="sc">Above VWAP</span><span class="sc">EMA9 > EMA21</span></div>
+  </div></div>
+  <div class="card" style="border-top:3px solid #1D9E75"><div class="cbody">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div><div class="plabel">Pick 2 · Top Conviction Score</div><div class="ticker" style="font-size:16px">CRM &nbsp;<span style="font-size:13px;color:#888;font-weight:400">$194.34</span></div></div><div class="cbadge"><div class="cnum" style="font-size:20px">71</div><div class="clbl">conviction</div></div></div>
+    <div class="chart-wrap" style="height:180px"><canvas class="cv" id="s1"></canvas></div>
+    <div class="levels-row">
+      <div class="lc"><div class="ll">Entry</div><div class="lp">$194.34</div></div>
+      <div class="lc"><div class="ll">Stop</div><div class="lp" style="color:#c0392b">$182.72</div><div class="lpct" style="color:#c0392b">−5.98%</div></div>
+      <div class="lc"><div class="ll">T1</div><div class="lp" style="color:#27ae60">$209.83</div><div class="lpct" style="color:#27ae60">+7.97%</div></div>
+      <div class="lc"><div class="ll">T2</div><div class="lp" style="color:#27ae60">$221.45</div><div class="lpct" style="color:#27ae60">+13.95%</div></div>
+    </div>
+    <div class="srow"><span class="sc">ATR $7.75</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 44.9</span><span class="sc">RSI I 32.4 Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Lower Band</span></div>
+  </div></div>
+  <div class="card" style="border-top:3px solid #BA7517"><div class="cbody">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><div><div class="plabel">Pick 3 · Good Conviction</div><div class="ticker" style="font-size:16px">MSFT &nbsp;<span style="font-size:13px;color:#888;font-weight:400">$391.79</span></div></div><div class="cbadge"><div class="cnum" style="font-size:20px">66</div><div class="clbl">conviction</div></div></div>
+    <div class="chart-wrap" style="height:180px"><canvas class="cv" id="s2"></canvas></div>
+    <div class="levels-row">
+      <div class="lc"><div class="ll">Entry</div><div class="lp">$391.79</div></div>
+      <div class="lc"><div class="ll">Stop</div><div class="lp" style="color:#c0392b">$379.34</div><div class="lpct" style="color:#c0392b">−3.18%</div></div>
+      <div class="lc"><div class="ll">T1</div><div class="lp" style="color:#27ae60">$408.38</div><div class="lpct" style="color:#27ae60">+4.23%</div></div>
+      <div class="lc"><div class="ll">T2</div><div class="lp" style="color:#27ae60">$420.83</div><div class="lpct" style="color:#27ae60">+7.41%</div></div>
+    </div>
+    <div class="srow"><span class="sc">ATR $8.30</span><span class="sc">R:R 1.33×</span><span class="sc">RSI D 41.1</span><span class="sc">RSI I 26.0 Deep Oversold</span><span class="sc">MACD Bull · Expanding</span><span class="sc">BB Pos 0.20</span></div>
+  </div></div>
+</div>
+
+<!-- INTELLIGENCE -->
+<div id="vi" style="display:none">
+  <div class="card"><div class="cbody">
+    <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid #e8e8e0">GOOGL — Alphabet Inc.</div>
+    <div class="igrid">
+      <div class="ic ig"><div class="ik">Cloud 48% YoY</div><div class="iv">$240B backlog. Operating income +154% YoY. Wiz $32B acquisition closed. BMO Q1 2026 Cloud estimate raised to 40%.</div></div>
+      <div class="ic ib"><div class="ik">Strong Buy · 0 Sell Ratings</div><div class="iv">32 Buy / 6 Hold / 0 Sell. Avg PT $376 (+22%). Only Mag7 stock with unanimous buy/hold consensus. (TipRanks)</div></div>
+      <div class="ic ib"><div class="ik">Apple Gemini Partnership</div><div class="iv">Gemini to power iPhone AI features. 750M monthly active users. New consumer monetisation channel worth billions annually.</div></div>
+      <div class="ic ia"><div class="ik">DOJ Antitrust (Appeal)</div><div class="iv">Appeal in progress on Sept 2025 remedy ruling. Adtech remedies phase ongoing. No criminal probe. Structural breakup rejected by courts.</div></div>
+      <div class="ic ia"><div class="ik">CapEx Ramp Risk</div><div class="iv">$140–185B CapEx guided for 2026. Near-term FCF compression. Market consensus treats this as growth investment — not structural impairment.</div></div>
+      <div class="ic ip"><div class="ik">Cheapest Mag7 on P/E</div><div class="iv">22.9× fwd P/E despite 18% revenue growth, 59.7% gross margin, and 32.8% net margin. Waymo + AI infra providing long-term option value.</div></div>
+    </div>
+  </div></div>
+  <div class="card"><div class="cbody">
+    <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid #e8e8e0">CRM — Salesforce, Inc.</div>
+    <div class="igrid">
+      <div class="ic ig"><div class="ik">Agentforce $800M ARR</div><div class="iv">+169% YoY. 29,000 deals (+50% QoQ). $72.4B RPO +14%. Q4 FY26 fastest revenue growth rate in 2 years at +12% YoY.</div></div>
+      <div class="ic ig"><div class="ik">$50B Buyback + Dividend</div><div class="iv">Board-approved $50B buyback. $4.2B returned in Q4. Dividend +5.8% to $0.44. US Army Agentforce contract active.</div></div>
+      <div class="ic ib"><div class="ik">Strong Buy · $268 PT</div><div class="iv">28B / 7H / 1S (TipRanks). +38% upside. BTIG: valuation "pricing in demise" of the world's #1 CRM. Anthropic stake $811M gain Q4.</div></div>
+      <div class="ic ib"><div class="ik">$72B RPO Visibility</div><div class="iv">Total RPO +14% YoY. 60%+ Agentforce bookings from existing base — extreme switching costs. $16.4B FCF, 77.7% gross margin.</div></div>
+      <div class="ic ia"><div class="ik">Seat Model Transition</div><div class="iv">Seat→usage-based pricing shift creates near-term revenue recognition uncertainty. FY27 $45.8–46.2B guide slightly missed consensus.</div></div>
+      <div class="ic ip"><div class="ik">13× Fwd P/E vs 25× Avg</div><div class="iv">3-year price low. Generational valuation compression for a quality high-margin SaaS franchise with $72B of contracted backlog.</div></div>
+    </div>
+  </div></div>
+  <div class="card"><div class="cbody">
+    <div style="font-size:13px;font-weight:600;color:#1a1a1a;margin-bottom:10px;padding-bottom:8px;border-bottom:0.5px solid #e8e8e0">MSFT — Microsoft Corporation</div>
+    <div class="igrid">
+      <div class="ic ig"><div class="ik">Azure 39% · $625B RPO</div><div class="iv">Intelligent Cloud $32.9B (+29%). $625B commercial RPO +110% YoY. Includes $250B OpenAI Azure commitment. Q3 guide 37–38%.</div></div>
+      <div class="ic ig"><div class="ik">$12.7B Buybacks Q2 FY26</div><div class="iv">+32% YoY capital return. Q1 returned $10.7B. FCF $74B. M365 90M+ consumer subscribers. Copilot ARPU driving seat growth.</div></div>
+      <div class="ic ib"><div class="ik">Strong Buy · $495 PT</div><div class="iv">35B / 7H / 0S. +26% upside. Foundry $1M+ customers +80% QoQ. Management is OpenAI's "provider of scale" — deepest AI lock-in.</div></div>
+      <div class="ic ib"><div class="ik">230% Commercial Bookings</div><div class="iv">Q2 FY26 commercial bookings surged 230% YoY. M365 commercial cloud +17%. Enterprise platform moat compounds across every segment.</div></div>
+      <div class="ic ia"><div class="ik">OpenAI RPO Concentration</div><div class="iv">~45% of $625B commercial RPO tied to OpenAI. CFO Amy Hood flagged quarterly volatility explicitly. Single-entity dependency risk.</div></div>
+      <div class="ic ip"><div class="ik">Beta 0.9 — Lowest Risk Pick</div><div class="iv">Safest overnight hold of the three picks. OS + M365 + Azure + Copilot compounding flywheel. Defensive quality at compressed valuation.</div></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="mstrip">
+  <div class="mstrip-title">Market Context · Mar 19, 2026</div>
+  <div class="mrow2">
+    <div><div class="mk">Bias</div><div class="mv">Cautiously Bullish</div></div>
+    <div><div class="mk">Sectors Leading</div><div class="mv">Tech · AI Cloud · Comm Services</div></div>
+    <div><div class="mk">Avoid</div><div class="mv">Healthcare (DOJ) · Energy (overbought)</div></div>
+    <div><div class="mk">Nearest Earnings</div><div class="mv">GOOGL Apr 23 · MSFT Apr 30 · CRM May</div></div>
+    <div><div class="mk">Data Sources</div><div class="mv">yfinance · TipRanks · Salesforce IR · Microsoft IR · Bloomberg · CNBC</div></div>
+    <div><div class="mk">FOMC Risk</div><div class="mv">None in 5 days</div></div>
+  </div>
+</div>
+
+<div class="foot">Not financial advice &middot; DYOR &middot; Stops 1.5&times; ATR &middot; Targets 2&times; / 3.5&times; ATR &middot; @daytrader_360</div>
+
+</div>
+
+<script>
+const DATA = {"GOOGL":[{"t":"2026-02-19 08:00","o":301.82,"h":305.47,"l":300.04,"c":303.96},{"t":"2026-02-19 12:00","o":303.91,"h":305.01,"l":302.21,"c":302.86},{"t":"2026-02-20 08:00","o":304.1,"h":316.5,"l":303.9,"c":314.01},{"t":"2026-02-20 12:00","o":314.05,"h":316.39,"l":313.79,"c":315.0},{"t":"2026-02-23 08:00","o":319.09,"h":319.38,"l":311.76,"c":313.84},{"t":"2026-02-23 12:00","o":313.86,"h":314.9,"l":309.86,"c":311.51},{"t":"2026-02-24 08:00","o":310.48,"h":311.9,"l":305.95,"c":311.85},{"t":"2026-02-24 12:00","o":311.84,"h":312.27,"l":309.55,"c":310.88},{"t":"2026-02-25 08:00","o":311.99,"h":313.64,"l":309.44,"c":310.6},{"t":"2026-02-25 12:00","o":310.6,"h":313.26,"l":310.0,"c":313.0},{"t":"2026-02-26 08:00","o":312.64,"h":313.14,"l":302.35,"c":305.5},{"t":"2026-02-26 12:00","o":305.46,"h":308.43,"l":304.7,"c":307.44},{"t":"2026-02-27 08:00","o":304.2,"h":309.88,"l":303.8,"c":307.91},{"t":"2026-02-27 12:00","o":307.98,"h":312.37,"l":305.56,"c":311.61},{"t":"2026-03-02 08:00","o":303.13,"h":308.09,"l":301.3,"c":307.9},{"t":"2026-03-02 12:00","o":307.85,"h":308.49,"l":305.0,"c":306.26},{"t":"2026-03-03 08:00","o":298.59,"h":302.08,"l":296.71,"c":301.36},{"t":"2026-03-03 12:00","o":301.36,"h":303.94,"l":300.11,"c":303.54},{"t":"2026-03-04 08:00","o":302.89,"h":305.46,"l":300.75,"c":303.76},{"t":"2026-03-04 12:00","o":303.77,"h":304.31,"l":302.03,"c":303.03},{"t":"2026-03-05 08:00","o":303.01,"h":303.27,"l":298.31,"c":298.6},{"t":"2026-03-05 12:00","o":298.67,"h":301.25,"l":297.99,"c":300.8},{"t":"2026-03-06 08:00","o":296.11,"h":300.53,"l":295.18,"c":299.21},{"t":"2026-03-06 12:00","o":299.2,"h":300.04,"l":297.61,"c":298.48},{"t":"2026-03-09 09:00","o":294.36,"h":301.98,"l":294.1,"c":300.8},{"t":"2026-03-09 13:00","o":300.8,"h":306.8,"l":300.67,"c":306.37},{"t":"2026-03-10 09:00","o":306.84,"h":309.5,"l":305.57,"c":308.94},{"t":"2026-03-10 13:00","o":308.95,"h":309.32,"l":306.42,"c":307.04},{"t":"2026-03-11 09:00","o":306.54,"h":311.42,"l":305.92,"c":309.3},{"t":"2026-03-11 13:00","o":309.32,"h":309.42,"l":307.45,"c":308.71},{"t":"2026-03-12 09:00","o":306.85,"h":308.94,"l":301.04,"c":303.81},{"t":"2026-03-12 13:00","o":303.82,"h":305.09,"l":302.97,"c":303.51},{"t":"2026-03-13 09:00","o":307.18,"h":307.61,"l":300.61,"c":301.9},{"t":"2026-03-13 13:00","o":301.93,"h":302.62,"l":300.44,"c":302.22},{"t":"2026-03-16 09:00","o":304.35,"h":306.49,"l":303.02,"c":304.81},{"t":"2026-03-16 13:00","o":304.83,"h":306.35,"l":304.6,"c":305.57},{"t":"2026-03-17 09:00","o":305.99,"h":308.75,"l":305.51,"c":307.79},{"t":"2026-03-17 13:00","o":307.77,"h":311.42,"l":307.19,"c":310.85},{"t":"2026-03-18 09:00","o":309.31,"h":312.47,"l":308.65,"c":308.9},{"t":"2026-03-18 13:00","o":308.92,"h":309.9,"l":306.93,"c":307.73}],"CRM":[{"t":"2026-02-19 08:00","o":186.6,"h":186.95,"l":183.23,"c":185.61},{"t":"2026-02-19 12:00","o":185.61,"h":185.86,"l":184.86,"c":185.3},{"t":"2026-02-20 08:00","o":185.32,"h":191.73,"l":184.34,"c":186.84},{"t":"2026-02-20 12:00","o":186.84,"h":187.29,"l":183.73,"c":185.21},{"t":"2026-02-23 08:00","o":181.27,"h":182.47,"l":174.57,"c":175.12},{"t":"2026-02-23 12:00","o":175.15,"h":178.43,"l":174.74,"c":178.2},{"t":"2026-02-24 08:00","o":177.64,"h":188.67,"l":176.28,"c":185.4},{"t":"2026-02-24 12:00","o":185.44,"h":187.57,"l":184.44,"c":185.46},{"t":"2026-02-25 08:00","o":183.0,"h":191.26,"l":182.26,"c":189.55},{"t":"2026-02-25 12:00","o":189.51,"h":192.6,"l":189.46,"c":191.94},{"t":"2026-02-26 08:00","o":196.76,"h":199.84,"l":191.33,"c":196.74},{"t":"2026-02-26 12:00","o":196.74,"h":201.04,"l":195.5,"c":199.46},{"t":"2026-02-27 08:00","o":191.91,"h":194.16,"l":189.92,"c":194.04},{"t":"2026-02-27 12:00","o":194.09,"h":195.92,"l":192.94,"c":194.79},{"t":"2026-03-02 08:00","o":192.5,"h":195.94,"l":190.68,"c":191.46},{"t":"2026-03-02 12:00","o":191.45,"h":193.82,"l":191.36,"c":192.92},{"t":"2026-03-03 08:00","o":190.75,"h":196.17,"l":189.58,"c":195.25},{"t":"2026-03-03 12:00","o":195.22,"h":198.67,"l":194.62,"c":196.06},{"t":"2026-03-04 08:00","o":195.1,"h":196.47,"l":192.1,"c":195.38},{"t":"2026-03-04 12:00","o":195.39,"h":196.08,"l":192.88,"c":193.06},{"t":"2026-03-05 08:00","o":194.36,"h":204.42,"l":194.24,"c":203.15},{"t":"2026-03-05 12:00","o":203.18,"h":203.58,"l":200.9,"c":201.37},{"t":"2026-03-06 08:00","o":200.79,"h":202.96,"l":197.37,"c":201.04},{"t":"2026-03-06 12:00","o":201.11,"h":202.27,"l":199.11,"c":202.09},{"t":"2026-03-09 09:00","o":198.56,"h":203.67,"l":197.05,"c":197.18},{"t":"2026-03-09 13:00","o":197.13,"h":200.12,"l":195.87,"c":198.68},{"t":"2026-03-10 09:00","o":197.26,"h":199.57,"l":190.6,"c":196.93},{"t":"2026-03-10 13:00","o":196.9,"h":196.96,"l":193.96,"c":194.9},{"t":"2026-03-11 09:00","o":196.4,"h":199.55,"l":191.54,"c":192.38},{"t":"2026-03-11 13:00","o":192.45,"h":194.11,"l":191.29,"c":194.08},{"t":"2026-03-12 09:00","o":194.13,"h":204.85,"l":193.15,"c":199.98},{"t":"2026-03-12 13:00","o":199.98,"h":200.69,"l":197.5,"c":199.24},{"t":"2026-03-13 09:00","o":199.73,"h":201.0,"l":192.02,"c":193.44},{"t":"2026-03-13 13:00","o":193.5,"h":193.81,"l":191.75,"c":192.8},{"t":"2026-03-16 09:00","o":195.15,"h":198.63,"l":195.15,"c":197.86},{"t":"2026-03-16 13:00","o":197.87,"h":198.62,"l":196.56,"c":198.18},{"t":"2026-03-17 09:00","o":198.22,"h":202.38,"l":196.0,"c":196.82},{"t":"2026-03-17 13:00","o":196.84,"h":196.94,"l":194.45,"c":195.31},{"t":"2026-03-18 09:00","o":193.4,"h":196.15,"l":192.64,"c":194.82},{"t":"2026-03-18 13:00","o":194.78,"h":195.67,"l":193.86,"c":194.34}],"MSFT":[{"t":"2026-02-19 08:00","o":400.69,"h":404.43,"l":397.88,"c":399.07},{"t":"2026-02-19 12:00","o":399.08,"h":399.33,"l":396.67,"c":398.41},{"t":"2026-02-20 08:00","o":396.15,"h":400.12,"l":395.16,"c":396.86},{"t":"2026-02-20 12:00","o":396.88,"h":399.01,"l":396.21,"c":397.25},{"t":"2026-02-23 08:00","o":395.19,"h":395.31,"l":385.1,"c":386.44},{"t":"2026-02-23 12:00","o":386.43,"h":387.98,"l":383.1,"c":384.52},{"t":"2026-02-24 08:00","o":384.14,"h":389.36,"l":381.74,"c":386.45},{"t":"2026-02-24 12:00","o":386.42,"h":389.23,"l":385.99,"c":389.0},{"t":"2026-02-25 08:00","o":390.24,"h":400.25,"l":390.2,"c":397.33},{"t":"2026-02-25 12:00","o":397.36,"h":401.47,"l":397.05,"c":400.49},{"t":"2026-02-26 08:00","o":404.64,"h":407.49,"l":398.74,"c":400.9},{"t":"2026-02-26 12:00","o":400.89,"h":402.9,"l":399.08,"c":401.81},{"t":"2026-02-27 08:00","o":390.99,"h":396.8,"l":390.0,"c":394.84},{"t":"2026-02-27 12:00","o":394.84,"h":395.43,"l":390.15,"c":392.68},{"t":"2026-03-02 08:00","o":392.76,"h":401.19,"l":390.63,"c":400.2},{"t":"2026-03-02 12:00","o":400.2,"h":400.79,"l":396.62,"c":398.37},{"t":"2026-03-03 08:00","o":393.14,"h":402.33,"l":392.68,"c":401.92},{"t":"2026-03-03 12:00","o":401.92,"h":406.7,"l":400.65,"c":403.78},{"t":"2026-03-04 08:00","o":401.16,"h":408.96,"l":400.31,"c":407.27},{"t":"2026-03-04 12:00","o":407.31,"h":411.03,"l":405.0,"c":405.0},{"t":"2026-03-05 08:00","o":404.43,"h":411.61,"l":404.4,"c":409.29},{"t":"2026-03-05 12:00","o":409.29,"h":411.31,"l":407.6,"c":410.72},{"t":"2026-03-06 08:00","o":409.3,"h":413.05,"l":408.95,"c":410.69},{"t":"2026-03-06 12:00","o":410.71,"h":411.58,"l":408.51,"c":408.62},{"t":"2026-03-09 09:00","o":404.92,"h":409.17,"l":403.5,"c":405.17},{"t":"2026-03-09 13:00","o":405.13,"h":410.21,"l":404.4,"c":409.45},{"t":"2026-03-10 09:00","o":410.03,"h":410.2,"l":402.94,"c":406.38},{"t":"2026-03-10 13:00","o":406.36,"h":406.37,"l":403.88,"c":405.76},{"t":"2026-03-11 09:00","o":405.84,"h":409.01,"l":401.59,"c":404.25},{"t":"2026-03-11 13:00","o":404.24,"h":405.15,"l":402.08,"c":404.82},{"t":"2026-03-12 09:00","o":404.84,"h":406.12,"l":401.82,"c":404.32},{"t":"2026-03-12 13:00","o":404.35,"h":404.85,"l":401.71,"c":401.89},{"t":"2026-03-13 09:00","o":400.72,"h":404.8,"l":394.9,"c":396.59},{"t":"2026-03-13 13:00","o":396.55,"h":397.38,"l":394.25,"c":395.61},{"t":"2026-03-16 09:00","o":397.95,"h":399.61,"l":394.79,"c":398.82},{"t":"2026-03-16 13:00","o":398.82,"h":400.63,"l":397.67,"c":399.96},{"t":"2026-03-17 09:00","o":400.14,"h":404.4,"l":397.74,"c":399.81},{"t":"2026-03-17 13:00","o":399.82,"h":399.96,"l":398.46,"c":399.5},{"t":"2026-03-18 09:00","o":397.05,"h":398.0,"l":392.43,"c":392.74},{"t":"2026-03-18 13:00","o":392.76,"h":395.0,"l":391.0,"c":391.67}]};
+
+const PICKS = [
+  {tk:'GOOGL',entry:307.69,stop:297.24,t1:321.62,t2:332.07,color:'#378ADD'},
+  {tk:'CRM',  entry:194.34,stop:182.72,t1:209.83,t2:221.45,color:'#1D9E75'},
+  {tk:'MSFT', entry:391.79,stop:379.34,t1:408.38,t2:420.83,color:'#BA7517'}
+];
+
+function drawChart(canvasId, tk, pick) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return;
+  const candles = DATA[tk];
+  if (!candles) return;
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  const W = Math.max(rect.width, 300);
+  const H = canvas.parentElement.clientHeight || 210;
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  canvas.style.width = W + 'px';
+  canvas.style.height = H + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  const PAD = {top:12,right:54,bottom:22,left:6};
+  const cw = W - PAD.left - PAD.right;
+  const ch = H - PAD.top - PAD.bottom;
+  let minP = Math.min(...candles.map(c=>c.l), pick.stop*0.997);
+  let maxP = Math.max(...candles.map(c=>c.h), pick.t2*1.003);
+  const pad = (maxP-minP)*0.08; minP-=pad; maxP+=pad;
+  const range = maxP-minP;
+  function py(p){return PAD.top+ch*(1-(p-minP)/range);}
+  const n = candles.length;
+  const gap = cw/n;
+  const cWidth = Math.max(2, gap*0.7);
+  function cx(i){return PAD.left+i*gap+gap/2;}
+  ctx.clearRect(0,0,W,H);
+  // Grid
+  ctx.strokeStyle='rgba(0,0,0,0.05)'; ctx.lineWidth=0.5;
+  for(let i=0;i<=4;i++){
+    const y=PAD.top+ch*(i/4);
+    ctx.beginPath();ctx.moveTo(PAD.left,y);ctx.lineTo(W-PAD.right,y);ctx.stroke();
+  }
+  // Trade zone
+  const x0=cx(n-1)-cWidth; const x1=W-PAD.right+6; const zw=x1-x0;
+  ctx.fillStyle='rgba(39,174,96,0.10)';
+  ctx.fillRect(x0,py(pick.t2),zw,py(pick.entry)-py(pick.t2));
+  ctx.fillStyle='rgba(192,57,43,0.10)';
+  ctx.fillRect(x0,py(pick.entry),zw,py(pick.stop)-py(pick.entry));
+  // Candles
+  for(let i=0;i<n;i++){
+    const c=candles[i]; const x=cx(i);
+    const bull=c.c>=c.o;
+    const col=bull?'#1D9E75':'#E24B4A';
+    const bodyT=py(Math.max(c.o,c.c)); const bodyB=py(Math.min(c.o,c.c));
+    const bodyH=Math.max(1,bodyB-bodyT);
+    ctx.strokeStyle=col; ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(x,py(c.h));ctx.lineTo(x,py(c.l));ctx.stroke();
+    ctx.fillStyle=bull?col:'rgba(224,75,74,0.9)';
+    ctx.fillRect(x-cWidth/2,bodyT,cWidth,bodyH);
+  }
+  // Level lines + labels
+  function lvl(price,color,label,dashed){
+    const y=py(price);
+    ctx.strokeStyle=color; ctx.lineWidth=1;
+    ctx.setLineDash(dashed?[3,3]:[]);
+    ctx.beginPath();ctx.moveTo(PAD.left,y);ctx.lineTo(W-PAD.right,y);ctx.stroke();
+    ctx.setLineDash([]);
+    const lx=W-PAD.right+1; const lw=PAD.right-2; const lh=13;
+    ctx.fillStyle=color;
+    ctx.beginPath();ctx.roundRect(lx,y-lh/2,lw,lh,2);ctx.fill();
+    ctx.fillStyle='#fff'; ctx.font='bold 7.5px sans-serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(label,lx+lw/2,y);
+  }
+  lvl(pick.t2,'#27ae60','T2',true);
+  lvl(pick.t1,'#2ecc71','T1',true);
+  lvl(pick.entry,pick.color,'ENTRY',false);
+  lvl(pick.stop,'#c0392b','STOP',true);
+  // Current price dashed
+  const last=candles[n-1].c;
+  ctx.strokeStyle='rgba(0,0,0,0.18)'; ctx.lineWidth=0.5; ctx.setLineDash([2,2]);
+  ctx.beginPath();ctx.moveTo(PAD.left,py(last));ctx.lineTo(W-PAD.right,py(last));ctx.stroke();
+  ctx.setLineDash([]);
+  // Date labels
+  ctx.fillStyle='rgba(0,0,0,0.35)'; ctx.font='8px sans-serif';
+  ctx.textAlign='center'; ctx.textBaseline='top';
+  for(let i=0;i<n;i+=8){
+    ctx.fillText(candles[i].t.slice(5,10),cx(i),H-PAD.bottom+3);
+  }
+  // Ticker label
+  ctx.fillStyle='rgba(0,0,0,0.4)'; ctx.font='bold 10px sans-serif';
+  ctx.textAlign='left'; ctx.textBaseline='top';
+  ctx.fillText(tk+' · 4H',PAD.left+4,PAD.top+2);
+}
+
+function drawAll(){
+  [['c0','GOOGL',0],['c1','CRM',1],['c2','MSFT',2],
+   ['s0','GOOGL',0],['s1','CRM',1],['s2','MSFT',2]
+  ].forEach(([id,tk,pi])=>drawChart(id,tk,PICKS[pi]));
+}
+
+function sv(v,el){
+  document.getElementById('va').style.display='none';
+  document.getElementById('vs').style.display='none';
+  document.getElementById('vi').style.display='none';
+  document.getElementById('v'+v[0]).style.display='block';
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  if(el) el.classList.add('on');
+  setTimeout(drawAll,60);
+}
+
+setTimeout(drawAll,250);
+window.addEventListener('resize',()=>setTimeout(drawAll,120));
+</script>
+</body>
+</html>
