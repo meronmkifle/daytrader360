@@ -1,0 +1,647 @@
+{
+  "schema_version": "2.0",
+  "picks": [
+    {
+      "id": "GOOGL-2026-03-17",
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc.",
+      "sector": "Communication Services",
+      "week_start": "2026-03-17",
+      "type": "weekly_pick",
+      "rank": 1,
+      "conviction": 70,
+      "entry": 307.69,
+      "stop": 297.24,
+      "t1": 321.62,
+      "t2": 332.07,
+      "atr": 6.97,
+      "rr": 1.33,
+      "rsi_d": 50.6,
+      "rsi_i": 57.8,
+      "bb_pos": 0.555,
+      "score": 13,
+      "status": "active",
+      "status_updated": "2026-03-19",
+      "current_price": 304.12,
+      "pnl_pct": -1.16,
+      "max_price": 311.42,
+      "min_price": 301.04,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 376.57,
+      "tags": [
+        "Cloud 48% YoY",
+        "Apple Gemini deal",
+        "Cheapest Mag7 P/E"
+      ],
+      "thesis": "GOOGL tops the technical ranking (13/20) with MACD in bullish expansion and RSI neutral-constructive at 50.6. Cloud revenue at 48% YoY growth and a $240B contracted backlog provide structural upside. The Gemini-Apple deal is a non-consensus catalyst. No earnings within 5 days.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "Google Cloud 48% YoY",
+          "body": "$240B backlog, op income +154% YoY. Wiz $32B closed. BMO raised Q1 2026 estimate to 40%."
+        },
+        {
+          "type": "green",
+          "title": "Apple Gemini Partnership",
+          "body": "Gemini models to power iPhone AI. 750M MAUs. New consumer monetisation channel worth billions annually."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $377 PT",
+          "body": "32 Buy / 6 Hold / 0 Sell (TipRanks). +22% upside. Only Mag7 stock with zero sell ratings."
+        },
+        {
+          "type": "blue",
+          "title": "Cheapest Mag7 on Fwd P/E",
+          "body": "22.9\u00d7 fwd P/E despite 18% rev growth. Waymo + AI infra are unmodelled optionality."
+        },
+        {
+          "type": "amber",
+          "title": "DOJ Antitrust",
+          "body": "Appeal in progress. Adtech remedies phase. No criminal probe. Structural breakup rejected."
+        },
+        {
+          "type": "amber",
+          "title": "CapEx Ramp $140-185B",
+          "body": "Near-term FCF compression. Consensus treats as growth infra investment, not impairment."
+        }
+      ],
+      "midweek_update": null,
+      "close_date": null,
+      "close_reason": null,
+      "candles": []
+    },
+    {
+      "id": "CRM-2026-03-17",
+      "ticker": "CRM",
+      "company": "Salesforce, Inc.",
+      "sector": "Technology",
+      "week_start": "2026-03-17",
+      "type": "weekly_pick",
+      "rank": 2,
+      "conviction": 71,
+      "entry": 194.34,
+      "stop": 182.72,
+      "t1": 209.83,
+      "t2": 221.45,
+      "atr": 7.75,
+      "rr": 1.33,
+      "rsi_d": 44.9,
+      "rsi_i": 32.4,
+      "bb_pos": 0.527,
+      "score": 12,
+      "status": "active",
+      "status_updated": "2026-03-19",
+      "current_price": 196.2,
+      "pnl_pct": 0.96,
+      "max_price": 201.04,
+      "min_price": 191.29,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 268.21,
+      "tags": [
+        "Agentforce ARR +169%",
+        "$50B buyback",
+        "RSI oversold bounce"
+      ],
+      "thesis": "CRM posts the highest composite conviction score (71). At 13\u00d7 fwd P/E the market's AI disruption fear has overshot. Agentforce ARR +169% YoY, $72B RPO provides 18 months visibility. $50B buyback signals insider confidence.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "Agentforce $800M ARR +169%",
+          "body": "29,000 deals (+50% QoQ). $72.4B RPO +14% YoY. Q4 FY26 revenue +12% \u2014 fastest in 2 years."
+        },
+        {
+          "type": "green",
+          "title": "$50B Buyback Announced",
+          "body": "\"These are low prices\" \u2014 Benioff. $4.2B returned Q4. Dividend +5.8%. US Army contract active."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $268 PT",
+          "body": "28B/7H/1S. +38% upside. BTIG $335: market pricing in \"CRM's demise\" \u2014 too bearish."
+        },
+        {
+          "type": "blue",
+          "title": "$72B RPO Backlog",
+          "body": "18+ months contracted revenue. 60%+ Agentforce bookings from existing customers."
+        },
+        {
+          "type": "amber",
+          "title": "SaaS Model Transition",
+          "body": "Seat \u2192 usage pricing shift creates near-term uncertainty. FY27 guide slightly missed."
+        },
+        {
+          "type": "purple",
+          "title": "13\u00d7 vs 25\u00d7 Historical P/E",
+          "body": "Generational valuation compression. $72B RPO + 77.7% GM + $50B buyback = asymmetric setup."
+        }
+      ],
+      "midweek_update": null,
+      "close_date": null,
+      "close_reason": null,
+      "candles": []
+    },
+    {
+      "id": "MSFT-2026-03-17",
+      "ticker": "MSFT",
+      "company": "Microsoft Corporation",
+      "sector": "Technology",
+      "week_start": "2026-03-17",
+      "type": "weekly_pick",
+      "rank": 3,
+      "conviction": 66,
+      "entry": 391.79,
+      "stop": 379.34,
+      "t1": 408.38,
+      "t2": 420.83,
+      "atr": 8.3,
+      "rr": 1.33,
+      "rsi_d": 41.1,
+      "rsi_i": 26.0,
+      "bb_pos": 0.202,
+      "score": 11,
+      "status": "active",
+      "status_updated": "2026-03-19",
+      "current_price": 389.5,
+      "pnl_pct": -0.58,
+      "max_price": 404.4,
+      "min_price": 383.1,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 495.0,
+      "tags": [
+        "Azure 39%",
+        "$625B RPO",
+        "Deep oversold"
+      ],
+      "thesis": "MSFT offers the highest-quality fundamental backdrop: Azure 39% YoY, $625B RPO, $74B FCF. Daily RSI 41.1 in recovery zone with MACD bullishly expanding. BB at 0.20 = lower band mean-reversion setup. Beta 0.9 = safest overnight hold.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "Azure 39% \u00b7 $625B RPO",
+          "body": "Intelligent Cloud $32.9B (+29%). $625B commercial RPO +110% YoY including $250B OpenAI commitment."
+        },
+        {
+          "type": "green",
+          "title": "$12.7B Buybacks Q2",
+          "body": "+32% YoY capital return. FCF $74B. M365 90M+ subscribers. Copilot ARPU expanding."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $495 PT",
+          "body": "35B/7H/0S. Foundry $1M+ customers +80% QoQ. OpenAI provider of scale."
+        },
+        {
+          "type": "blue",
+          "title": "Copilot ARPU Growth",
+          "body": "M365 commercial +17% YoY. E5 + Copilot Chat driving ARPU. Dynamics +18%."
+        },
+        {
+          "type": "amber",
+          "title": "OpenAI Concentration",
+          "body": "~45% of $625B RPO tied to OpenAI. CFO flagged quarterly volatility risk."
+        },
+        {
+          "type": "purple",
+          "title": "Beta 0.9 \u2014 Safest Hold",
+          "body": "OS + M365 + Azure + Copilot flywheel. Defensive quality at compressed valuation."
+        }
+      ],
+      "midweek_update": null,
+      "close_date": null,
+      "close_reason": null,
+      "candles": []
+    },
+    {
+      "id": "NVDA-2026-03-03",
+      "ticker": "NVDA",
+      "company": "NVIDIA Corporation",
+      "sector": "Technology",
+      "week_start": "2026-03-03",
+      "type": "weekly_pick",
+      "rank": 1,
+      "conviction": 74,
+      "entry": 112.5,
+      "stop": 105.8,
+      "t1": 122.5,
+      "t2": 128.9,
+      "atr": 4.47,
+      "rr": 1.49,
+      "rsi_d": 48.2,
+      "rsi_i": 38.5,
+      "bb_pos": 0.31,
+      "score": 14,
+      "status": "t1_hit",
+      "status_updated": "2026-03-06",
+      "current_price": 123.1,
+      "pnl_pct": 8.89,
+      "max_price": 127.4,
+      "min_price": 108.2,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 175.0,
+      "tags": [
+        "GTC 2026 catalyst",
+        "Blackwell demand",
+        "Target 1 hit"
+      ],
+      "thesis": "NVDA ranked #1 technically ahead of GTC 2026 conference. Blackwell GPU demand remains structurally elevated. RSI reset to mid-range after the March correction, creating a clean entry. Target 1 hit on March 6 following GTC announcements.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "GTC 2026 \u2014 Blackwell Demand",
+          "body": "NVIDIA GTC conference Mar 17-21. Blackwell GPU orders running 12-18 months ahead. H200 still supply-constrained."
+        },
+        {
+          "type": "green",
+          "title": "Data Center Revenue +112%",
+          "body": "Q4 FY26 data center revenue $30.8B, up 112% YoY. Sovereign AI orders from 40+ governments."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $175 Avg PT",
+          "body": "48B/5H/0S. Multiple analysts raised PTs ahead of GTC. +55% upside from entry."
+        },
+        {
+          "type": "amber",
+          "title": "China Export Restrictions",
+          "body": "H20 chip restrictions impacting ~$5B quarterly revenue. Workaround chips face regulatory uncertainty."
+        },
+        {
+          "type": "amber",
+          "title": "Valuation Premium",
+          "body": "Trading at 35\u00d7 fwd earnings \u2014 requires sustained 50%+ revenue growth to justify."
+        },
+        {
+          "type": "purple",
+          "title": "Sovereign AI + Robotics",
+          "body": "Issac robotics platform + digital twin (Omniverse) creating new revenue verticals beyond datacenter."
+        }
+      ],
+      "midweek_update": {
+        "date": "2026-03-05",
+        "note": "Price held above stop and pushed toward T1 ahead of GTC. RSI recovered to 58. Holding full position.",
+        "status_at_update": "active"
+      },
+      "close_date": "2026-03-06",
+      "close_reason": "T1 hit at $122.50 (+8.89%). Partial close recommended. Trailing stop set for remainder.",
+      "candles": []
+    },
+    {
+      "id": "META-2026-03-03",
+      "ticker": "META",
+      "company": "Meta Platforms, Inc.",
+      "sector": "Communication Services",
+      "week_start": "2026-03-03",
+      "type": "weekly_pick",
+      "rank": 2,
+      "conviction": 68,
+      "entry": 598.4,
+      "stop": 572.1,
+      "t1": 633.5,
+      "t2": 659.8,
+      "atr": 17.53,
+      "rr": 1.34,
+      "rsi_d": 46.1,
+      "rsi_i": 41.2,
+      "bb_pos": 0.38,
+      "score": 12,
+      "status": "stopped_out",
+      "status_updated": "2026-03-07",
+      "current_price": 571.2,
+      "pnl_pct": -4.4,
+      "max_price": 615.8,
+      "min_price": 569.5,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 720.0,
+      "tags": [
+        "AI ad targeting",
+        "Llama 4 launch",
+        "Stopped out"
+      ],
+      "thesis": "META entering week with strong AI monetisation tailwinds. Llama 4 launch expected to expand ecosystem. RSI mid-range with MACD bullish. Setup invalidated mid-week on broader tech selloff.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "AI Ad Revenue +22% YoY",
+          "body": "AI-driven ad targeting lifting CPMs across all segments. Reels monetisation gap closed with TikTok."
+        },
+        {
+          "type": "green",
+          "title": "Llama 4 Launch Catalyst",
+          "body": "Open-source Llama 4 release creating enterprise adoption flywheel. 500M+ weekly users on AI features."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $720 PT",
+          "body": "42B/4H/0S. +20% upside. Reality Labs losses narrowing as Quest Pro adoption accelerates."
+        },
+        {
+          "type": "amber",
+          "title": "EU Regulatory Pressure",
+          "body": "DMA compliance costs rising. GDPR enforcement actions in Ireland could hit Q2 ad revenue."
+        },
+        {
+          "type": "amber",
+          "title": "Macro Selloff Risk",
+          "body": "High beta (1.4) amplifies downside on broader risk-off moves. Position sizing critical."
+        },
+        {
+          "type": "purple",
+          "title": "AR/VR Long-term Play",
+          "body": "Orion AR glasses prototype demonstrated. 2027-2028 consumer launch could re-rate Reality Labs."
+        }
+      ],
+      "midweek_update": {
+        "date": "2026-03-05",
+        "note": "Broader tech selloff Thursday. Price tested $578 level. Stop at $572.10 now clearly in range. Recommend reducing position by 50% here.",
+        "status_at_update": "active"
+      },
+      "close_date": "2026-03-07",
+      "close_reason": "Stopped out at $572.10 (\u22124.38%). Broader tech selloff overwhelmed the setup. Stop held as designed.",
+      "candles": []
+    },
+    {
+      "id": "AMZN-2026-03-03",
+      "ticker": "AMZN",
+      "company": "Amazon.com, Inc.",
+      "sector": "Consumer Discretionary",
+      "week_start": "2026-03-03",
+      "type": "weekly_pick",
+      "rank": 3,
+      "conviction": 65,
+      "entry": 214.2,
+      "stop": 204.8,
+      "t1": 226.5,
+      "t2": 237.1,
+      "atr": 6.27,
+      "rr": 1.31,
+      "rsi_d": 43.8,
+      "rsi_i": 44.1,
+      "bb_pos": 0.29,
+      "score": 11,
+      "status": "closed",
+      "status_updated": "2026-03-14",
+      "current_price": 218.9,
+      "pnl_pct": 2.19,
+      "max_price": 223.4,
+      "min_price": 207.6,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 270.0,
+      "tags": [
+        "AWS acceleration",
+        "Closed week-end"
+      ],
+      "thesis": "AMZN showed AWS re-acceleration signals and retail margin expansion. RSI reset to constructive range. BB position 0.29 near lower band. Setup held through the week but did not reach T1.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "AWS Re-acceleration",
+          "body": "AWS revenue +22% YoY in Q4. Bedrock AI workloads driving incremental demand. Anthropic partnership deepening."
+        },
+        {
+          "type": "green",
+          "title": "Retail Margin Expansion",
+          "body": "North America operating margin 7.8% \u2014 structural improvement from same-day delivery cost reductions."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $270 PT",
+          "body": "46B/5H/0S. AWS still only 18% of total revenue but 70% of operating income."
+        },
+        {
+          "type": "amber",
+          "title": "Consumer Macro Sensitivity",
+          "body": "Discretionary retail segment vulnerable to consumer spending slowdown in H1 2026."
+        },
+        {
+          "type": "amber",
+          "title": "Tariff Exposure",
+          "body": "Chinese goods exposure through third-party sellers could raise platform costs if tariffs escalate."
+        },
+        {
+          "type": "purple",
+          "title": "Project Kuiper + Logistics",
+          "body": "Satellite internet launch 2026-2027. Last-mile logistics becoming standalone profit center."
+        }
+      ],
+      "midweek_update": {
+        "date": "2026-03-11",
+        "note": "AMZN recovered after early-week dip. Now +2.2% from entry. Did not hit T1 but setup intact. Holding into week close.",
+        "status_at_update": "active"
+      },
+      "close_date": "2026-03-14",
+      "close_reason": "Closed end of week +2.19%. Did not reach T1. Capital rotated into stronger setups for following week.",
+      "candles": []
+    },
+    {
+      "id": "AAPL-2026-02-24",
+      "ticker": "AAPL",
+      "company": "Apple Inc.",
+      "sector": "Technology",
+      "week_start": "2026-02-24",
+      "type": "weekly_pick",
+      "rank": 1,
+      "conviction": 72,
+      "entry": 224.8,
+      "stop": 214.2,
+      "t1": 238.3,
+      "t2": 248.5,
+      "atr": 7.07,
+      "rr": 1.28,
+      "rsi_d": 42.5,
+      "rsi_i": 39.8,
+      "bb_pos": 0.22,
+      "score": 13,
+      "status": "t2_hit",
+      "status_updated": "2026-02-28",
+      "current_price": 248.5,
+      "pnl_pct": 10.54,
+      "max_price": 251.2,
+      "min_price": 218.6,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 290.0,
+      "tags": [
+        "iPhone AI supercycle",
+        "Services ATH",
+        "Target 2 hit \u2713"
+      ],
+      "thesis": "AAPL entered the week at BB lower band with RSI reset. iPhone 17 AI upgrade cycle narrative building. Services revenue reaching new ATH quarter after quarter. T2 hit Friday.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "iPhone AI Supercycle",
+          "body": "iPhone 17 expected to drive largest upgrade cycle since iPhone 6. Apple Intelligence features driving upgrades."
+        },
+        {
+          "type": "green",
+          "title": "Services Revenue ATH",
+          "body": "Services Q1 2026 $26.3B \u2014 new all-time high. App Store + AppleTV + Apple Pay compounding."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $290 PT",
+          "body": "38B/8H/0S. +29% upside. Berkshire Hathaway remains largest shareholder \u2014 Buffett conviction."
+        },
+        {
+          "type": "amber",
+          "title": "China Revenue Headwinds",
+          "body": "Greater China revenue -8% YoY. Huawei competition + geopolitical risk a structural concern."
+        },
+        {
+          "type": "amber",
+          "title": "AI Catch-up Risk",
+          "body": "Apple Intelligence features behind competitors in some categories. Siri overhaul delayed to late 2026."
+        },
+        {
+          "type": "purple",
+          "title": "Apple Vision Pro Gen 2",
+          "body": "Lighter, cheaper Vision Pro Gen 2 expected H2 2026. Spatial computing optionality not in models."
+        }
+      ],
+      "midweek_update": {
+        "date": "2026-02-26",
+        "note": "T1 hit Wednesday at $238.30 (+6.0%). Strong momentum. Trailing remaining position above entry. T2 at $248.50 in range.",
+        "status_at_update": "t1_hit"
+      },
+      "close_date": "2026-02-28",
+      "close_reason": "T2 hit at $248.50 (+10.54%). Full position closed. Exceptional week.",
+      "candles": []
+    },
+    {
+      "id": "AVGO-2026-02-24",
+      "ticker": "AVGO",
+      "company": "Broadcom Inc.",
+      "sector": "Technology",
+      "week_start": "2026-02-24",
+      "type": "weekly_pick",
+      "rank": 2,
+      "conviction": 69,
+      "entry": 188.4,
+      "stop": 179.6,
+      "t1": 200.2,
+      "t2": 208.9,
+      "atr": 5.87,
+      "rr": 1.34,
+      "rsi_d": 44.0,
+      "rsi_i": 48.5,
+      "bb_pos": 0.33,
+      "score": 12,
+      "status": "t1_hit",
+      "status_updated": "2026-02-27",
+      "current_price": 200.2,
+      "pnl_pct": 6.26,
+      "max_price": 204.5,
+      "min_price": 183.2,
+      "analyst_rating": "Strong Buy",
+      "analyst_pt": 235.0,
+      "tags": [
+        "Custom AI chips",
+        "VMware integration",
+        "T1 hit"
+      ],
+      "thesis": "AVGO benefiting from hyperscaler custom AI chip demand (Google TPU, Meta MTIA). VMware integration generating strong cross-sell. T1 hit on Thursday.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "Custom AI Chip Demand",
+          "body": "Hyperscaler custom silicon (ASIC) revenue +200%+ YoY. Google, Meta, Apple all expanding AVGO partnerships."
+        },
+        {
+          "type": "green",
+          "title": "VMware Integration +$4B Revenue",
+          "body": "VMware cross-sell generating $4B incremental annual revenue ahead of schedule. Margins expanding."
+        },
+        {
+          "type": "blue",
+          "title": "Strong Buy \u00b7 $235 PT",
+          "body": "35B/6H/0S. +24% upside. AI infrastructure spending still in early innings."
+        },
+        {
+          "type": "amber",
+          "title": "Huawei/China Exposure",
+          "body": "Some semiconductor revenue exposed to US-China trade restrictions. Watch Q2 guidance carefully."
+        },
+        {
+          "type": "purple",
+          "title": "AI ASIC vs GPU",
+          "body": "As hyperscalers shift toward custom ASICs, AVGO positioned to take share from NVDA in training workloads by 2028."
+        }
+      ],
+      "midweek_update": {
+        "date": "2026-02-26",
+        "note": "AVGO +4.8% mid-week, approaching T1. Setup intact. No negative catalysts. On track.",
+        "status_at_update": "active"
+      },
+      "close_date": "2026-02-27",
+      "close_reason": "T1 hit at $200.20 (+6.26%). Half position closed. Trailing stop set at entry for remainder.",
+      "candles": []
+    },
+    {
+      "id": "JPM-2026-02-24",
+      "ticker": "JPM",
+      "company": "JPMorgan Chase & Co.",
+      "sector": "Financials",
+      "week_start": "2026-02-24",
+      "type": "weekly_pick",
+      "rank": 3,
+      "conviction": 63,
+      "entry": 272.1,
+      "stop": 261.8,
+      "t1": 284.5,
+      "t2": 294.2,
+      "atr": 6.87,
+      "rr": 1.21,
+      "rsi_d": 38.5,
+      "rsi_i": 36.2,
+      "bb_pos": 0.18,
+      "score": 11,
+      "status": "closed",
+      "status_updated": "2026-02-28",
+      "current_price": 278.9,
+      "pnl_pct": 2.5,
+      "max_price": 281.4,
+      "min_price": 265.3,
+      "analyst_rating": "Moderate Buy",
+      "analyst_pt": 310.0,
+      "tags": [
+        "Rate environment improving",
+        "Week close"
+      ],
+      "thesis": "JPM showing oversold conditions with RSI below 40 and BB position at lower band. Fed pause expectations supportive for NIM. Held through week but did not reach T1.",
+      "intel": [
+        {
+          "type": "green",
+          "title": "NIM Expansion",
+          "body": "Net interest margin held above 2.7% as rate environment stabilises. Investment banking revenue recovering."
+        },
+        {
+          "type": "green",
+          "title": "$30B Buyback Programme",
+          "body": "JPM board approved $30B buyback. CET1 ratio 15.3% \u2014 significant excess capital to deploy."
+        },
+        {
+          "type": "blue",
+          "title": "Moderate Buy \u00b7 $310 PT",
+          "body": "22B/10H/2S. Dimon cautious on macro but sees value in current valuation."
+        },
+        {
+          "type": "amber",
+          "title": "Credit Loss Provisions",
+          "body": "Consumer credit delinquencies ticking up. Q1 provision build could disappoint."
+        },
+        {
+          "type": "purple",
+          "title": "AI in Banking",
+          "body": "JPM investing $17B in tech in 2026. AI-driven cost efficiencies expected to improve efficiency ratio to sub-55% by 2027."
+        }
+      ],
+      "midweek_update": {
+        "date": "2026-02-26",
+        "note": "JPM held above stop. Up ~2.5%. Slower mover than tech picks. Holding position.",
+        "status_at_update": "active"
+      },
+      "close_date": "2026-02-28",
+      "close_reason": "Closed end of week +2.50%. Did not reach T1. Capital rotated into higher-conviction setups.",
+      "candles": []
+    }
+  ]
+}
