@@ -3,302 +3,529 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>@daytrader_360</title>
+<title>DT360 · Trade Desk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ══ TOKENS ═══════════════════════════════════════════ */
+/* ══ DESIGN SYSTEM ══════════════════════════════════════════
+   Bloomberg-inspired terminal aesthetic:
+   - IBM Plex Mono for all data / numbers
+   - IBM Plex Sans for labels and prose
+   - Orange accent (#F60)
+   - Black ruled lines, no rounded corners on data cells
+   - Uppercase 10px labels, dense information layout
+   - Light default, dark toggle
+═══════════════════════════════════════════════════════════ */
+
 :root{
-  --bg:#f0efe9;--surf:#fff;--surf2:#f5f4ee;--surf3:#eceae2;
-  --brd:rgba(0,0,0,0.08);--brd2:rgba(0,0,0,0.15);
-  --txt:#0f0f0e;--txt2:#4a4845;--txt3:#8f8c87;
-  --bull:#158a52;--bear:#c43535;
-  --bull-bg:rgba(21,138,82,.09);--bear-bg:rgba(196,53,53,.09);
-  --bull-dk:#0a4f2e;--bear-dk:#6e1818;
-  --info-bg:#e5edfb;--info-brd:#aec6f5;--info-txt:#163572;
-  --warn-bg:#fdf1dc;--warn-brd:#f0c55c;--warn-txt:#6a3900;
-  --strc-bg:#ebebfd;--strc-brd:#bbb8f8;--strc-txt:#312a92;
-  --neu-bg:#f0efe9;--neu-brd:#d8d6ce;--neu-txt:#4a4845;
-  --acc1:#2a7dd4;--acc2:#169b5e;--acc3:#a86512;
-  --r:9px;--rl:13px;
-  --sh:0 1px 2px rgba(0,0,0,.05),0 3px 10px rgba(0,0,0,.04);
-  --sh2:0 2px 8px rgba(0,0,0,.08),0 8px 24px rgba(0,0,0,.05);
+  --bg:#fafaf8;
+  --bg2:#f2f1ec;
+  --bg3:#e8e7e0;
+  --surf:#ffffff;
+  --rule:#d8d6ce;
+  --rule2:#b8b6ae;
+  --txt:#111110;
+  --txt2:#44433e;
+  --txt3:#888680;
+  --txt4:#b8b6ae;
+  --acc:#ff6600;
+  --acc2:#cc4400;
+  --bull:#1a7a3e;
+  --bear:#b82020;
+  --bull-bg:#edf7f1;
+  --bear-bg:#fdf0f0;
+  --bull-txt:#0f4f28;
+  --bear-txt:#7a1515;
+  --info-bg:#eef4fd;
+  --info-rule:#aac4ef;
+  --info-txt:#0f3570;
+  --warn-bg:#fef8ec;
+  --warn-rule:#e8c56a;
+  --warn-txt:#6b4200;
+  --strc-bg:#f3f2fe;
+  --strc-rule:#b8b2f5;
+  --strc-txt:#2e268f;
+  --font-data:'IBM Plex Mono',monospace;
+  --font-ui:'IBM Plex Sans',sans-serif;
 }
 [data-theme=dark]{
-  --bg:#0c0c0b;--surf:#181816;--surf2:#1f1f1d;--surf3:#272724;
-  --brd:rgba(255,255,255,.07);--brd2:rgba(255,255,255,.13);
-  --txt:#ece9e2;--txt2:#9c9994;--txt3:#5e5c57;
-  --bull:#1fc87a;--bear:#f04f4f;
-  --bull-bg:rgba(31,200,122,.11);--bear-bg:rgba(240,79,79,.11);
-  --bull-dk:#6efbb6;--bear-dk:#fca5a5;
-  --info-bg:#0d1d3a;--info-brd:#1b3868;--info-txt:#7ab4f8;
-  --warn-bg:#261900;--warn-brd:#5a3c00;--warn-txt:#f5b84a;
-  --strc-bg:#18133a;--strc-brd:#362c72;--strc-txt:#b4a8ff;
-  --neu-bg:#1f1f1d;--neu-brd:#333330;--neu-txt:#9c9994;
-  --sh:0 1px 2px rgba(0,0,0,.3),0 3px 10px rgba(0,0,0,.22);
-  --sh2:0 2px 8px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  --bg:#0d0d0c;
+  --bg2:#141412;
+  --bg3:#1c1c1a;
+  --surf:#1a1a18;
+  --rule:#2e2e2a;
+  --rule2:#444440;
+  --txt:#e8e6de;
+  --txt2:#a8a69e;
+  --txt3:#666460;
+  --txt4:#444440;
+  --bull:#28b85a;
+  --bear:#f04545;
+  --bull-bg:#0a2015;
+  --bear-bg:#200a0a;
+  --bull-txt:#5ee88a;
+  --bear-txt:#f88888;
+  --info-bg:#0a1830;
+  --info-rule:#1e3a6a;
+  --info-txt:#6aabf8;
+  --warn-bg:#1e1200;
+  --warn-rule:#4a3000;
+  --warn-txt:#f0b84a;
+  --strc-bg:#100e28;
+  --strc-rule:#2a2460;
+  --strc-txt:#a89eff;
 }
 
-/* ══ RESET ════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{font-size:16px;scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif;
-  background:var(--bg);color:var(--txt);line-height:1.5;min-height:100vh;
-  -webkit-font-smoothing:antialiased;transition:background .2s,color .2s}
-.mono{font-family:'SF Mono','Fira Code','Fira Mono',monospace}
+html{font-size:14px}
+body{
+  font-family:var(--font-ui);
+  background:var(--bg);
+  color:var(--txt);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  transition:background .15s,color .15s;
+}
 
-/* ══ PAGE ═════════════════════════════════════════════ */
-.page{max-width:1160px;margin:0 auto;padding:0 22px 64px}
+/* ══ LAYOUT ═════════════════════════════════════════ */
+.page{max-width:1280px;margin:0 auto;padding:0 20px 64px}
 
-/* ══ TOPBAR ═══════════════════════════════════════════ */
-.topbar{display:flex;align-items:center;justify-content:space-between;
-  padding:18px 0 16px;border-bottom:1px solid var(--brd);
-  margin-bottom:0;gap:12px;flex-wrap:wrap}
-.topbar-l{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.logo{font-size:18px;font-weight:700;color:var(--txt)}
-.logo em{font-style:normal;color:var(--acc1)}
-.badge{font-family:'SF Mono','Fira Code',monospace;font-size:11px;
-  color:var(--txt3);background:var(--surf2);border:1px solid var(--brd);
-  padding:3px 9px;border-radius:5px;letter-spacing:.2px}
-.topbar-r{display:flex;align-items:center;gap:8px}
-.ibtn{display:flex;align-items:center;gap:6px;background:var(--surf);
-  border:1px solid var(--brd2);border-radius:8px;padding:7px 15px;
-  font-family:inherit;font-size:13px;font-weight:500;color:var(--txt2);
-  cursor:pointer;transition:all .15s;white-space:nowrap}
-.ibtn:hover{background:var(--surf2);color:var(--txt)}
-.ibtn svg{width:14px;height:14px;flex-shrink:0}
-.ibtn.active{background:var(--txt);color:var(--bg);border-color:var(--txt)}
+/* ══ TOPBAR ═════════════════════════════════════════ */
+.topbar{
+  display:flex;align-items:stretch;
+  border-bottom:2px solid var(--txt);
+  margin-bottom:0;
+}
+.topbar-brand{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 16px 10px 0;
+  border-right:1px solid var(--rule2);
+}
+.brand-mark{
+  font-family:var(--font-data);
+  font-size:15px;font-weight:600;
+  color:var(--txt);letter-spacing:-.3px;
+}
+.brand-mark em{font-style:normal;color:var(--acc)}
+.brand-sub{
+  font-family:var(--font-data);
+  font-size:10px;color:var(--txt3);letter-spacing:.5px;
+  text-transform:uppercase;
+}
+.topbar-status{
+  display:flex;align-items:center;gap:0;
+  flex:1;overflow:hidden;
+}
+.status-cell{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:8px 14px;border-right:1px solid var(--rule);
+  white-space:nowrap;min-width:0;
+}
+.sc-label{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);margin-bottom:3px}
+.sc-val{font-family:var(--font-data);font-size:12px;font-weight:500;color:var(--txt)}
+.sc-val.pos{color:var(--bull)}
+.sc-val.neg{color:var(--bear)}
+.sc-val.acc{color:var(--acc)}
+.topbar-right{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 0 8px 14px;margin-left:auto;
+}
+.tbtn{
+  display:flex;align-items:center;gap:5px;
+  background:none;border:1px solid var(--rule2);
+  padding:5px 11px;font-family:var(--font-ui);
+  font-size:11px;font-weight:500;color:var(--txt2);
+  cursor:pointer;transition:all .12s;letter-spacing:.2px;
+}
+.tbtn:hover{background:var(--bg3);color:var(--txt);border-color:var(--txt)}
+.tbtn svg{width:12px;height:12px;flex-shrink:0}
+.tbtn.primary{background:var(--txt);color:var(--bg);border-color:var(--txt)}
+.tbtn.primary:hover{background:var(--txt2)}
 
-/* ══ NAV TABS ════════════════════════════════════════ */
-.nav{display:flex;gap:0;border-bottom:1px solid var(--brd);margin-bottom:28px;overflow-x:auto}
-.nav-tab{font-size:13px;font-weight:500;padding:14px 20px;color:var(--txt3);
-  cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;
-  transition:all .15s;margin-bottom:-1px}
+/* ══ NAV ════════════════════════════════════════════ */
+.nav{
+  display:flex;border-bottom:1px solid var(--rule);
+  margin-bottom:24px;overflow-x:auto;
+}
+.nav-tab{
+  font-family:var(--font-ui);font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.7px;
+  padding:11px 16px;color:var(--txt3);cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-1px;
+  white-space:nowrap;transition:all .12s;
+}
 .nav-tab:hover{color:var(--txt2)}
-.nav-tab.on{color:var(--txt);border-bottom-color:var(--txt)}
+.nav-tab.on{color:var(--acc);border-bottom-color:var(--acc)}
 
-/* ══ VIEWS ════════════════════════════════════════════ */
+/* ══ VIEWS ══════════════════════════════════════════ */
 .view{display:none}.view.on{display:block}
 
-/* ══ WEEK HEADER ══════════════════════════════════════ */
-.week-hdr{display:flex;align-items:center;justify-content:space-between;
-  margin:28px 0 14px;flex-wrap:wrap;gap:10px}
-.week-title{font-size:16px;font-weight:700;color:var(--txt)}
-.week-sub{font-size:12px;color:var(--txt3);margin-top:2px}
-.week-pills{display:flex;gap:6px;flex-wrap:wrap}
-.wpill{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;
-  border:1px solid var(--brd)}
+/* ══ WEEK SECTION ═══════════════════════════════════ */
+.week-section{margin-bottom:32px}
+.week-header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 0;border-top:2px solid var(--txt);
+  border-bottom:1px solid var(--rule);
+  margin-bottom:16px;gap:16px;flex-wrap:wrap;
+}
+.week-label{
+  font-family:var(--font-data);font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.8px;color:var(--txt);
+}
+.week-meta{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.wm-item{font-family:var(--font-data);font-size:10px;color:var(--txt3)}
+.wm-item b{color:var(--txt2)}
+.wm-item.pos b{color:var(--bull)}
+.wm-item.neg b{color:var(--bear)}
 
-/* ══ PICK CARD ════════════════════════════════════════ */
-.pick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;margin-bottom:8px}
-.pcard{background:var(--surf);border:1px solid var(--brd);border-radius:var(--rl);
-  overflow:hidden;box-shadow:var(--sh);cursor:pointer;transition:box-shadow .15s,transform .1s}
-.pcard:hover{box-shadow:var(--sh2);transform:translateY(-1px)}
-.pcard-accent{height:3px}
-.pcard-body{padding:16px 18px}
-.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:10px}
-.pcard-left{}
-.pticker{font-size:22px;font-weight:700;color:var(--txt);letter-spacing:-.3px;line-height:1}
-.pco{font-size:11px;color:var(--txt3);margin-top:3px}
-.pcard-right{text-align:right}
-.pconv{font-family:'SF Mono','Fira Code',monospace;font-size:24px;font-weight:600;color:var(--txt);line-height:1}
+/* ══ PICK CARD GRID ═════════════════════════════════ */
+.pick-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
+  gap:0;
+  border-top:1px solid var(--rule);
+  border-left:1px solid var(--rule);
+}
+.pcard{
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  cursor:pointer;background:var(--surf);
+  transition:background .1s;
+  position:relative;
+}
+.pcard:hover{background:var(--bg2)}
+.pcard-accent-bar{height:3px;width:100%}
+
+.pcard-body{padding:14px 16px}
+
+/* Card header row */
+.pcard-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px}
+.pcard-tk{
+  font-family:var(--font-data);font-size:20px;font-weight:600;
+  color:var(--txt);letter-spacing:-.3px;line-height:1;
+}
+.pcard-co{font-size:11px;color:var(--txt3);margin-top:3px}
+.pcard-meta-r{text-align:right}
+.pconv{
+  font-family:var(--font-data);font-size:22px;font-weight:600;
+  color:var(--txt);line-height:1;
+}
 .pconv-lbl{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3)}
-.pstatus-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
-.status-pill{font-size:10px;font-weight:700;padding:3px 9px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
-.s-active  {background:var(--bull-bg);color:var(--bull-dk);border:1px solid rgba(21,138,82,.2)}
-.s-hit_t1  {background:var(--bull-bg);color:var(--bull-dk);border:1px solid rgba(21,138,82,.3)}
-.s-hit_t2  {background:rgba(21,138,82,.2);color:var(--bull-dk);border:1px solid rgba(21,138,82,.4)}
-.s-stopped_out{background:var(--bear-bg);color:var(--bear-dk);border:1px solid rgba(196,53,53,.2)}
-.s-closed  {background:var(--neu-bg);color:var(--neu-txt);border:1px solid var(--neu-brd)}
-.pdate{font-size:10px;color:var(--txt3)}
-.ptype-monday{color:var(--acc1)}
-.ptype-wednesday{color:var(--acc3)}
 
-/* Mini levels */
-.mini-levels{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:10px}
-.ml{background:var(--surf2);border-radius:6px;padding:6px 8px;text-align:center;border:1px solid var(--brd)}
-.ml-lbl{font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--txt3);margin-bottom:2px}
-.ml-p{font-family:'SF Mono','Fira Code',monospace;font-size:12px;font-weight:600;color:var(--txt)}
-.ml-pct{font-family:'SF Mono','Fira Code',monospace;font-size:9px;margin-top:1px}
+/* Status + date row */
+.pcard-status-row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.status-tag{
+  font-family:var(--font-data);font-size:9px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.5px;
+  padding:2px 7px;border:1px solid;
+}
+.st-active    {color:var(--bull);border-color:var(--bull);background:var(--bull-bg)}
+.st-hit_t1    {color:var(--bull);border-color:var(--bull);background:var(--bull-bg)}
+.st-hit_t2    {color:var(--bull);border-color:var(--bull);background:var(--bull-bg)}
+.st-stopped_out{color:var(--bear);border-color:var(--bear);background:var(--bear-bg)}
+.st-closed    {color:var(--txt3);border-color:var(--rule2);background:var(--bg2)}
+.pcard-date{font-family:var(--font-data);font-size:10px;color:var(--txt3)}
+.type-dot{
+  width:6px;height:6px;border-radius:50%;display:inline-block;
+  margin-right:3px;vertical-align:middle;
+}
 
 /* Mini chart */
-.mini-chart{height:80px;border-radius:6px;overflow:hidden;background:var(--surf2);margin-bottom:10px;border:1px solid var(--brd)}
+.mini-chart-wrap{height:72px;background:var(--bg2);margin-bottom:10px;border:1px solid var(--rule);position:relative}
 canvas.mc{display:block;width:100%}
 
-/* PnL bar */
-.pnl-bar{display:flex;align-items:center;gap:8px;font-size:11px}
-.pnl-val{font-family:'SF Mono','Fira Code',monospace;font-weight:700;font-size:13px}
-.pnl-pos{color:var(--bull)}
-.pnl-neg{color:var(--bear)}
-.pnl-neu{color:var(--txt3)}
-.current-p{font-size:10px;color:var(--txt3)}
+/* 4-cell level row */
+.mini-levels{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);margin-bottom:10px}
+.ml{padding:5px 8px;border-right:1px solid var(--rule)}
+.ml:last-child{border-right:none}
+.ml-lbl{font-size:8px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--txt3);margin-bottom:2px}
+.ml-p{font-family:var(--font-data);font-size:12px;font-weight:600;color:var(--txt)}
+.ml-pct{font-family:var(--font-data);font-size:9px;margin-top:1px}
 
-/* Update badge */
-.update-badge{display:inline-flex;align-items:center;gap:4px;
-  font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;
-  background:var(--warn-bg);color:var(--warn-txt);border:1px solid var(--warn-brd)}
-
-/* ══ FILTER BAR ══════════════════════════════════════ */
-.filter-bar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
-.filter-bar input{font-family:inherit;font-size:13px;padding:8px 12px;
-  border-radius:8px;border:1px solid var(--brd2);background:var(--surf);
-  color:var(--txt);outline:none;min-width:180px}
-.filter-bar input:focus{border-color:var(--acc1)}
-.filter-bar select{font-family:inherit;font-size:13px;padding:8px 12px;
-  border-radius:8px;border:1px solid var(--brd2);background:var(--surf);
-  color:var(--txt);outline:none;cursor:pointer}
-.filter-bar select:focus{border-color:var(--acc1)}
-.fcount{font-size:12px;color:var(--txt3);margin-left:4px}
-
-/* ══ DETAIL PANEL (slide-in) ═════════════════════════ */
-#overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;
-  opacity:0;pointer-events:none;transition:opacity .2s}
-#overlay.open{opacity:1;pointer-events:all}
-#detail{position:fixed;top:0;right:0;bottom:0;width:min(680px,100vw);
-  background:var(--surf);box-shadow:-4px 0 32px rgba(0,0,0,.15);
-  z-index:101;overflow-y:auto;transform:translateX(100%);
-  transition:transform .25s cubic-bezier(.4,0,.2,1)}
-#detail.open{transform:translateX(0)}
-.detail-top{display:flex;align-items:center;justify-content:space-between;
-  padding:18px 22px;border-bottom:1px solid var(--brd);position:sticky;top:0;
-  background:var(--surf);z-index:2}
-.detail-close{background:none;border:none;font-size:22px;color:var(--txt3);
-  cursor:pointer;padding:4px 8px;border-radius:6px;line-height:1}
-.detail-close:hover{background:var(--surf2);color:var(--txt)}
-.detail-body{padding:20px 22px}
-
-/* detail sections */
-.d-section{margin-bottom:24px}
-.d-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;
-  color:var(--txt3);margin-bottom:10px}
-.levels-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.lv{background:var(--surf2);border:1px solid var(--brd);border-radius:var(--r);
-  padding:12px 14px;text-align:center}
-.lv-l{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;
-  color:var(--txt3);margin-bottom:5px}
-.lv-p{font-family:'SF Mono','Fira Code',monospace;font-size:16px;font-weight:600;color:var(--txt)}
-.lv-pct{font-family:'SF Mono','Fira Code',monospace;font-size:10px;margin-top:3px}
-.chart-big{height:240px;border-radius:var(--r);overflow:hidden;
-  background:var(--surf2);border:1px solid var(--brd);margin-bottom:16px}
-canvas.bc{display:block;width:100%}
-.sigs{display:flex;flex-wrap:wrap;gap:5px}
-.sig{font-size:10px;font-weight:500;padding:3px 9px;border-radius:5px;
-  background:var(--surf2);color:var(--txt2);border:1px solid var(--brd)}
-.intel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-.ic{border-radius:var(--r);padding:12px 14px;border:1px solid}
-.ic .ik{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;margin-bottom:5px}
-.ic .iv{font-size:11px;line-height:1.65}
-.ic-green{background:var(--bull-bg);border-color:rgba(21,138,82,.22);color:var(--bull-dk)}
-.ic-blue {background:var(--info-bg);border-color:var(--info-brd);color:var(--info-txt)}
-.ic-amber{background:var(--warn-bg);border-color:var(--warn-brd);color:var(--warn-txt)}
-.ic-purple{background:var(--strc-bg);border-color:var(--strc-brd);color:var(--strc-txt)}
-.thesis-box{font-size:12px;line-height:1.8;color:var(--txt2);
-  background:var(--surf2);border-radius:var(--r);padding:14px 16px;
-  border-left:3px solid var(--brd2)}
-.tags{display:flex;flex-wrap:wrap;gap:5px}
-.tag{font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px}
-.tag-b{background:var(--bull-bg);color:var(--bull-dk)}
-.tag-r{background:var(--bear-bg);color:var(--bear-dk)}
-.tag-n{background:var(--surf2);color:var(--txt2);border:1px solid var(--brd)}
-
-/* Updates timeline */
-.update-item{background:var(--surf2);border-radius:var(--r);padding:12px 14px;
-  border:1px solid var(--brd);margin-bottom:8px}
-.update-date{font-size:10px;font-weight:700;color:var(--acc3);margin-bottom:5px;text-transform:uppercase;letter-spacing:.5px}
-.update-note{font-size:12px;color:var(--txt2);line-height:1.65;margin-bottom:6px}
-.update-dev{font-size:11px;color:var(--txt3);font-style:italic}
-
-/* ══ PERFORMANCE VIEW ════════════════════════════════ */
-.perf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-bottom:28px}
-.stat-card{background:var(--surf);border:1px solid var(--brd);border-radius:var(--r);
-  padding:16px 18px;box-shadow:var(--sh)}
-.stat-k{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);margin-bottom:6px}
-.stat-v{font-family:'SF Mono','Fira Code',monospace;font-size:24px;font-weight:700;color:var(--txt);line-height:1}
-.stat-sub{font-size:11px;color:var(--txt3);margin-top:4px}
-
-/* Perf table */
-.perf-table{width:100%;border-collapse:collapse;font-size:13px}
-.perf-table th{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;
-  color:var(--txt3);padding:10px 12px;text-align:left;border-bottom:1px solid var(--brd);white-space:nowrap}
-.perf-table td{padding:11px 12px;border-bottom:1px solid var(--brd);vertical-align:middle}
-.perf-table tr:last-child td{border-bottom:none}
-.perf-table tr:hover td{background:var(--surf2)}
-.pt-ticker{font-weight:700;font-size:14px;color:var(--txt)}
-.pt-co{font-size:11px;color:var(--txt3)}
-.pt-mono{font-family:'SF Mono','Fira Code',monospace;font-size:12px}
-.pt-pos{color:var(--bull)}
-.pt-neg{color:var(--bear)}
-.pt-neu{color:var(--txt3)}
-.table-wrap{background:var(--surf);border:1px solid var(--brd);border-radius:var(--rl);
-  overflow:hidden;box-shadow:var(--sh);overflow-x:auto}
-
-/* Mini sparkline in table */
-canvas.spark{display:block}
-
-/* ══ EMPTY STATE ═════════════════════════════════════ */
-.empty{text-align:center;padding:48px 20px;color:var(--txt3);font-size:14px}
-.empty span{display:block;font-size:28px;margin-bottom:8px}
-
-/* ══ LOADING ══════════════════════════════════════════ */
-#loading{text-align:center;padding:80px 20px;font-size:14px;color:var(--txt3)}
-#loading span{display:block;font-size:28px;margin-bottom:10px;animation:spin 1.2s linear infinite;display:inline-block}
-@keyframes spin{to{transform:rotate(360deg)}}
-
-/* ══ RESPONSIVE ══════════════════════════════════════ */
-@media(max-width:700px){
-  .page{padding:0 14px 44px}
-  .pick-grid{grid-template-columns:1fr}
-  .levels-grid{grid-template-columns:repeat(2,1fr)}
-  .intel-grid{grid-template-columns:1fr}
-  .perf-grid{grid-template-columns:repeat(2,1fr)}
-  #detail{width:100vw}
-  .nav-tab{padding:12px 14px;font-size:12px}
+/* PnL row */
+.pcard-pnl{
+  display:flex;align-items:center;gap:10px;
+  padding-top:8px;border-top:1px solid var(--rule);
+  font-family:var(--font-data);font-size:11px;
 }
-@media(max-width:440px){
-  .levels-grid{grid-template-columns:repeat(2,1fr)}
-  .perf-grid{grid-template-columns:1fr}
+.pnl-val{font-size:13px;font-weight:600}
+.pos{color:var(--bull)}.neg{color:var(--bear)}.neu{color:var(--txt3)}
+.pcard-upd{
+  margin-left:auto;display:flex;align-items:center;gap:4px;
+  font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.4px;
+  color:var(--warn-txt);
+}
+
+/* ══ FILTER BAR ═════════════════════════════════════ */
+.filter-bar{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 0;border-bottom:1px solid var(--rule);
+  margin-bottom:20px;flex-wrap:wrap;
+}
+.filter-bar input,.filter-bar select{
+  font-family:var(--font-data);font-size:11px;
+  padding:6px 10px;border:1px solid var(--rule2);
+  background:var(--surf);color:var(--txt);
+  outline:none;min-width:160px;
+}
+.filter-bar input:focus,.filter-bar select:focus{border-color:var(--acc)}
+.fcount{font-family:var(--font-data);font-size:10px;color:var(--txt3);margin-left:4px}
+
+/* ══ PERF STATS ════════════════════════════════════ */
+.perf-stats-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  border-top:2px solid var(--txt);
+  border-left:1px solid var(--rule);
+  margin-bottom:24px;
+}
+.stat-cell{
+  border-right:1px solid var(--rule);
+  border-bottom:1px solid var(--rule);
+  padding:12px 14px;
+}
+.stat-k{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);margin-bottom:6px}
+.stat-v{font-family:var(--font-data);font-size:22px;font-weight:600;color:var(--txt);line-height:1}
+.stat-sub{font-family:var(--font-data);font-size:10px;color:var(--txt3);margin-top:4px}
+
+/* ══ TABLE ══════════════════════════════════════════ */
+.tbl-wrap{border:1px solid var(--rule);overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl thead tr{border-bottom:2px solid var(--txt)}
+.tbl th{
+  font-family:var(--font-data);font-size:9px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.8px;color:var(--txt3);
+  padding:8px 12px;text-align:left;white-space:nowrap;
+  background:var(--bg2);
+}
+.tbl td{
+  padding:10px 12px;border-bottom:1px solid var(--rule);
+  vertical-align:middle;
+}
+.tbl tr:last-child td{border-bottom:none}
+.tbl tbody tr:hover td{background:var(--bg2)}
+.tbl tbody tr{cursor:pointer}
+.td-ticker{font-family:var(--font-data);font-size:13px;font-weight:600;color:var(--txt)}
+.td-co{font-size:10px;color:var(--txt3)}
+.td-mono{font-family:var(--font-data);font-size:11px}
+.td-spark canvas{display:block}
+
+/* ══ DETAIL OVERLAY ════════════════════════════════ */
+#overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  z-index:100;opacity:0;pointer-events:none;transition:opacity .18s;
+}
+#overlay.open{opacity:1;pointer-events:all}
+#detail{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(720px,100vw);background:var(--surf);
+  border-left:2px solid var(--txt);
+  z-index:101;overflow-y:auto;
+  transform:translateX(100%);
+  transition:transform .22s cubic-bezier(.4,0,.2,1);
+}
+#detail.open{transform:translateX(0)}
+
+.det-topbar{
+  display:flex;align-items:stretch;
+  border-bottom:2px solid var(--txt);
+  position:sticky;top:0;background:var(--surf);z-index:2;
+}
+.det-title-wrap{flex:1;padding:12px 16px}
+.det-tk{font-family:var(--font-data);font-size:18px;font-weight:600;color:var(--txt)}
+.det-co{font-size:11px;color:var(--txt3);margin-top:2px}
+.det-close{
+  display:flex;align-items:center;justify-content:center;
+  width:48px;background:none;border:none;border-left:1px solid var(--rule);
+  color:var(--txt3);cursor:pointer;font-size:18px;
+  transition:all .12s;
+}
+.det-close:hover{background:var(--bg3);color:var(--txt)}
+
+.det-body{padding:0}
+
+/* Detail section */
+.dsec{border-bottom:1px solid var(--rule);padding:14px 16px}
+.dsec-title{
+  font-size:9px;font-weight:600;text-transform:uppercase;
+  letter-spacing:.8px;color:var(--txt3);margin-bottom:10px;
+}
+
+/* Status bar in detail */
+.det-status-bar{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:10px 16px;background:var(--bg2);border-bottom:1px solid var(--rule);
+}
+.det-pnl{font-family:var(--font-data);font-size:16px;font-weight:600}
+.det-cur-p{font-family:var(--font-data);font-size:11px;color:var(--txt3)}
+
+/* Levels grid in detail */
+.det-levels{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule)}
+.dlv{padding:10px 12px;border-right:1px solid var(--rule)}
+.dlv:last-child{border-right:none}
+.dlv-l{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--txt3);margin-bottom:4px}
+.dlv-p{font-family:var(--font-data);font-size:14px;font-weight:600;color:var(--txt)}
+.dlv-pct{font-family:var(--font-data);font-size:10px;margin-top:2px}
+
+/* Big chart */
+.det-chart{height:220px;background:var(--bg2);border:1px solid var(--rule);margin-bottom:0}
+canvas.bc{display:block;width:100%}
+
+/* Signals */
+.sig-row{display:flex;flex-wrap:wrap;gap:5px}
+.sig{
+  font-family:var(--font-data);font-size:9px;font-weight:500;
+  padding:3px 8px;border:1px solid var(--rule2);
+  background:var(--bg2);color:var(--txt2);
+  text-transform:uppercase;letter-spacing:.3px;
+}
+
+/* Intel cells */
+.intel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--rule)}
+.intel-cell{padding:12px 13px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.intel-cell:nth-child(2n){border-right:none}
+.intel-cell:nth-last-child(-n+2){border-bottom:none}
+.ic-title{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+.ic-body{font-size:11px;line-height:1.65;color:var(--txt2)}
+.ic-green .ic-title{color:var(--bull)}
+.ic-green{background:var(--bull-bg)}
+.ic-blue .ic-title{color:var(--info-txt)}
+.ic-blue{background:var(--info-bg)}
+.ic-amber .ic-title{color:var(--warn-txt)}
+.ic-amber{background:var(--warn-bg)}
+.ic-purple .ic-title{color:var(--strc-txt)}
+.ic-purple{background:var(--strc-bg)}
+
+/* Thesis */
+.thesis{
+  font-size:12px;line-height:1.8;color:var(--txt2);
+  padding:13px 14px;background:var(--bg2);
+  border-left:2px solid var(--acc);
+}
+
+/* Tags */
+.tag-row{display:flex;flex-wrap:wrap;gap:4px}
+.tag{
+  font-family:var(--font-data);font-size:9px;font-weight:500;
+  padding:2px 7px;text-transform:uppercase;letter-spacing:.3px;
+}
+.tag-b{color:var(--bull-txt);background:var(--bull-bg);border:1px solid var(--bull)}
+.tag-r{color:var(--bear-txt);background:var(--bear-bg);border:1px solid var(--bear)}
+.tag-n{color:var(--txt3);background:var(--bg2);border:1px solid var(--rule2)}
+
+/* Updates */
+.update-item{padding:12px 14px;border-bottom:1px solid var(--rule)}
+.update-item:last-child{border-bottom:none}
+.upd-date{
+  font-family:var(--font-data);font-size:9px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.6px;
+  color:var(--acc);margin-bottom:5px;
+}
+.upd-price{color:var(--txt3)}
+.upd-note{font-size:11px;color:var(--txt2);line-height:1.65;margin-bottom:5px}
+.upd-dev{font-size:10px;color:var(--txt3);font-style:italic;line-height:1.6}
+
+/* Analyst row */
+.analyst-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--rule);
+}
+.ar-cell{padding:8px 12px;border-right:1px solid var(--rule)}
+.ar-cell:last-child{border-right:none}
+.ar-k{font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--txt3);margin-bottom:3px}
+.ar-v{font-family:var(--font-data);font-size:13px;font-weight:600;color:var(--txt)}
+
+/* ══ LOADING ════════════════════════════════════════ */
+#loading{
+  display:flex;align-items:center;justify-content:center;
+  height:60vh;flex-direction:column;gap:12px;
+}
+.loader-ring{
+  width:32px;height:32px;border:2px solid var(--rule);
+  border-top-color:var(--acc);border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-txt{font-family:var(--font-data);font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.8px}
+
+/* ══ EMPTY ══════════════════════════════════════════ */
+.empty{
+  padding:48px 20px;text-align:center;
+  font-family:var(--font-data);font-size:11px;
+  color:var(--txt3);text-transform:uppercase;letter-spacing:.8px;
+  border:1px solid var(--rule);
+}
+
+/* ══ SVG ICONS ══════════════════════════════════════ */
+.icon{display:inline-block;vertical-align:middle}
+
+/* ══ RESPONSIVE ════════════════════════════════════ */
+@media(max-width:760px){
+  .page{padding:0 12px 48px}
+  .pick-grid{grid-template-columns:1fr}
+  .det-levels{grid-template-columns:repeat(2,1fr)}
+  .intel-grid{grid-template-columns:1fr}
+  .det-levels .dlv:nth-child(2){border-right:none}
+  .det-levels .dlv:nth-child(n+3){border-top:1px solid var(--rule)}
+  .intel-cell:nth-child(2n){border-right:none}
+  .intel-cell{border-right:none}
+  .perf-stats-row{grid-template-columns:repeat(2,1fr)}
+  .topbar-status .status-cell:nth-child(n+4){display:none}
+  #detail{width:100vw}
+}
+@media(max-width:480px){
+  .mini-levels{grid-template-columns:repeat(2,1fr)}
+  .ml:nth-child(2){border-right:none}
+  .ml:nth-child(n+3){border-top:1px solid var(--rule)}
 }
 </style>
 </head>
 <body>
-<div class="page">
 
-<div id="loading"><span>↻</span><br>Loading picks...</div>
+<div id="loading">
+  <div class="loader-ring"></div>
+  <div class="loader-txt">Loading trade desk</div>
+</div>
 
-<div id="app" style="display:none">
+<div class="page" id="app" style="display:none">
 
   <!-- TOPBAR -->
   <div class="topbar">
-    <div class="topbar-l">
-      <div class="logo"><em>@</em>daytrader_360</div>
-      <div class="badge" id="hdr-badge">Loading...</div>
+    <div class="topbar-brand">
+      <div>
+        <div class="brand-mark"><em>DT</em>360</div>
+        <div class="brand-sub">Trade Desk</div>
+      </div>
     </div>
-    <div class="topbar-r">
-      <button class="ibtn" onclick="toggleTheme()" id="tbtn">
-        <svg id="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+    <div class="topbar-status" id="status-cells"></div>
+    <div class="topbar-right">
+      <button class="tbtn" onclick="toggleTheme()" id="tbtn">
+        <svg id="ti" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"/>
+          <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
           <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
           <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
         </svg>
-        <span id="tl">Dark mode</span>
+        <span id="tl">Dark</span>
       </button>
     </div>
   </div>
 
-  <!-- NAV TABS -->
+  <!-- NAV -->
   <div class="nav">
-    <div class="nav-tab on" onclick="showView('weekly',this)">📅 This week</div>
-    <div class="nav-tab" onclick="showView('all',this)">📋 All picks</div>
-    <div class="nav-tab" onclick="showView('performance',this)">📊 Performance</div>
+    <div class="nav-tab on" onclick="showView('weekly',this)">This Week</div>
+    <div class="nav-tab" onclick="showView('all',this)">All Picks</div>
+    <div class="nav-tab" onclick="showView('performance',this)">Performance</div>
   </div>
 
-  <!-- ══ VIEW: THIS WEEK ══ -->
   <div id="view-weekly" class="view on"></div>
 
-  <!-- ══ VIEW: ALL PICKS ══ -->
   <div id="view-all" class="view">
     <div class="filter-bar">
-      <input type="text" id="search-input" placeholder="Search ticker or company..." oninput="filterAll()">
-      <select id="filter-status" onchange="filterAll()">
+      <input type="text" id="s-input" placeholder="Ticker or company..." oninput="filterAll()">
+      <select id="s-status" onchange="filterAll()">
         <option value="">All statuses</option>
         <option value="active">Active</option>
         <option value="hit_t1">Hit T1</option>
@@ -306,612 +533,558 @@ canvas.spark{display:block}
         <option value="stopped_out">Stopped out</option>
         <option value="closed">Closed</option>
       </select>
-      <select id="filter-type" onchange="filterAll()">
-        <option value="">Monday + Wednesday</option>
-        <option value="monday">Monday picks</option>
-        <option value="wednesday">Wednesday refresh</option>
+      <select id="s-type" onchange="filterAll()">
+        <option value="">All types</option>
+        <option value="monday">Monday</option>
+        <option value="wednesday">Wednesday</option>
       </select>
-      <select id="sort-by" onchange="filterAll()">
+      <select id="s-sort" onchange="filterAll()">
         <option value="date_desc">Newest first</option>
         <option value="date_asc">Oldest first</option>
-        <option value="conviction">Conviction ↓</option>
-        <option value="pnl">P&amp;L ↓</option>
-        <option value="ticker">Ticker A–Z</option>
+        <option value="conviction">Conviction</option>
+        <option value="pnl">P&amp;L</option>
+        <option value="ticker">Ticker A-Z</option>
       </select>
-      <span class="fcount" id="filter-count"></span>
+      <span class="fcount" id="fcount"></span>
     </div>
-    <div id="all-picks-grid" class="pick-grid"></div>
+    <div id="all-grid" class="pick-grid"></div>
   </div>
 
-  <!-- ══ VIEW: PERFORMANCE ══ -->
   <div id="view-performance" class="view">
-    <div class="perf-grid" id="perf-stats"></div>
-    <div class="table-wrap">
-      <table class="perf-table">
-        <thead>
-          <tr>
-            <th>Ticker</th>
-            <th>Added</th>
-            <th>Type</th>
-            <th>Entry</th>
-            <th>Exit</th>
-            <th>P&L</th>
-            <th>Status</th>
-            <th>R:R</th>
-            <th>Conviction</th>
-          </tr>
-        </thead>
+    <div class="perf-stats-row" id="perf-stats"></div>
+    <div class="tbl-wrap">
+      <table class="tbl">
+        <thead><tr>
+          <th>Ticker</th><th>Added</th><th>Type</th>
+          <th>Entry</th><th>Exit</th><th>P&amp;L</th>
+          <th>Status</th><th>R:R</th><th>Conv</th><th>Chart</th>
+        </tr></thead>
         <tbody id="perf-tbody"></tbody>
       </table>
     </div>
   </div>
 
-</div><!-- /app -->
+</div>
 
 <!-- DETAIL PANEL -->
 <div id="overlay" onclick="closeDetail()"></div>
 <div id="detail">
-  <div class="detail-top">
-    <div id="detail-title" style="font-size:18px;font-weight:700"></div>
-    <button class="detail-close" onclick="closeDetail()">✕</button>
+  <div class="det-topbar">
+    <div class="det-title-wrap">
+      <div class="det-tk" id="det-tk"></div>
+      <div class="det-co" id="det-co"></div>
+    </div>
+    <button class="det-close" onclick="closeDetail()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
   </div>
-  <div class="detail-body" id="detail-body"></div>
+  <div id="det-content"></div>
 </div>
 
-</div><!-- /page -->
-
 <script>
-// ══ GLOBALS ═══════════════════════════════════════════
-const ACCENTS = ['#2a7dd4','#169b5e','#a86512'];
-const PICK_ACCENTS = {monday:'#2a7dd4', wednesday:'#a86512'};
-let ALL_PICKS = [];
-let CURRENT_PICKS = [];
-
+// ══ CONSTANTS ════════════════════════════════════════
+const TYPE_COLORS = {monday:'#2255cc', wednesday:'#a86512'};
+const RANK_COLORS = ['#2255cc','#169b5e','#a86512'];
 const SUN  = `<circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>`;
 const MOON = `<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>`;
 
-// ══ THEME ═════════════════════════════════════════════
+let ALL = [];
+
+// ══ UTILS ════════════════════════════════════════════
+const esc = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const pct = (a,b) => { const v=(a-b)/b*100; return (v>=0?'+':'')+v.toFixed(2)+'%'; };
+const pctV = (a,b) => (a-b)/b*100;
+const fDate = d => new Date(d+'T12:00:00').toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+const statusLabels = {active:'Active',hit_t1:'T1 Hit',hit_t2:'T2 Hit',stopped_out:'Stopped',closed:'Closed'};
+
+function curPnl(p){
+  if(p.pnl_pct!==null && p.pnl_pct!==undefined) return p.pnl_pct;
+  const c=p.candles||[]; if(!c.length) return null;
+  return pctV(c[c.length-1].c, p.entry);
+}
+function curPrice(p){
+  if(p.exit_price) return p.exit_price;
+  const c=p.candles||[]; return c.length?c[c.length-1].c:null;
+}
+function weekLabel(wid){
+  const [y,wn]=wid.split('-W');
+  const d=new Date(parseInt(y),0,1+(parseInt(wn)-1)*7);
+  const opts={day:'numeric',month:'short',year:'numeric'};
+  return 'W/C '+d.toLocaleDateString('en-GB',opts);
+}
+
+// ══ THEME ════════════════════════════════════════════
 function toggleTheme(){
-  const html = document.documentElement;
-  const dark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', dark ? 'light' : 'dark');
-  document.getElementById('ti').innerHTML = dark ? SUN : MOON;
-  document.getElementById('tl').textContent = dark ? 'Dark mode' : 'Light mode';
-  localStorage.setItem('dt360-theme', dark ? 'light' : 'dark');
-  setTimeout(() => redrawAllCharts(), 60);
+  const html=document.documentElement;
+  const dark=html.getAttribute('data-theme')==='dark';
+  html.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('ti').innerHTML=dark?SUN:MOON;
+  document.getElementById('tl').textContent=dark?'Dark':'Light';
+  localStorage.setItem('dt360-theme',dark?'light':'dark');
+  setTimeout(redrawAll,60);
 }
 
-// ══ VIEWS ═════════════════════════════════════════════
-function showView(name, el) {
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('on'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('on'));
-  document.getElementById('view-' + name).classList.add('on');
-  if (el) el.classList.add('on');
-  setTimeout(() => redrawAllCharts(), 80);
+// ══ TOPBAR STATUS ════════════════════════════════════
+function renderStatusCells(picks){
+  const active=picks.filter(p=>p.status==='active');
+  const resolved=picks.filter(p=>p.pnl_pct!==null);
+  const wins=resolved.filter(p=>p.pnl_pct>0);
+  const wr=resolved.length?Math.round(wins.length/resolved.length*100):0;
+  const avg=resolved.length?resolved.reduce((a,b)=>a+b.pnl_pct,0)/resolved.length:0;
+  const latest=picks.length?fDate(picks.reduce((a,b)=>a.date_added>b.date_added?a:b).date_added):'--';
+
+  document.getElementById('status-cells').innerHTML=[
+    ['Last updated', latest, ''],
+    ['Active', active.length, 'acc'],
+    ['Win rate', wr+'%', wr>=50?'pos':'neg'],
+    ['Avg P&L', (avg>=0?'+':'')+avg.toFixed(1)+'%', avg>=0?'pos':'neg'],
+    ['Total picks', picks.length, ''],
+  ].map(([k,v,cls])=>`
+    <div class="status-cell">
+      <div class="sc-label">${k}</div>
+      <div class="sc-val ${cls}">${v}</div>
+    </div>`).join('');
 }
 
-// ══ HELPERS ═══════════════════════════════════════════
-function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') }
-function pctStr(a, b){ const v=((a-b)/b*100); return (v>=0?'+':'')+v.toFixed(2)+'%' }
-function pctVal(a, b){ return ((a-b)/b*100) }
-function fmtDate(d){ return new Date(d).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) }
-function weekLabel(w){ 
-  const [y,wn] = w.split('-W');
-  const d = new Date(y, 0, 1 + (parseInt(wn)-1)*7);
-  return 'Week of ' + d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
-}
-
-function statusLabel(s){
-  return {active:'Active',hit_t1:'Hit T1 ✓',hit_t2:'Hit T2 ✓✓',stopped_out:'Stopped out',closed:'Closed'}[s] || s;
-}
-
-function currentPnl(pick){
-  if (pick.status !== 'active') return pick.pnl_pct;
-  const candles = pick.candles || [];
-  if (!candles.length) return null;
-  const now = candles[candles.length-1].c;
-  return pctVal(now, pick.entry);
-}
-
-function currentPrice(pick){
-  if (pick.exit_price) return pick.exit_price;
-  const candles = pick.candles || [];
-  return candles.length ? candles[candles.length-1].c : null;
-}
-
-// ══ MINI CHART ════════════════════════════════════════
-function drawMiniChart(canvasId, pick) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const candles = pick.candles || [];
-  if (!candles.length) return;
-
-  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const dpr = window.devicePixelRatio || 1;
-  const W = canvas.parentElement.clientWidth || 300;
-  const H = 80;
-  canvas.width = W*dpr; canvas.height = H*dpr;
-  canvas.style.width = W+'px'; canvas.style.height = H+'px';
-  const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
-
-  const P = {top:4,right:6,bottom:4,left:4};
-  const cw = W-P.left-P.right, ch = H-P.top-P.bottom;
-  const last20 = candles.slice(-20);
-  let lo = Math.min(...last20.map(c=>c.l), pick.stop*0.998);
-  let hi = Math.max(...last20.map(c=>c.h), pick.t1*1.002);
-  const pad = (hi-lo)*0.06; lo-=pad; hi+=pad;
-  const py = v => P.top+ch*(1-(v-lo)/(hi-lo));
-  const n = last20.length;
-  const gap = cw/n;
-  const cw2 = Math.max(1.5, gap*0.6);
-  const cx = i => P.left+i*gap+gap/2;
-
+// ══ CHART RENDERERS ══════════════════════════════════
+function drawMini(id, pick){
+  const canvas=document.getElementById(id);
+  if(!canvas) return;
+  const candles=(pick.candles||[]).slice(-22);
+  if(!candles.length) return;
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const dpr=window.devicePixelRatio||1;
+  const W=canvas.parentElement.clientWidth||320, H=72;
+  canvas.width=W*dpr; canvas.height=H*dpr;
+  canvas.style.width=W+'px'; canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d'); ctx.scale(dpr,dpr);
+  const P={t:3,r:4,b:3,l:3};
+  const cw=W-P.l-P.r, ch=H-P.t-P.b;
+  let lo=Math.min(...candles.map(c=>c.l),pick.stop*.998);
+  let hi=Math.max(...candles.map(c=>c.h),pick.t1*1.002);
+  const pad=(hi-lo)*.06; lo-=pad; hi+=pad;
+  const py=v=>P.t+ch*(1-(v-lo)/(hi-lo));
+  const n=candles.length, gap=cw/n, cw2=Math.max(1.5,gap*.6), cx=i=>P.l+i*gap+gap/2;
   ctx.clearRect(0,0,W,H);
-
   // entry line
-  ctx.strokeStyle = PICK_ACCENTS[pick.type] || '#2a7dd4';
-  ctx.lineWidth = 0.8; ctx.setLineDash([3,2]);
-  const ey = py(pick.entry);
-  ctx.beginPath(); ctx.moveTo(P.left,ey); ctx.lineTo(W-P.right,ey); ctx.stroke();
+  const ec=TYPE_COLORS[pick.type]||'#2255cc';
+  ctx.strokeStyle=dark?'rgba(34,85,204,.5)':'rgba(34,85,204,.4)';
+  ctx.lineWidth=.8; ctx.setLineDash([3,2]);
+  ctx.beginPath(); ctx.moveTo(P.l,py(pick.entry)); ctx.lineTo(W-P.r,py(pick.entry)); ctx.stroke();
   ctx.setLineDash([]);
-
-  // stop line
-  ctx.strokeStyle = dark?'rgba(240,79,79,.5)':'rgba(196,53,53,.4)';
-  ctx.lineWidth = 0.6; ctx.setLineDash([2,2]);
-  ctx.beginPath(); ctx.moveTo(P.left,py(pick.stop)); ctx.lineTo(W-P.right,py(pick.stop)); ctx.stroke();
+  // stop
+  ctx.strokeStyle=dark?'rgba(240,69,69,.4)':'rgba(184,32,32,.35)';
+  ctx.lineWidth=.7; ctx.setLineDash([2,2]);
+  ctx.beginPath(); ctx.moveTo(P.l,py(pick.stop)); ctx.lineTo(W-P.r,py(pick.stop)); ctx.stroke();
   ctx.setLineDash([]);
-
-  const bC = dark?'#1fc87a':'#158a52';
-  const rC = dark?'#f04f4f':'#c43535';
-
+  const bC=dark?'#28b85a':'#1a7a3e', rC=dark?'#f04545':'#b82020';
   for(let i=0;i<n;i++){
-    const c=last20[i], x=cx(i), bull=c.c>=c.o, col=bull?bC:rC;
-    const bT=py(Math.max(c.o,c.c)), bB=py(Math.min(c.o,c.c)), bH=Math.max(1,bB-bT);
-    ctx.strokeStyle=col; ctx.lineWidth=0.8;
+    const c=candles[i],x=cx(i),bull=c.c>=c.o,col=bull?bC:rC;
+    const bT=py(Math.max(c.o,c.c)),bB=py(Math.min(c.o,c.c)),bH=Math.max(1,bB-bT);
+    ctx.strokeStyle=col; ctx.lineWidth=.8;
     ctx.beginPath(); ctx.moveTo(x,py(c.h)); ctx.lineTo(x,py(c.l)); ctx.stroke();
     ctx.fillStyle=col; ctx.fillRect(x-cw2/2,bT,cw2,bH);
   }
 }
 
-// ══ BIG CHART ═════════════════════════════════════════
-function drawBigChart(canvasId, pick) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const candles = pick.candles || [];
-  if (!candles.length) return;
-
-  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const dpr = window.devicePixelRatio || 1;
-  const W = canvas.parentElement.clientWidth || 600;
-  const H = 240;
-  canvas.width = W*dpr; canvas.height = H*dpr;
-  canvas.style.width = W+'px'; canvas.style.height = H+'px';
-  const ctx = canvas.getContext('2d');
-  ctx.scale(dpr, dpr);
-
-  const P = {top:14,right:60,bottom:26,left:8};
-  const cw=W-P.left-P.right, ch=H-P.top-P.bottom;
-
-  let lo=Math.min(...candles.map(c=>c.l), pick.stop*0.997);
-  let hi=Math.max(...candles.map(c=>c.h), pick.t2*1.003);
-  const pad=(hi-lo)*0.07; lo-=pad; hi+=pad;
-  const rng=hi-lo;
-  const py=v=>P.top+ch*(1-(v-lo)/rng);
-  const n=candles.length, gap=cw/n, cw2=Math.max(2,gap*.66);
-  const cx=i=>P.left+i*gap+gap/2;
-
-  const gc=dark?'rgba(255,255,255,.04)':'rgba(0,0,0,.04)';
-  const tc=dark?'rgba(255,255,255,.28)':'rgba(0,0,0,.28)';
-  const pc=dark?'rgba(255,255,255,.12)':'rgba(0,0,0,.12)';
-  const bC=dark?'#1fc87a':'#158a52', rC=dark?'#f04f4f':'#c43535';
-
-  ctx.clearRect(0,0,W,H);
-  for(let i=0;i<=4;i++){const y=P.top+ch*(i/4);ctx.strokeStyle=gc;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(P.left,y);ctx.lineTo(W-P.right,y);ctx.stroke();}
-
-  // zones
-  const zx=cx(n-1)-cw2*.5, zw=W-P.right+10-zx;
-  ctx.fillStyle=dark?'rgba(31,200,122,.08)':'rgba(21,138,82,.07)';
-  ctx.fillRect(zx,py(pick.t2),zw,py(pick.entry)-py(pick.t2));
-  ctx.fillStyle=dark?'rgba(240,79,79,.08)':'rgba(196,53,53,.07)';
-  ctx.fillRect(zx,py(pick.entry),zw,py(pick.stop)-py(pick.entry));
-
-  for(let i=0;i<n;i++){
-    const c=candles[i],x=cx(i),bull=c.c>=c.o,col=bull?bC:rC;
-    const bT=py(Math.max(c.o,c.c)),bB=py(Math.min(c.o,c.c)),bH=Math.max(1,bB-bT);
-    ctx.strokeStyle=col;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(x,py(c.h));ctx.lineTo(x,py(c.l));ctx.stroke();
-    ctx.fillStyle=col;ctx.fillRect(x-cw2/2,bT,cw2,bH);
-  }
-
-  const last=candles[n-1].c;
-  ctx.strokeStyle=pc;ctx.lineWidth=.8;ctx.setLineDash([3,3]);
-  ctx.beginPath();ctx.moveTo(P.left,py(last));ctx.lineTo(W-P.right,py(last));ctx.stroke();
-  ctx.setLineDash([]);
-
-  const acc = PICK_ACCENTS[pick.type] || '#2a7dd4';
-  function lvl(price,col,label,dashed){
-    const y=py(price);
-    ctx.strokeStyle=col;ctx.lineWidth=1;ctx.setLineDash(dashed?[4,3]:[]);
-    ctx.beginPath();ctx.moveTo(P.left,y);ctx.lineTo(W-P.right,y);ctx.stroke();ctx.setLineDash([]);
-    const lx=W-P.right+2,lw=P.right-3,lh=15;
-    ctx.fillStyle=col;ctx.beginPath();ctx.roundRect(lx,y-lh/2,lw,lh,3);ctx.fill();
-    ctx.fillStyle='#fff';ctx.font='bold 8px -apple-system,Arial,sans-serif';
-    ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(label,lx+lw/2,y);
-  }
-  lvl(pick.t2,'#1fc87a','T2',true);
-  lvl(pick.t1,bC,'T1',true);
-  lvl(pick.entry,acc,'ENTRY',false);
-  lvl(pick.stop,rC,'STOP',true);
-
-  ctx.fillStyle=tc;ctx.font='9px -apple-system,Arial,sans-serif';ctx.textAlign='center';ctx.textBaseline='top';
-  for(let i=0;i<n;i+=8) ctx.fillText(candles[i].t.slice(5,10),cx(i),H-P.bottom+4);
-  ctx.fillStyle=tc;ctx.font='bold 11px -apple-system,Arial,sans-serif';ctx.textAlign='left';ctx.textBaseline='top';
-  ctx.fillText(pick.ticker+' · 4H',P.left+4,P.top+2);
-}
-
-// ══ SPARKLINE ═════════════════════════════════════════
-function drawSpark(canvasId, pick) {
-  const canvas = document.getElementById(canvasId);
-  if (!canvas) return;
-  const candles = (pick.candles||[]).slice(-15);
-  if (!candles.length) return;
-  const dark = document.documentElement.getAttribute('data-theme')==='dark';
-  const dpr = window.devicePixelRatio||1;
-  const W = 80, H = 30;
+function drawBig(id, pick){
+  const canvas=document.getElementById(id);
+  if(!canvas) return;
+  const candles=pick.candles||[];
+  if(!candles.length) return;
+  const dark=document.documentElement.getAttribute('data-theme')==='dark';
+  const dpr=window.devicePixelRatio||1;
+  const W=canvas.parentElement.clientWidth||660, H=220;
   canvas.width=W*dpr; canvas.height=H*dpr;
   canvas.style.width=W+'px'; canvas.style.height=H+'px';
   const ctx=canvas.getContext('2d'); ctx.scale(dpr,dpr);
-  const closes=candles.map(c=>c.c);
+  const P={t:12,r:58,b:24,l:6};
+  const cw=W-P.l-P.r, ch=H-P.t-P.b;
+  let lo=Math.min(...candles.map(c=>c.l),pick.stop*.997);
+  let hi=Math.max(...candles.map(c=>c.h),pick.t2*1.003);
+  const pad=(hi-lo)*.07; lo-=pad; hi+=pad;
+  const rng=hi-lo;
+  const py=v=>P.t+ch*(1-(v-lo)/rng);
+  const n=candles.length, gap=cw/n, cw2=Math.max(2,gap*.65), cx=i=>P.l+i*gap+gap/2;
+  const gc=dark?'rgba(255,255,255,.03)':'rgba(0,0,0,.04)';
+  const tc=dark?'rgba(255,255,255,.25)':'rgba(0,0,0,.28)';
+  const bC=dark?'#28b85a':'#1a7a3e', rC=dark?'#f04545':'#b82020';
+  ctx.clearRect(0,0,W,H);
+  for(let i=0;i<=4;i++){const y=P.t+ch*(i/4);ctx.strokeStyle=gc;ctx.lineWidth=.5;ctx.beginPath();ctx.moveTo(P.l,y);ctx.lineTo(W-P.r,y);ctx.stroke();}
+  const zx=cx(n-1)-cw2*.5, zw=W-P.r+8-zx;
+  ctx.fillStyle=dark?'rgba(40,184,90,.07)':'rgba(26,122,62,.07)';
+  ctx.fillRect(zx,py(pick.t2),zw,py(pick.entry)-py(pick.t2));
+  ctx.fillStyle=dark?'rgba(240,69,69,.07)':'rgba(184,32,32,.07)';
+  ctx.fillRect(zx,py(pick.entry),zw,py(pick.stop)-py(pick.entry));
+  for(let i=0;i<n;i++){
+    const c=candles[i],x=cx(i),bull=c.c>=c.o,col=bull?bC:rC;
+    const bT=py(Math.max(c.o,c.c)),bB=py(Math.min(c.o,c.c)),bH=Math.max(1,bB-bT);
+    ctx.strokeStyle=col; ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(x,py(c.h)); ctx.lineTo(x,py(c.l)); ctx.stroke();
+    ctx.fillStyle=col; ctx.fillRect(x-cw2/2,bT,cw2,bH);
+  }
+  const last=candles[n-1].c;
+  ctx.strokeStyle=dark?'rgba(255,255,255,.15)':'rgba(0,0,0,.12)';
+  ctx.lineWidth=.7; ctx.setLineDash([3,3]);
+  ctx.beginPath(); ctx.moveTo(P.l,py(last)); ctx.lineTo(W-P.r,py(last)); ctx.stroke();
+  ctx.setLineDash([]);
+  const acc=TYPE_COLORS[pick.type]||'#2255cc';
+  function lvl(price,col,label,dashed){
+    const y=py(price);
+    ctx.strokeStyle=col; ctx.lineWidth=1;
+    ctx.setLineDash(dashed?[4,3]:[]);
+    ctx.beginPath(); ctx.moveTo(P.l,y); ctx.lineTo(W-P.r,y); ctx.stroke();
+    ctx.setLineDash([]);
+    const lx=W-P.r+1, lw=P.r-2, lh=14;
+    ctx.fillStyle=col;
+    ctx.fillRect(lx,y-lh/2,lw,lh);
+    ctx.fillStyle='#fff'; ctx.font='bold 8px "IBM Plex Mono",monospace';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.fillText(label,lx+lw/2,y);
+  }
+  lvl(pick.t2,'#1a7a3e','T2',true);
+  lvl(pick.t1,bC,'T1',true);
+  lvl(pick.entry,acc,'ENTRY',false);
+  lvl(pick.stop,rC,'STOP',true);
+  ctx.fillStyle=tc; ctx.font='8px "IBM Plex Mono",monospace';
+  ctx.textAlign='center'; ctx.textBaseline='top';
+  for(let i=0;i<n;i+=8) ctx.fillText(candles[i].t.slice(5,10),cx(i),H-P.b+3);
+  ctx.fillStyle=dark?'rgba(255,255,255,.2)':'rgba(0,0,0,.2)';
+  ctx.font='bold 10px "IBM Plex Mono",monospace';
+  ctx.textAlign='left'; ctx.textBaseline='top';
+  ctx.fillText(pick.ticker+' 4H',P.l+4,P.t+2);
+}
+
+function drawSpark(id, pick){
+  const canvas=document.getElementById(id);
+  if(!canvas) return;
+  const closes=(pick.candles||[]).slice(-14).map(c=>c.c);
+  if(!closes.length) return;
+  const dpr=window.devicePixelRatio||1;
+  const W=70, H=26;
+  canvas.width=W*dpr; canvas.height=H*dpr;
+  canvas.style.width=W+'px'; canvas.style.height=H+'px';
+  const ctx=canvas.getContext('2d'); ctx.scale(dpr,dpr);
   const lo=Math.min(...closes), hi=Math.max(...closes), rng=hi-lo||1;
   const py=v=>(H-4)*(1-(v-lo)/rng)+2;
-  const n=closes.length, gap=W/n;
-  const pnl = currentPnl(pick);
-  const col = pnl===null?'#8f8c87':pnl>=0?'#158a52':'#c43535';
+  const pnl=curPnl(pick);
+  const col=pnl===null?'#888680':pnl>=0?'#1a7a3e':'#b82020';
   ctx.strokeStyle=col; ctx.lineWidth=1.5; ctx.beginPath();
-  closes.forEach((v,i)=>{ const x=i*gap+gap/2; i===0?ctx.moveTo(x,py(v)):ctx.lineTo(x,py(v)); });
+  closes.forEach((v,i)=>{const x=i*(W/closes.length)+W/(closes.length*2);i===0?ctx.moveTo(x,py(v)):ctx.lineTo(x,py(v));});
   ctx.stroke();
 }
 
-// ══ BUILD PICK CARD ════════════════════════════════════
-function buildPickCard(p, index) {
-  const acc = PICK_ACCENTS[p.type] || '#2a7dd4';
-  const pnl = currentPnl(p);
-  const curP = currentPrice(p);
-  const hasUpdates = (p.updates||[]).length > 0;
-
-  const pnlHtml = pnl !== null
-    ? `<span class="pnl-val ${pnl>=0?'pnl-pos':'pnl-neg'}">${pnl>=0?'+':''}${pnl.toFixed(2)}%</span>`
-    : `<span class="pnl-neu">—</span>`;
-
+// ══ BUILD CARD ════════════════════════════════════════
+function buildCard(p){
+  const acc=TYPE_COLORS[p.type]||'#2255cc';
+  const pnl=curPnl(p);
+  const curP=curPrice(p);
+  const hasUpd=(p.updates||[]).length>0;
+  const pnlHtml=pnl!==null
+    ?`<span class="pnl-val ${pnl>=0?'pos':'neg'}">${pnl>=0?'+':''}${pnl.toFixed(2)}%</span>`
+    :`<span class="pnl-val neu">--</span>`;
   return `
-  <div class="pcard" onclick="openDetail('${p.id}')" id="card-${p.id}">
-    <div class="pcard-accent" style="background:${acc}"></div>
+  <div class="pcard" onclick="openDetail('${esc(p.id)}')" id="card-${esc(p.id)}">
+    <div class="pcard-accent-bar" style="background:${acc}"></div>
     <div class="pcard-body">
-      <div class="pcard-top">
+      <div class="pcard-hdr">
         <div>
-          <div class="pticker">${esc(p.ticker)}</div>
-          <div class="pco">${esc(p.company)}</div>
+          <div class="pcard-tk">${esc(p.ticker)}</div>
+          <div class="pcard-co">${esc(p.company)}</div>
         </div>
-        <div class="pcard-right">
-          <div class="pconv">${p.conviction}</div>
-          <div class="pconv-lbl">conviction</div>
+        <div class="pcard-meta-r">
+          <div class="pconv">${p.conviction||'--'}</div>
+          <div class="pconv-lbl">Conv</div>
         </div>
       </div>
-      <div class="pstatus-row">
-        <span class="status-pill s-${p.status}">${statusLabel(p.status)}</span>
-        <span class="pdate ptype-${p.type}">${p.type === 'monday' ? '📅' : '🔄'} ${fmtDate(p.date_added)}</span>
-        ${hasUpdates ? '<span class="update-badge">↺ Updated</span>' : ''}
+      <div class="pcard-status-row">
+        <span class="status-tag st-${p.status}">${statusLabels[p.status]||p.status}</span>
+        <span class="pcard-date" style="color:${acc}">
+          <span class="type-dot" style="background:${acc}"></span>${p.type==='monday'?'Mon':'Wed'} ${fDate(p.date_added)}
+        </span>
+        ${hasUpd?`<span class="pcard-upd">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.01-9.02"/></svg>
+          Updated</span>`:''}
       </div>
-      <div class="mini-chart"><canvas class="mc" id="mc-${p.id}"></canvas></div>
+      <div class="mini-chart-wrap"><canvas class="mc" id="mc-${esc(p.id)}"></canvas></div>
       <div class="mini-levels">
         <div class="ml"><div class="ml-lbl">Entry</div><div class="ml-p">$${p.entry}</div></div>
-        <div class="ml"><div class="ml-lbl">Stop</div><div class="ml-p" style="color:var(--bear)">$${p.stop}</div></div>
-        <div class="ml"><div class="ml-lbl">T1</div><div class="ml-p" style="color:var(--bull)">$${p.t1}</div></div>
-        <div class="ml"><div class="ml-lbl">T2</div><div class="ml-p" style="color:var(--bull)">$${p.t2}</div></div>
+        <div class="ml"><div class="ml-lbl">Stop</div><div class="ml-p" style="color:var(--bear)">$${p.stop}</div><div class="ml-pct" style="color:var(--bear)">${pct(p.stop,p.entry)}</div></div>
+        <div class="ml"><div class="ml-lbl">T1</div><div class="ml-p" style="color:var(--bull)">$${p.t1}</div><div class="ml-pct" style="color:var(--bull)">${pct(p.t1,p.entry)}</div></div>
+        <div class="ml"><div class="ml-lbl">T2</div><div class="ml-p" style="color:var(--bull)">$${p.t2}</div><div class="ml-pct" style="color:var(--bull)">${pct(p.t2,p.entry)}</div></div>
       </div>
-      <div class="pnl-bar">
+      <div class="pcard-pnl">
         ${pnlHtml}
-        ${curP ? `<span class="current-p">Current $${curP}</span>` : ''}
-        <span class="current-p" style="margin-left:auto">R:R ${p.rr}×</span>
+        ${curP?`<span class="neu" style="font-size:10px">$${curP} now</span>`:''}
+        <span class="neu" style="font-size:10px;margin-left:auto">R:R ${p.rr}x</span>
       </div>
     </div>
   </div>`;
 }
 
-// ══ DRAW MINI CHARTS AFTER RENDER ═════════════════════
-function drawMinis(picks) {
-  picks.forEach(p => {
-    setTimeout(() => drawMiniChart(`mc-${p.id}`, p), 50);
+// ══ WEEKLY VIEW ══════════════════════════════════════
+function renderWeekly(picks){
+  const weeks={};
+  picks.forEach(p=>{ (weeks[p.week_id]||(weeks[p.week_id]=[])).push(p); });
+  let html='';
+  Object.entries(weeks).sort((a,b)=>b[0].localeCompare(a[0])).forEach(([wid,wps])=>{
+    const active=wps.filter(p=>p.status==='active').length;
+    const stopped=wps.filter(p=>p.status==='stopped_out').length;
+    const won=wps.filter(p=>p.status==='hit_t1'||p.status==='hit_t2').length;
+    const cpnls=wps.filter(p=>p.pnl_pct!==null).map(p=>p.pnl_pct);
+    const avg=cpnls.length?cpnls.reduce((a,b)=>a+b,0)/cpnls.length:null;
+    html+=`
+    <div class="week-section">
+      <div class="week-header">
+        <div class="week-label">${weekLabel(wid)} <span style="color:var(--txt3);font-weight:400">${wid}</span></div>
+        <div class="week-meta">
+          ${active?`<div class="wm-item"><b style="color:var(--bull)">${active}</b> active</div>`:''}
+          ${won?`<div class="wm-item pos"><b>${won}</b> won</div>`:''}
+          ${stopped?`<div class="wm-item neg"><b>${stopped}</b> stopped</div>`:''}
+          ${avg!==null?`<div class="wm-item ${avg>=0?'pos':'neg'}"><b>${avg>=0?'+':''}${avg.toFixed(1)}%</b> avg</div>`:''}
+        </div>
+      </div>
+      <div class="pick-grid">${wps.map(buildCard).join('')}</div>
+    </div>`;
   });
+  document.getElementById('view-weekly').innerHTML=html||`<div class="empty">No picks this week yet.</div>`;
+  picks.forEach(p=>setTimeout(()=>drawMini(`mc-${p.id}`,p),50));
 }
 
-// ══ RENDER WEEKLY VIEW ════════════════════════════════
-function renderWeekly(picks) {
-  // Group by week
-  const weeks = {};
-  picks.forEach(p => {
-    if (!weeks[p.week_id]) weeks[p.week_id] = [];
-    weeks[p.week_id].push(p);
+// ══ ALL PICKS FILTER ══════════════════════════════════
+function filterAll(){
+  const q=(document.getElementById('s-input')?.value||'').toLowerCase();
+  const st=document.getElementById('s-status')?.value||'';
+  const tp=document.getElementById('s-type')?.value||'';
+  const so=document.getElementById('s-sort')?.value||'date_desc';
+  let f=ALL.filter(p=>{
+    const mq=!q||p.ticker.toLowerCase().includes(q)||p.company.toLowerCase().includes(q);
+    const ms=!st||p.status===st;
+    const mt=!tp||p.type===tp;
+    return mq&&ms&&mt;
   });
-
-  const sorted = Object.entries(weeks).sort((a,b) => b[0].localeCompare(a[0]));
-  let html = '';
-
-  sorted.forEach(([wid, wPicks]) => {
-    const active = wPicks.filter(p=>p.status==='active').length;
-    const stopped = wPicks.filter(p=>p.status==='stopped_out').length;
-    const won = wPicks.filter(p=>p.status==='hit_t1'||p.status==='hit_t2').length;
-    const closed_pnls = wPicks.filter(p=>p.pnl_pct!==null).map(p=>p.pnl_pct);
-    const avgPnl = closed_pnls.length ? closed_pnls.reduce((a,b)=>a+b,0)/closed_pnls.length : null;
-
-    html += `
-    <div class="week-hdr">
-      <div>
-        <div class="week-title">${weekLabel(wid)}</div>
-        <div class="week-sub">${wPicks.length} picks · ${wPicks[0]?.week_id || ''}</div>
-      </div>
-      <div class="week-pills">
-        ${active>0?`<span class="wpill" style="background:var(--bull-bg);color:var(--bull-dk);border-color:rgba(21,138,82,.2)">${active} active</span>`:''}
-        ${won>0?`<span class="wpill" style="background:rgba(21,138,82,.15);color:var(--bull-dk);border-color:rgba(21,138,82,.3)">${won} won</span>`:''}
-        ${stopped>0?`<span class="wpill" style="background:var(--bear-bg);color:var(--bear-dk);border-color:rgba(196,53,53,.2)">${stopped} stopped</span>`:''}
-        ${avgPnl!==null?`<span class="wpill" style="background:var(--surf2);color:var(--txt2);border-color:var(--brd)">avg ${avgPnl>=0?'+':''}${avgPnl.toFixed(1)}%</span>`:''}
-      </div>
-    </div>
-    <div class="pick-grid">${wPicks.map((p,i)=>buildPickCard(p,i)).join('')}</div>`;
-  });
-
-  document.getElementById('view-weekly').innerHTML = html;
-  picks.forEach(p => setTimeout(() => drawMiniChart(`mc-${p.id}`, p), 60));
-}
-
-// ══ RENDER ALL PICKS (filtered) ════════════════════════
-function filterAll() {
-  const q = (document.getElementById('search-input')?.value || '').toLowerCase();
-  const st = document.getElementById('filter-status')?.value || '';
-  const tp = document.getElementById('filter-type')?.value || '';
-  const so = document.getElementById('sort-by')?.value || 'date_desc';
-
-  let filtered = ALL_PICKS.filter(p => {
-    const matchQ = !q || p.ticker.toLowerCase().includes(q) || p.company.toLowerCase().includes(q);
-    const matchSt = !st || p.status === st;
-    const matchTp = !tp || p.type === tp;
-    return matchQ && matchSt && matchTp;
-  });
-
-  filtered.sort((a,b) => {
-    if (so === 'date_desc') return b.date_added.localeCompare(a.date_added);
-    if (so === 'date_asc')  return a.date_added.localeCompare(b.date_added);
-    if (so === 'conviction') return b.conviction - a.conviction;
-    if (so === 'pnl') {
-      const pa = currentPnl(a) ?? -999, pb = currentPnl(b) ?? -999;
-      return pb - pa;
-    }
-    if (so === 'ticker') return a.ticker.localeCompare(b.ticker);
+  f.sort((a,b)=>{
+    if(so==='date_desc') return b.date_added.localeCompare(a.date_added);
+    if(so==='date_asc')  return a.date_added.localeCompare(b.date_added);
+    if(so==='conviction') return (b.conviction||0)-(a.conviction||0);
+    if(so==='pnl'){ const pa=curPnl(a)??-999,pb=curPnl(b)??-999; return pb-pa; }
+    if(so==='ticker') return a.ticker.localeCompare(b.ticker);
     return 0;
   });
-
-  document.getElementById('all-picks-grid').innerHTML = filtered.length
-    ? filtered.map((p,i) => buildPickCard(p,i)).join('')
-    : `<div class="empty" style="grid-column:1/-1"><span>🔍</span>No picks match your filters.</div>`;
-  document.getElementById('filter-count').textContent = `${filtered.length} picks`;
-  filtered.forEach(p => setTimeout(() => drawMiniChart(`mc-${p.id}`, p), 60));
+  document.getElementById('all-grid').innerHTML=f.length
+    ?f.map(buildCard).join('')
+    :`<div class="empty" style="grid-column:1/-1">No picks match the current filters.</div>`;
+  document.getElementById('fcount').textContent=`${f.length} picks`;
+  f.forEach(p=>setTimeout(()=>drawMini(`mc-${p.id}`,p),50));
 }
 
-// ══ RENDER PERFORMANCE VIEW ════════════════════════════
-function renderPerf(picks) {
-  const resolved = picks.filter(p => p.pnl_pct !== null);
-  const wins = resolved.filter(p => p.pnl_pct > 0);
-  const losses = resolved.filter(p => p.pnl_pct <= 0);
-  const active = picks.filter(p => p.status === 'active');
-  const allPnls = resolved.map(p => p.pnl_pct);
-  const avgPnl = allPnls.length ? allPnls.reduce((a,b)=>a+b,0)/allPnls.length : 0;
-  const winRate = resolved.length ? (wins.length/resolved.length*100) : 0;
-  const bestTrade = allPnls.length ? Math.max(...allPnls) : 0;
-  const worstTrade = allPnls.length ? Math.min(...allPnls) : 0;
-  const totalPicks = picks.length;
+// ══ PERFORMANCE VIEW ══════════════════════════════════
+function renderPerf(picks){
+  const resolved=picks.filter(p=>p.pnl_pct!==null);
+  const wins=resolved.filter(p=>p.pnl_pct>0);
+  const losses=resolved.filter(p=>p.pnl_pct<=0);
+  const active=picks.filter(p=>p.status==='active');
+  const pnls=resolved.map(p=>p.pnl_pct);
+  const avg=pnls.length?pnls.reduce((a,b)=>a+b,0)/pnls.length:0;
+  const wr=resolved.length?wins.length/resolved.length*100:0;
+  const best=pnls.length?Math.max(...pnls):0;
+  const worst=pnls.length?Math.min(...pnls):0;
 
-  const statsHtml = [
-    ['Total picks', totalPicks, `${active.length} active`],
-    ['Win rate', winRate.toFixed(0)+'%', `${wins.length}W / ${losses.length}L`],
-    ['Avg P&L', (avgPnl>=0?'+':'')+avgPnl.toFixed(2)+'%', 'closed trades'],
-    ['Best trade', '+'+bestTrade.toFixed(2)+'%', picks.find(p=>p.pnl_pct===bestTrade)?.ticker||''],
-    ['Worst trade', worstTrade.toFixed(2)+'%', picks.find(p=>p.pnl_pct===worstTrade)?.ticker||''],
-    ['Active now', active.length, active.map(p=>p.ticker).join(', ')||'—'],
-  ].map(([k,v,s]) => `
-    <div class="stat-card">
+  document.getElementById('perf-stats').innerHTML=[
+    ['Total picks', picks.length, `${active.length} active`],
+    ['Win rate',    wr.toFixed(0)+'%', `${wins.length}W / ${losses.length}L`],
+    ['Avg P&L',     (avg>=0?'+':'')+avg.toFixed(2)+'%', 'closed trades'],
+    ['Best trade',  '+'+best.toFixed(2)+'%', picks.find(p=>p.pnl_pct===best)?.ticker||''],
+    ['Worst trade', worst.toFixed(2)+'%',    picks.find(p=>p.pnl_pct===worst)?.ticker||''],
+    ['Active',      active.length, active.map(p=>p.ticker).join(', ')||'none'],
+  ].map(([k,v,s])=>`
+    <div class="stat-cell">
       <div class="stat-k">${k}</div>
-      <div class="stat-v" style="color:${k==='Best trade'?'var(--bull)':k==='Worst trade'?'var(--bear)':'var(--txt)'}">${v}</div>
+      <div class="stat-v" style="${k==='Best trade'?'color:var(--bull)':k==='Worst trade'?'color:var(--bear)':''}">${v}</div>
       <div class="stat-sub">${s}</div>
     </div>`).join('');
-  document.getElementById('perf-stats').innerHTML = statsHtml;
 
-  const sortedForTable = [...picks].sort((a,b) => b.date_added.localeCompare(a.date_added));
-
-  const tbodyHtml = sortedForTable.map(p => {
-    const pnl = currentPnl(p);
-    const pnlStr = pnl !== null
-      ? `<span class="${pnl>=0?'pt-pos':'pt-neg'}">${pnl>=0?'+':''}${pnl.toFixed(2)}%</span>`
-      : '<span class="pt-neu">Active</span>';
-    const exitStr = p.exit_price ? `$${p.exit_price}` : `<span class="pt-neu">—</span>`;
-    return `
-    <tr onclick="openDetail('${p.id}')" style="cursor:pointer">
-      <td><div class="pt-ticker">${esc(p.ticker)}</div><div class="pt-co">${esc(p.company)}</div></td>
-      <td class="pt-mono pt-neu">${fmtDate(p.date_added)}</td>
-      <td><span class="badge" style="font-size:10px">${p.type}</span></td>
-      <td class="pt-mono">$${p.entry}</td>
-      <td class="pt-mono">${exitStr}</td>
-      <td class="pt-mono">${pnlStr}</td>
-      <td><span class="status-pill s-${p.status}" style="font-size:9px">${statusLabel(p.status)}</span></td>
-      <td class="pt-mono pt-neu">${p.rr}×</td>
-      <td class="pt-mono">${p.conviction}</td>
+  const sorted=[...picks].sort((a,b)=>b.date_added.localeCompare(a.date_added));
+  document.getElementById('perf-tbody').innerHTML=sorted.map(p=>{
+    const pnl=curPnl(p);
+    const cls=pnl===null?'neu':pnl>=0?'pos':'neg';
+    const pnlStr=pnl!==null?`<span class="${cls} td-mono">${pnl>=0?'+':''}${pnl.toFixed(2)}%</span>`:`<span class="neu td-mono">active</span>`;
+    const exitStr=p.exit_price?`<span class="td-mono">$${p.exit_price}</span>`:`<span class="neu td-mono">--</span>`;
+    return `<tr onclick="openDetail('${esc(p.id)}')" style="cursor:pointer">
+      <td><div class="td-ticker">${esc(p.ticker)}</div><div class="td-co">${esc(p.company)}</div></td>
+      <td class="td-mono" style="color:var(--txt3);font-size:10px">${fDate(p.date_added)}</td>
+      <td><span style="font-size:9px;font-family:var(--font-data);text-transform:uppercase;letter-spacing:.3px;color:${TYPE_COLORS[p.type]||'#888'}">${p.type}</span></td>
+      <td class="td-mono">$${p.entry}</td>
+      <td>${exitStr}</td>
+      <td>${pnlStr}</td>
+      <td><span class="status-tag st-${p.status}" style="font-size:8px">${statusLabels[p.status]||p.status}</span></td>
+      <td class="td-mono" style="color:var(--txt3)">${p.rr}x</td>
+      <td class="td-mono">${p.conviction||'--'}</td>
+      <td><canvas class="td-spark" id="sp-${esc(p.id)}" width="70" height="26"></canvas></td>
     </tr>`;
   }).join('');
-  document.getElementById('perf-tbody').innerHTML = tbodyHtml;
+  sorted.forEach(p=>setTimeout(()=>drawSpark(`sp-${p.id}`,p),60));
 }
 
 // ══ DETAIL PANEL ══════════════════════════════════════
-function openDetail(id) {
-  const p = ALL_PICKS.find(x => x.id === id);
-  if (!p) return;
-  const acc = PICK_ACCENTS[p.type] || '#2a7dd4';
-  const pnl = currentPnl(p);
-  const curP = currentPrice(p);
+function openDetail(id){
+  const p=ALL.find(x=>x.id===id); if(!p) return;
+  const acc=TYPE_COLORS[p.type]||'#2255cc';
+  const pnl=curPnl(p), curP=curPrice(p);
+  const a=p.analyst||{}, m=p.meta||{};
 
-  document.getElementById('detail-title').innerHTML =
-    `<span style="color:${acc}">${esc(p.ticker)}</span> <span style="font-size:14px;font-weight:400;color:var(--txt3)">${esc(p.company)}</span>`;
+  document.getElementById('det-tk').innerHTML=`<span style="color:${acc}">${esc(p.ticker)}</span>`;
+  document.getElementById('det-co').textContent=`${p.company} · ${p.sector}`;
 
-  const updatesHtml = (p.updates||[]).length
-    ? (p.updates||[]).map(u => `
-        <div class="update-item">
-          <div class="update-date">🔄 Wednesday ${fmtDate(u.date)} · $${u.price_then}</div>
-          <div class="update-note">${esc(u.note)}</div>
-          ${u.developments?`<div class="update-dev">${esc(u.developments)}</div>`:''}
-        </div>`).join('')
-    : `<div class="update-item" style="color:var(--txt3);font-size:12px">No Wednesday updates yet for this pick.</div>`;
+  const intelHtml=(p.intel||[]).map(c=>`
+    <div class="intel-cell ic-${esc(c.type)}">
+      <div class="ic-title">${esc(c.title)}</div>
+      <div class="ic-body">${esc(c.body)}</div>
+    </div>`).join('');
 
-  const intelHtml = (p.intel||[]).map(c =>
-    `<div class="ic ic-${c.type}"><div class="ik">${esc(c.title)}</div><div class="iv">${esc(c.body)}</div></div>`
-  ).join('');
-
-  const tagsHtml = [
+  const tagsHtml=[
     ...(p.tags_bull||[]).filter(Boolean).map(t=>`<span class="tag tag-b">${esc(t)}</span>`),
     ...(p.tags_risk||[]).filter(Boolean).map(t=>`<span class="tag tag-r">${esc(t)}</span>`),
     ...(p.tags_neutral||[]).filter(Boolean).map(t=>`<span class="tag tag-n">${esc(t)}</span>`),
   ].join('');
 
-  const metaChipsHtml = Object.entries(p.meta||{}).map(([k,v]) =>
-    `<span class="sig">${k.replace(/_/g,' ')} ${esc(String(v))}</span>`
-  ).join('');
+  const metaHtml=Object.entries(m).map(([k,v])=>`<span class="sig">${k.replace(/_/g,' ')}: ${esc(String(v))}</span>`).join('');
 
-  const a = p.analyst || {};
-  const analystHtml = a.rating ? `
-    <div class="ic ic-blue" style="margin-bottom:0">
-      <div class="ik">Analyst consensus (TipRanks)</div>
-      <div class="iv">
-        <strong>${esc(a.rating)}</strong> · ${a.n_buy}B / ${a.n_hold}H / ${a.n_sell}S · 
-        Avg PT $${a.pt_avg} (+${a.upside}% upside)
+  const updatesHtml=(p.updates||[]).length
+    ?(p.updates||[]).map(u=>`
+      <div class="update-item">
+        <div class="upd-date">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="margin-right:4px"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.01-9.02"/></svg>
+          Wed ${fDate(u.date)} <span class="upd-price">· $${u.price_then}</span>
+        </div>
+        <div class="upd-note">${esc(u.note)}</div>
+        ${u.developments?`<div class="upd-dev">${esc(u.developments)}</div>`:''}
+      </div>`).join('')
+    :`<div class="update-item"><div class="upd-dev">No Wednesday updates for this pick yet.</div></div>`;
+
+  const analystHtml=a.rating&&a.rating!=='EDIT'?`
+    <div class="analyst-row">
+      <div class="ar-cell"><div class="ar-k">Rating</div><div class="ar-v" style="color:${acc}">${esc(a.rating)}</div></div>
+      <div class="ar-cell"><div class="ar-k">Buy / Hold / Sell</div><div class="ar-v">${a.n_buy}B / ${a.n_hold}H / ${a.n_sell}S</div></div>
+      <div class="ar-cell"><div class="ar-k">Avg PT</div><div class="ar-v">$${a.pt_avg}</div></div>
+      <div class="ar-cell"><div class="ar-k">Upside</div><div class="ar-v" style="color:var(--bull)">+${a.upside}%</div></div>
+    </div>`:'';
+
+  document.getElementById('det-content').innerHTML=`
+    <div class="det-status-bar">
+      <span class="status-tag st-${p.status}">${statusLabels[p.status]||p.status}</span>
+      ${pnl!==null?`<span class="det-pnl ${pnl>=0?'pos':'neg'}">${pnl>=0?'+':''}${pnl.toFixed(2)}%</span>`:''}
+      ${curP?`<span class="det-cur-p">$${curP} now</span>`:''}
+      <span style="margin-left:auto;font-family:var(--font-data);font-size:10px;color:var(--txt3)">${p.type==='monday'?'Monday pick':'Wednesday update'} · ${fDate(p.date_added)}</span>
+    </div>
+
+    <div class="dsec">
+      <div class="dsec-title">4H Chart</div>
+      <div class="det-chart"><canvas class="bc" id="bc-${esc(p.id)}"></canvas></div>
+    </div>
+
+    <div class="dsec">
+      <div class="dsec-title">Trade levels · ATR $${p.atr} · R:R ${p.rr}x</div>
+      <div class="det-levels">
+        <div class="dlv"><div class="dlv-l">Entry</div><div class="dlv-p">$${p.entry}</div><div class="dlv-pct" style="color:var(--txt3)">ref</div></div>
+        <div class="dlv"><div class="dlv-l">Stop</div><div class="dlv-p" style="color:var(--bear)">$${p.stop}</div><div class="dlv-pct" style="color:var(--bear)">${pct(p.stop,p.entry)}</div></div>
+        <div class="dlv"><div class="dlv-l">Target 1</div><div class="dlv-p" style="color:var(--bull)">$${p.t1}</div><div class="dlv-pct" style="color:var(--bull)">${pct(p.t1,p.entry)}</div></div>
+        <div class="dlv"><div class="dlv-l">Target 2</div><div class="dlv-p" style="color:var(--bull)">$${p.t2}</div><div class="dlv-pct" style="color:var(--bull)">${pct(p.t2,p.entry)}</div></div>
       </div>
-    </div>` : '';
-
-  document.getElementById('detail-body').innerHTML = `
-    <!-- Status bar -->
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap">
-      <span class="status-pill s-${p.status}" style="font-size:12px;padding:5px 14px">${statusLabel(p.status)}</span>
-      ${pnl!==null ? `<span style="font-family:'SF Mono',monospace;font-size:18px;font-weight:700;color:${pnl>=0?'var(--bull)':'var(--bear)'}">${pnl>=0?'+':''}${pnl.toFixed(2)}%</span>` : ''}
-      ${curP ? `<span style="font-size:13px;color:var(--txt3)">Current $${curP}</span>` : ''}
-      <span style="font-size:12px;color:var(--txt3);margin-left:auto">${p.type==='monday'?'📅 Monday pick':'🔄 Wednesday update'} · ${fmtDate(p.date_added)}</span>
     </div>
 
-    <!-- Chart -->
-    <div class="d-section">
-      <div class="d-title">4H Chart · Entry / Stop / Targets</div>
-      <div class="chart-big"><canvas class="bc" id="bc-${p.id}"></canvas></div>
+    <div class="dsec">
+      <div class="dsec-title">Technical signals</div>
+      <div class="sig-row">${(p.signals||[]).map(s=>`<span class="sig">${esc(s)}</span>`).join('')}</div>
     </div>
 
-    <!-- Levels -->
-    <div class="d-section">
-      <div class="d-title">Trade Levels</div>
-      <div class="levels-grid">
-        <div class="lv"><div class="lv-l">Entry</div><div class="lv-p">$${p.entry}</div><div class="lv-pct" style="color:var(--txt3)">market price</div></div>
-        <div class="lv"><div class="lv-l">Stop Loss</div><div class="lv-p" style="color:var(--bear)">$${p.stop}</div><div class="lv-pct" style="color:var(--bear)">${pctStr(p.stop,p.entry)}</div></div>
-        <div class="lv"><div class="lv-l">Target 1</div><div class="lv-p" style="color:var(--bull)">$${p.t1}</div><div class="lv-pct" style="color:var(--bull)">${pctStr(p.t1,p.entry)}</div></div>
-        <div class="lv"><div class="lv-l">Target 2</div><div class="lv-p" style="color:var(--bull)">$${p.t2}</div><div class="lv-pct" style="color:var(--bull)">${pctStr(p.t2,p.entry)}</div></div>
-      </div>
+    <div class="dsec">
+      <div class="dsec-title">Fundamentals</div>
+      <div class="sig-row">${metaHtml}</div>
     </div>
 
-    <!-- Signals -->
-    <div class="d-section">
-      <div class="d-title">Technical Signals · ATR $${p.atr} · R:R ${p.rr}×</div>
-      <div class="sigs">${(p.signals||[]).map(s=>`<span class="sig">${esc(s)}</span>`).join('')}</div>
-    </div>
+    ${analystHtml?`<div class="dsec"><div class="dsec-title">Analyst consensus</div>${analystHtml}</div>`:''}
 
-    <!-- Fundamentals -->
-    <div class="d-section">
-      <div class="d-title">Fundamentals</div>
-      <div class="sigs">${metaChipsHtml}</div>
-    </div>
-
-    <!-- Analyst -->
-    ${analystHtml ? `<div class="d-section"><div class="d-title">Analyst Data</div>${analystHtml}</div>` : ''}
-
-    <!-- Intelligence -->
-    <div class="d-section">
-      <div class="d-title">Intelligence Grid</div>
+    <div class="dsec">
+      <div class="dsec-title">Intelligence</div>
       <div class="intel-grid">${intelHtml}</div>
     </div>
 
-    <!-- Tags + Thesis -->
-    <div class="d-section">
-      <div class="d-title">Tags</div>
-      <div class="tags" style="margin-bottom:14px">${tagsHtml}</div>
-      <div class="d-title">Thesis</div>
-      <div class="thesis-box">${esc(p.thesis||'')}</div>
+    <div class="dsec">
+      <div class="dsec-title">Tags</div>
+      <div class="tag-row" style="margin-bottom:12px">${tagsHtml}</div>
+      <div class="dsec-title">Thesis</div>
+      <div class="thesis">${esc(p.thesis||'')}</div>
     </div>
 
-    <!-- Wednesday updates -->
-    <div class="d-section">
-      <div class="d-title">Wednesday updates · ${(p.updates||[]).length} refresh${(p.updates||[]).length!==1?'es':''}</div>
+    <div class="dsec">
+      <div class="dsec-title">Wednesday updates (${(p.updates||[]).length})</div>
       ${updatesHtml}
     </div>
   `;
 
   document.getElementById('overlay').classList.add('open');
   document.getElementById('detail').classList.add('open');
-  setTimeout(() => drawBigChart(`bc-${p.id}`, p), 100);
+  setTimeout(()=>drawBig(`bc-${p.id}`,p),80);
 }
 
-function closeDetail() {
+function closeDetail(){
   document.getElementById('overlay').classList.remove('open');
   document.getElementById('detail').classList.remove('open');
 }
-document.addEventListener('keydown', e => { if (e.key==='Escape') closeDetail(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDetail(); });
 
-// ══ REDRAW ALL VISIBLE CHARTS ═════════════════════════
-function redrawAllCharts() {
-  ALL_PICKS.forEach(p => {
-    const mc = document.getElementById(`mc-${p.id}`);
-    if (mc && mc.parentElement && mc.parentElement.clientWidth > 0) drawMiniChart(`mc-${p.id}`, p);
-    const bc = document.getElementById(`bc-${p.id}`);
-    if (bc && bc.parentElement && bc.parentElement.clientWidth > 0) drawBigChart(`bc-${p.id}`, p);
+// ══ REDRAW ALL ════════════════════════════════════════
+function redrawAll(){
+  ALL.forEach(p=>{
+    const mc=document.getElementById(`mc-${p.id}`);
+    if(mc&&mc.parentElement?.clientWidth>0) drawMini(`mc-${p.id}`,p);
+    const bc=document.getElementById(`bc-${p.id}`);
+    if(bc&&bc.parentElement?.clientWidth>0) drawBig(`bc-${p.id}`,p);
+    const sp=document.getElementById(`sp-${p.id}`);
+    if(sp) drawSpark(`sp-${p.id}`,p);
   });
 }
 
-// ══ MAIN RENDER ═══════════════════════════════════════
-function render(picks) {
-  ALL_PICKS = picks;
-
-  // latest week for badge
-  const latestDate = picks.reduce((a,b) => a > b.date_added ? a : b.date_added, '');
-  document.getElementById('hdr-badge').textContent = latestDate
-    ? fmtDate(latestDate) + ' · ' + picks.filter(p=>p.status==='active').length + ' active'
-    : 'No picks yet';
-
-  renderWeekly(picks);
-  filterAll();
-  renderPerf(picks);
-
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('app').style.display = 'block';
+// ══ VIEWS ════════════════════════════════════════════
+function showView(name,el){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById('view-'+name).classList.add('on');
+  if(el) el.classList.add('on');
+  setTimeout(redrawAll,80);
 }
 
 // ══ INIT ══════════════════════════════════════════════
-(function init() {
-  const saved = localStorage.getItem('dt360-theme');
-  if (saved === 'dark') {
+(function init(){
+  const saved=localStorage.getItem('dt360-theme');
+  if(saved==='dark'){
     document.documentElement.setAttribute('data-theme','dark');
-    document.getElementById('ti').innerHTML = MOON;
-    document.getElementById('tl').textContent = 'Light mode';
+    document.getElementById('ti').innerHTML=MOON;
+    document.getElementById('tl').textContent='Light';
   }
 
-  fetch('picks.json?v=' + Date.now())
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(render)
-    .catch(err => {
-      document.getElementById('loading').innerHTML =
-        `<span>⚠</span><br>Could not load picks data.<br><small style="color:var(--txt3)">${err}</small>`;
+  fetch('picks.json?v='+Date.now())
+    .then(r=>{ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(picks=>{
+      ALL=picks;
+      renderStatusCells(picks);
+      renderWeekly(picks);
+      filterAll();
+      renderPerf(picks);
+      document.getElementById('loading').style.display='none';
+      document.getElementById('app').style.display='block';
+    })
+    .catch(err=>{
+      document.getElementById('loading').innerHTML=`
+        <div style="font-family:var(--font-data);font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.8px">
+          Failed to load picks.json<br><span style="color:var(--bear)">${err}</span>
+        </div>`;
     });
 
-  window.addEventListener('resize', () => setTimeout(redrawAllCharts, 100));
+  window.addEventListener('resize',()=>setTimeout(redrawAll,100));
 })();
 </script>
 </body>
