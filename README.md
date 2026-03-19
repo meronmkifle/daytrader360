@@ -1,29 +1,37 @@
 # @daytrader_360 — Daily Pick Generator
 
-Live site: **https://meronmkifle.github.io/daytrader360/**
+**Live site: https://daytrader360.vercel.app/**
 
 ---
 
-## What this repo is
+## How it works
 
-| File | Role | Update frequency |
-|------|------|-----------------|
-| `index.html` | The website template — never needs editing | Rarely (layout changes only) |
-| `data.json` | Today's picks data — the only file you edit daily | Every trading day |
-| `generate_picks.py` | Script that scores all 50 tickers and builds `data.json` | Run locally each morning |
+```
+Your laptop                GitHub repo              Vercel
+──────────                 ───────────              ──────
+generate_picks.py   →  push data.json   →   auto-redeploy  →  site live
+     (~2 min)           (via script)        (~15 seconds)
+```
+
+| File | Role | Edit frequency |
+|------|------|----------------|
+| `index.html` | Website template — never touch this | Rarely |
+| `data.json` | Today's picks — the only file you edit | Every trading day |
+| `generate_picks.py` | Scores 50 tickers, builds `data.json`, pushes to GitHub | Run locally each morning |
+
+When you push `data.json` to GitHub, Vercel detects the change and redeploys automatically in ~15 seconds.
 
 ---
 
-## One-time setup (do this once on your computer)
+## One-time setup (do this once)
 
-### 1. Install Python 3
-You likely already have it. Check:
+### 1. Make sure Python 3 is installed
 ```bash
 python3 --version
 ```
-If not: download from https://python.org
+If not: https://python.org/downloads
 
-### 2. Clone the repo to your computer
+### 2. Clone the repo
 ```bash
 git clone https://github.com/meronmkifle/daytrader360.git
 cd daytrader360
@@ -34,59 +42,60 @@ cd daytrader360
 pip install yfinance pandas numpy
 ```
 
-### 4. Add your GitHub token to the script
-Open `generate_picks.py` in any text editor and find this line near the top:
+### 4. Add your GitHub token
+
+Open `generate_picks.py` and find line ~31:
 ```python
 GITHUB_TOKEN = os.environ.get("GITHUB_TOKEN", "YOUR_GITHUB_TOKEN_HERE")
 ```
-Replace `YOUR_GITHUB_TOKEN_HERE` with your actual token. Or set it as an environment variable (more secure):
 
-**Mac/Linux** — add to your `~/.zshrc` or `~/.bashrc`:
+**Option A — edit the file directly:**
+Replace `YOUR_GITHUB_TOKEN_HERE` with your actual token.
+
+**Option B — environment variable (recommended):**
+
+Mac/Linux, add to `~/.zshrc` or `~/.bashrc`:
 ```bash
-export GITHUB_TOKEN="your_token_here"
+export GITHUB_TOKEN="ghp_your_token_here"
 export GITHUB_REPO="meronmkifle/daytrader360"
 ```
-Then reload: `source ~/.zshrc`
+Then run: `source ~/.zshrc`
 
-**Windows** — in PowerShell:
+Windows PowerShell:
 ```powershell
-$env:GITHUB_TOKEN = "your_token_here"
+$env:GITHUB_TOKEN = "ghp_your_token_here"
 $env:GITHUB_REPO  = "meronmkifle/daytrader360"
 ```
 
 ---
 
-## Daily workflow (every trading morning, ~15 min total)
+## Every trading morning (~15 min total)
 
-### Step 1 — Run the generator (~2 min)
+### Step 1 — Generate picks (~2 min)
+Open Terminal (Mac) or Command Prompt/PowerShell (Windows):
 ```bash
 cd daytrader360
 python generate_picks.py
 ```
-This will:
-- Score all 50 S&P 500 tickers technically
-- Fetch live 4H candle data for the top picks
-- Pull fundamentals from yfinance
-- Write a `data.json` file with placeholder intel cells
-- Print the ranked list so you can see who scored highest
+All 50 tickers are scored live. Top 3 are selected, candles fetched,
+and `data.json` is written locally with placeholder intel cells.
 
 ### Step 2 — Fill in your research (~10 min)
-Open `data.json` in VS Code, Notepad, or any text editor.
+Open `data.json` in VS Code or any text editor.
 
-Search for `"Edit:"` — every cell that needs your input is labelled that way.
+**Search for `"Edit:"` — every field needing your input is marked this way.**
 
-For each of the 3 picks, fill in:
+For each pick, fill in 6 intel cells and a thesis:
 
-```json
+```jsonc
 "intel": [
   {
     "type": "green",
-    "title": "Cloud Revenue +48% YoY",
-    "body": "Google Cloud posted $12B in Q4, up 48% YoY with $240B backlog..."
-  },
-  ...
+    "title": "Cloud +48% YoY",
+    "body": "Google Cloud posted $12B in Q4, up 48% with $240B backlog..."
+  }
 ],
-"thesis": "GOOGL tops the technical ranking because...",
+"thesis": "GOOGL ranks #1 because...",
 "analyst": {
   "rating": "Strong Buy",
   "n_buy": 32,
@@ -97,50 +106,47 @@ For each of the 3 picks, fill in:
 }
 ```
 
-**Where to get analyst data:** TipRanks, MarketBeat, or Stockanalysis.com — search the ticker and copy the consensus numbers.
+**Analyst data source:** https://tipranks.com — search the ticker, copy rating + PT (~60 sec per pick).
 
-Intel cell types (controls the colour):
-- `"green"` → bullish catalyst (use for positive news, buybacks, earnings beats)
-- `"blue"` → analyst/structural info (use for price targets, moat analysis)
-- `"amber"` → risk/caution (use for regulatory risks, macro headwinds)
-- `"purple"` → structural/thematic (use for long-term themes, non-obvious optionality)
+**Intel cell colour guide:**
 
-### Step 3 — Push to GitHub (~5 seconds)
+| type | use for |
+|------|---------|
+| `green` | Bullish catalysts, earnings beats, buybacks |
+| `blue` | Analyst consensus, structural moat, fundamentals |
+| `amber` | Risks, regulatory headwinds, macro concerns |
+| `purple` | Long-term themes, non-obvious optionality |
+
+### Step 3 — Go live (~5 seconds)
 ```bash
 python generate_picks.py --push-only
 ```
-This pushes your edited `data.json` to GitHub. The site updates within 30 seconds.
+Pushes `data.json` to GitHub → Vercel redeploys in ~15 seconds.
 
 ---
 
-## Updating the removal list
+## Managing the removal list
 
-If a stock gets a DOJ probe, FDA hold, or other disqualifying event, add it to `HARD_REMOVE` near the top of `generate_picks.py`:
+Add any ticker that should never appear (DOJ probe, FDA hold, etc.)
+to `HARD_REMOVE` near the top of `generate_picks.py`:
 
 ```python
 HARD_REMOVE = {
-    'UNH': 'Active DOJ criminal investigation into Medicare fraud',
+    'UNH': 'Active DOJ criminal investigation (Medicare fraud, Jul 2025)',
     'XYZ': 'Your reason here',
 }
 ```
 
 ---
 
-## Updating the ticker universe
-
-Edit the `TICKERS` list in `generate_picks.py`. Refresh it quarterly when S&P 500 membership changes.
-
----
-
 ## Quick reference card
 
 ```
-Every morning:
-  cd daytrader360
-  python generate_picks.py        ← scores tickers, writes data.json
-  [edit data.json — add intel]    ← ~10 min with TipRanks open
-  python generate_picks.py --push-only  ← live in 30 seconds
+cd daytrader360
+python generate_picks.py               # Score all 50, write data.json
+[open data.json, fill in "Edit:" fields]
+python generate_picks.py --push-only   # Push → live in 15 seconds
 
-Site:  https://meronmkifle.github.io/daytrader360/
+Live:  https://daytrader360.vercel.app/
 Repo:  https://github.com/meronmkifle/daytrader360
 ```
